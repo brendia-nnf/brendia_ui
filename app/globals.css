@@ -1,26 +1,135 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Colors */
+  --color-primary: #1A1A1A;
+  --color-secondary: #B8956A;
+  --color-accent: #8B7355;
+  --color-cream: #FDF8F3;
+  --color-white: #FEFEFE;
+
+  /* Semantic Colors */
+  --background: #FEFEFE;
+  --foreground: #1A1A1A;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* Brand Colors */
+  --color-primary: #1A1A1A;
+  --color-secondary: #B8956A;
+  --color-accent: #8B7355;
+  --color-cream: #FDF8F3;
+  --color-white: #FEFEFE;
+
+  /* Typography */
+  --font-heading: var(--font-cormorant);
+  --font-body: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), Georgia, serif;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+}
+
+/* Smooth Scroll - will be overridden by Lenis */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Focus Styles for Accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+/* Custom Utilities */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Luxury underline animation */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease-in-out;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Prose customization for legal pages */
+.prose h2 {
+  font-family: var(--font-heading), Georgia, serif;
+  color: var(--color-primary);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prose h3 {
+  font-family: var(--font-heading), Georgia, serif;
+  color: var(--color-primary);
+}
+
+.prose p {
+  color: var(--color-primary);
+  opacity: 0.7;
+}
+
+.prose ul {
+  color: var(--color-primary);
+  opacity: 0.7;
+}
+
+.prose a {
+  color: var(--color-secondary);
+}
+
+.prose strong {
+  color: var(--color-primary);
 }
