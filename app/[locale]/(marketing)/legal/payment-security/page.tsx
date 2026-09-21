@@ -40,8 +40,8 @@ export default function PaymentSecurityPage() {
               korisnikovog računala i platnog servisa, te obratno.
             </p>
             <p>
-              Online naplatu obrađuju Stripe (jednokratna plaćanja) i Monri
-              Payments (plaćanje na rate). Oba servisa certificirana su prema
+              Online naplatu obrađuje Monri Payments (jednokratna plaćanja i
+              plaćanje na rate, do 12 rata). Servis je certificiran prema
               PCI DSS Level 1 sigurnosnom standardu, najvišoj razini
               certifikacije propisanoj Visa i Mastercard® pravilima.
             </p>
@@ -86,21 +86,6 @@ export default function PaymentSecurityPage() {
                   className="h-9 w-auto object-contain"
                 />
               </span>
-              <a
-                href="https://stripe.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white rounded-md px-3 py-2 border border-primary/10 shadow-sm hover:shadow transition-shadow inline-flex items-center gap-1.5"
-                aria-label="Stripe"
-              >
-                <span className="text-xs text-primary/50">Powered by</span>
-                <span
-                  className="font-bold text-lg leading-none tracking-tight"
-                  style={{ color: "#635BFF" }}
-                >
-                  stripe
-                </span>
-              </a>
               <a
                 href="https://monri.com"
                 target="_blank"

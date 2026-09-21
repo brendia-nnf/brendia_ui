@@ -846,7 +846,7 @@
       "total": "Ukupno"
     },
     "trustBadges": {
-      "securePayment": "Sigurno plaćanje putem Stripea",
+      "securePayment": "Sigurno plaćanje putem Monri Payments",
       "allCardsAccepted": "Prihvaćaju se sve glavne kartice"
     },
     "form": {
@@ -939,6 +939,7 @@
       },
       "submit": {
         "button": "Platite {price} i upišite se",
+        "buttonMonri": "Platite {price} i upišite se (do 12 rata)",
         "installmentsButton": "Platite prvu ratu {price} i upišite se",
         "redirectNote": "Bit ćete preusmjereni na Stripe za sigurnu obradu plaćanja.",
         "redirectNoteMonri": "Bit ćete preusmjereni na Monri sigurnu stranicu za obradu plaćanja.",
@@ -1028,7 +1029,7 @@
           "items": [
             "<strong>Kontaktni podaci:</strong> Ime, email adresa, telefonski broj",
             "<strong>Podaci o računu:</strong> Korisničko ime, lozinka, detalji profila",
-            "<strong>Podaci o plaćanju:</strong> Adresa za račun, podaci o platnoj kartici (obrađuju se sigurno putem Stripea)",
+            "<strong>Podaci o plaćanju:</strong> Adresa za račun, podaci o platnoj kartici (obrađuju se sigurno putem platnog sustava Monri Payments)",
             "<strong>Napredak u tečaju:</strong> Završene lekcije, rezultati kvizova, stečeni certifikati"
           ]
         },
@@ -1165,7 +1166,7 @@
         },
         "processing": {
           "title": "Obrada plaćanja",
-          "content": "Plaćanja se sigurno obrađuju putem Stripea. Kupnjom nas ovlašćujete da naplatimo ukupan iznos na vašu metodu plaćanja."
+          "content": "Plaćanja se sigurno obrađuju putem platnog sustava Monri Payments. Kupnjom nas ovlašćujete da naplatimo ukupan iznos na vašu metodu plaćanja."
         },
         "paymentPlans": {
           "title": "Planovi plaćanja",

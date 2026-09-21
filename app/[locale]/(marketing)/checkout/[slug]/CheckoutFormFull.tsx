@@ -649,7 +649,9 @@ export function CheckoutFormFull({
                 ? t("submit.installmentsButton", {
                     price: formatPrice(perInstallment(paymentChoice)),
                   })
-                : t("submit.button", { price: formatPrice(pricing.total) })}
+                : IS_MONRI
+                  ? t("submit.buttonMonri", { price: formatPrice(pricing.total) })
+                  : t("submit.button", { price: formatPrice(pricing.total) })}
           </Button>
           <p className="text-xs text-center text-primary/50 mt-4">
             {IS_PREDRACUN ? (

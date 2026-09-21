@@ -104,7 +104,7 @@ export default function ComplaintsPage() {
               prihvaćanja reklamacije, odnosno zaprimanja obavijesti o raskidu.
               Povrat plaćenog izvršit ćemo na isti način na koji je plaćanje
               izvršeno; u slučaju plaćanja debitnom/kreditnom karticom, povrat
-              se vrši putem platnog sustava (Stripe ili Monri) isključivo na
+              se vrši putem platnog sustava isključivo na
               karticu kojom je plaćanje izvršeno.
             </p>
 
