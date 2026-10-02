@@ -4,6 +4,7 @@ import {
   VideoIntro,
   CoursePreview,
   AboutFounder,
+  AppDownload,
   CTA,
 } from "@/components/sections";
 import { OrganizationSchema, WebsiteSchema } from "@/components/shared";
@@ -18,6 +19,7 @@ export default function HomePage() {
       <VideoIntro />
       <CoursePreview />
       <AboutFounder />
+      <AppDownload />
       <CTA />
     </>
   );

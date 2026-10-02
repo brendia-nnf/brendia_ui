@@ -4,4 +4,5 @@ export { VideoIntro } from "./VideoIntro";
 export { Stats } from "./Stats";
 export { CoursePreview } from "./CoursePreview";
 export { AboutFounder } from "./AboutFounder";
+export { AppDownload } from "./AppDownload";
 export { CTA } from "./CTA";

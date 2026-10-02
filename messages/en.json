@@ -220,6 +220,18 @@
     "credEducationTitle": "Practical education",
     "credEducationLabel": "with personal feedback"
   },
+  "appDownload": {
+    "tagline": "Mobile App",
+    "title": "Brendia Pro® Always With You",
+    "description": "Follow your courses, watch lessons and receive notifications directly on your phone. Everything you need to keep learning, in the salon or on the go.",
+    "feature1": "All your courses and lessons at your fingertips",
+    "feature2": "Progress and certification tracking",
+    "feature3": "Order and message notifications",
+    "googlePlayAlt": "Get it on Google Play",
+    "appStoreSoonLabel": "Coming soon to",
+    "appStoreSoonName": "App Store",
+    "screenshotAlt": "Brendia Pro app, home screen"
+  },
   "contactPage": {
     "hero": {
       "tagline": "Get in Touch",
