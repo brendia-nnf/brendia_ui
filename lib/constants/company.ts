@@ -11,8 +11,8 @@ export const COMPANY = {
   shareCapital: "2.500,00 EUR (uplaćen u cijelosti)",
   director: "Nikolina Kljaić",
   email: "info@brendiapro.hr",
-  phone: "+385 91 554 9624",
-  phoneHref: "tel:+385915549624",
+  phone: "+385 91 155 2000",
+  phoneHref: "tel:+385911552000",
 } as const;
 
 // Kartice koje prodajno mjesto prihvaća (Stripe jednokratno + Monri/OTP rate).
