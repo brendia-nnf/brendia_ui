@@ -6,6 +6,15 @@ const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
+    // Naslovne slike bloga i prije/poslije galerija metode dolaze iz
+    // Supabase storagea (upload kroz admin na platformi)
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "*.supabase.co",
+        pathname: "/storage/v1/object/public/**",
+      },
+    ],
   },
   // Ensure the email template ships with the /api/subscribe serverless function
   outputFileTracingIncludes: {
