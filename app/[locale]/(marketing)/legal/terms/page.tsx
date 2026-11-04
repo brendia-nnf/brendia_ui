@@ -61,8 +61,10 @@ export default function TermsPage() {
 
             <h2>4. Trajanje pristupa</h2>
             <p>
-              Pristup snimljenim online materijalima traje <strong>12 mjeseci</strong> od aktivacije pristupa,
-              osim ako je u Programu edukacije navedeno drukčije.
+              Pristup snimljenim online materijalima traje <strong>36 mjeseci</strong> od aktivacije pristupa,
+              osim ako je u Programu edukacije navedeno drukčije. Nakon isteka
+              tog razdoblja pristup možete produljiti prema tada važećim
+              uvjetima i cjeniku Akademije.
             </p>
             <p>
               Nakon isteka razdoblja pristupa, Organizator nije dužan omogućiti daljnji pristup Materijalima.
