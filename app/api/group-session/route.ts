@@ -13,7 +13,7 @@ export async function GET() {
   const { data, error } = await supabase
     .from("group_education_sessions")
     .select(
-      "id, dates_label_hr, dates_label_en, starts_on, enrollment_deadline, total_seats, seats_taken, is_open"
+      "id, dates_label_hr, dates_label_en, starts_on, enrollment_deadline, total_seats, seats_taken, is_open, show_popup"
     )
     .eq("is_open", true)
     .gte("starts_on", new Date().toISOString().slice(0, 10))
@@ -43,6 +43,13 @@ export async function GET() {
       totalSeats: data.total_seats,
       seatsLeft,
       open: data.is_open && !deadlinePassed && seatsLeft > 0,
+      // Pop-up na webu: pali se u adminu, a prikazuje samo dok je upis
+      // stvarno moguć (otvoren termin, ima mjesta, rok nije prošao)
+      showPopup:
+        data.show_popup === true &&
+        data.is_open &&
+        !deadlinePassed &&
+        seatsLeft > 0,
     },
   });
 }

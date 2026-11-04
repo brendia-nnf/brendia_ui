@@ -1475,5 +1475,15 @@
     "ctaTitle": "Learn the Brendia Pro® method",
     "ctaButton": "View programs",
     "publishedOn": "Published"
+  },
+  "groupPopup": {
+    "tagline": "Enrollment is open",
+    "title": "Brendia Pro® Artist group education",
+    "dates": "Dates: {dates}",
+    "deadline": "Enrollment open until {date}",
+    "seatsLeft": "Spots left: {count}",
+    "note": "Two days of in-person education in a small group of 3 to 5 participants, at Studio One by Nina. You confirm your spot by paying a 30% deposit.",
+    "cta": "Reserve your spot",
+    "close": "Close"
   }
 }

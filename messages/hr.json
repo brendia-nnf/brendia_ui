@@ -1475,5 +1475,15 @@
     "ctaTitle": "Naučite Brendia Pro® metodu",
     "ctaButton": "Pogledajte programe",
     "publishedOn": "Objavljeno"
+  },
+  "groupPopup": {
+    "tagline": "Upisi su otvoreni",
+    "title": "Brendia Pro® Artist grupna edukacija",
+    "dates": "Termin: {dates}",
+    "deadline": "Upis traje do {date}",
+    "seatsLeft": "Slobodnih mjesta: {count}",
+    "note": "Dva dana edukacije uživo u maloj grupi od 3 do 5 polaznica, u Studio One by Nina. Mjesto potvrđujete uplatom predujma od 30 %.",
+    "cta": "Rezervirajte mjesto",
+    "close": "Zatvori"
   }
 }

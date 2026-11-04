@@ -7,3 +7,4 @@ export {
 } from "./StructuredData";
 export { CookieBanner } from "./CookieBanner";
 export { GoogleAnalytics } from "./GoogleAnalytics";
+export { GroupPromoPopup } from "./GroupPromoPopup";
