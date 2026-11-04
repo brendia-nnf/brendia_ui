@@ -1,7 +1,7 @@
 "use client";
 
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { use } from "react";
 import { useTranslations } from "next-intl";
@@ -62,7 +62,7 @@ export default function CheckoutPage({ params }: PageProps) {
       <Container>
         <div className="py-12 lg:py-16">
           <Link
-            href={`/courses/${slug}`}
+            href={{ pathname: "/courses/[slug]", params: { slug: course.urlSlug } }}
             className="inline-flex items-center gap-2 text-sm text-primary/60 hover:text-primary transition-colors mb-8"
           >
             <svg

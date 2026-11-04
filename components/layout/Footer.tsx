@@ -28,7 +28,7 @@ export function Footer() {
       { name: t("complaints"), href: "/legal/complaints" },
       { name: t("cookiePolicy"), href: "/legal/cookies" },
     ],
-  };
+  } as const;
 
   return (
     <footer className="bg-primary text-white">

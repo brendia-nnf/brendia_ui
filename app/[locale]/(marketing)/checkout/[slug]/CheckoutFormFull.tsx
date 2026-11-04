@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { Button, Input, Select, Checkbox } from "@/components/ui";
 import { PaymentLogos } from "@/components/ui/PaymentLogos";

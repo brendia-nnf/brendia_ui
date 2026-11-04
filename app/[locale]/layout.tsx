@@ -71,7 +71,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           url: "/images/og-image.jpg",
           width: 1200,
           height: 630,
-          alt: "Brendia Pro® - Premium Weft Extensions Education",
+          // 3.4: alt na hrvatskom za HR verziju
+          alt: isHr
+            ? "Brendia Pro® – edukacija za weft ekstenzije"
+            : "Brendia Pro® – weft extensions education",
         },
       ],
     },

@@ -18,11 +18,11 @@ export function OrganizationSchema({ url = "https://brendiapro.hr" }: Organizati
     },
     sameAs: [
       "https://www.instagram.com/brendia.pro/",
-      "https://facebook.com/brendiapro",
+      "https://www.facebook.com/profile.php?id=61592766822503",
     ],
     contactPoint: {
       "@type": "ContactPoint",
-      email: "hello@brendiapro.hr",
+      email: "info@brendiapro.hr",
       contactType: "customer service",
     },
   };

@@ -2,6 +2,9 @@ export type PurchaseType = "direct" | "deposit" | "inquiry";
 
 export interface Course {
   id: string;
+  // SEO slug u URL-u (3.3): /hr/tecajevi/[urlSlug] odnosno
+  // /en/courses/[urlSlug]. ID ostaje stabilan (narudžbe/enrollmenti).
+  urlSlug: string;
   name: string;
   subtitle: string;
   price: number; // in cents, without VAT
@@ -34,6 +37,7 @@ export const DEPOSIT_RATE = 0.3;
 export const courses: Record<string, Course> = {
   "foundation-certification": {
     id: "foundation-certification",
+    urlSlug: "artist-online",
     name: "Brendia Pro® Artist Online",
     subtitle: "Online edukacija",
     price: 128000, // €1,280 net → €1,600 incl. VAT
@@ -53,6 +57,7 @@ export const courses: Record<string, Course> = {
   },
   "artist-online-live": {
     id: "artist-online-live",
+    urlSlug: "artist-online-uzivo",
     name: "Brendia Pro® Artist Online + uživo",
     subtitle: "Online edukacija + 1 dan uživo",
     price: 240000, // €2,400 net → €3,000 incl. VAT
@@ -71,6 +76,7 @@ export const courses: Record<string, Course> = {
   },
   "artist-group": {
     id: "artist-group",
+    urlSlug: "artist-grupna-edukacija",
     name: "Brendia Pro® Artist grupna edukacija",
     subtitle: "2 dana uživo u maloj grupi",
     price: 176000, // €1,760 net → €2,200 incl. VAT
@@ -89,6 +95,7 @@ export const courses: Record<string, Course> = {
   },
   "brendia-pro-artist-1v1": {
     id: "brendia-pro-artist-1v1",
+    urlSlug: "artist-1-na-1-jedan-dan",
     name: "Brendia Pro® Artist 1:1 – jedan dan",
     subtitle: "Individualna edukacija uživo",
     price: 200000, // €2,000 net → €2,500 incl. VAT
@@ -107,6 +114,7 @@ export const courses: Record<string, Course> = {
   },
   "artist-1v1-two-days": {
     id: "artist-1v1-two-days",
+    urlSlug: "artist-1-na-1-dva-dana",
     name: "Brendia Pro® Artist 1:1 – dva dana + online",
     subtitle: "Najkompletniji program",
     price: 360000, // €3,600 net → €4,500 incl. VAT
@@ -127,6 +135,10 @@ export const courses: Record<string, Course> = {
 
 export function getCourse(courseId: string): Course | undefined {
   return courses[courseId];
+}
+
+export function getCourseByUrlSlug(urlSlug: string): Course | undefined {
+  return Object.values(courses).find((c) => c.urlSlug === urlSlug);
 }
 
 export function calculatePricing(priceInCents: number) {

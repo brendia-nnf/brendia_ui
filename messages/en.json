@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "Brendia Pro® | Premium Weft Extensions Education",
+    "title": "Brendia Pro® Academy | Sewn-in weft extensions",
     "titleTemplate": "%s | Brendia Pro®",
-    "description": "Master the art of weft extensions with Brendia Pro®'s premium certification courses. Learn from expert educator Nikolina Kljaić and transform your career."
+    "description": "Learn the Brendia Pro® method of sewn-in weft extensions, without heat or glue. Online or in person with Nikolina Kljaić, with a certificate."
   },
   "navigation": {
     "home": "Home",
@@ -12,7 +12,8 @@
     "contact": "Contact",
     "enrollNow": "Enroll Now",
     "toggleMenu": "Toggle menu",
-    "certifiedArtists": "Certified Artists"
+    "certifiedArtists": "Certified Artists",
+    "method": "Brendia Pro® method"
   },
   "hero": {
     "tagline": "Brendia Pro® Academy",
@@ -1357,5 +1358,122 @@
     "emptyState": "The list of certified Artists is coming soon. The first participants are currently going through the education.",
     "becomeOne": "Would you like to become a certified Brendia Pro® Artist too?",
     "becomeOneCta": "View programs"
+  },
+  "methodPage": {
+    "hero": {
+      "tagline": "Brendia Pro® Academy",
+      "title": "Brendia Pro® metoda",
+      "subtitle": "A professional method of sewn-in weft extensions. No heat or glue, with a discreet result, comfortable to wear and quick to remove."
+    },
+    "what": {
+      "title": "What is the Brendia Pro® method",
+      "p1": "The Brendia Pro® method is a professional method of sewn-in weft extensions that Nikolina Kljaić developed through more than 350 installations at Studio One by Nina. The weft is sewn onto a precisely built foundation, without heat or glue, and the weight is distributed through a planned row instead of a large number of individual bonds. That is why the extensions blend better with your own hair.",
+      "p2": "The method's focus is not only on the sewing technique, but on proper hair assessment, placement and the long-term preservation of natural hair. At every maintenance the placement is reassessed and adjusted to the condition of the hair if needed."
+    },
+    "comparison": {
+      "title": "The Brendia Pro® method and other installation types",
+      "note": "The comparison is general and depends on hair quality and execution.",
+      "methods": {
+        "bp": "Brendia Pro® method",
+        "keratin": "Keratin extensions",
+        "tape": "Tape-ins",
+        "rings": "Micro rings"
+      },
+      "rows": {
+        "attachment": {
+          "feature": "Attachment",
+          "bp": "The weft is sewn onto a precisely built foundation",
+          "keratin": "Keratin bonds and heat",
+          "tape": "Adhesive tapes",
+          "rings": "Individual strands through rings"
+        },
+        "heatGlue": {
+          "feature": "Heat or glue",
+          "bp": "No",
+          "keratin": "Heat",
+          "tape": "Glue",
+          "rings": "No"
+        },
+        "weight": {
+          "feature": "Weight distribution",
+          "bp": "Through a planned row",
+          "keratin": "Through a large number of individual bonds",
+          "tape": "Through tapes",
+          "rings": "Through a large number of individual bonds"
+        },
+        "removal": {
+          "feature": "Removal",
+          "bp": "Quick, no glue or keratin removal",
+          "keratin": "Dissolving the keratin bonds",
+          "tape": "Removing the adhesive",
+          "rings": "Opening every ring"
+        },
+        "maintenance": {
+          "feature": "Maintenance",
+          "bp": "Every 2 to 2.5 months; the row is quickly removed and reinstalled",
+          "keratin": "The hair can be reinstalled, but about half is lost in removal and needs topping up with new hair",
+          "tape": "New tapes every few weeks",
+          "rings": "Moving the rings up"
+        }
+      }
+    },
+    "benefits": {
+      "title": "Benefits",
+      "client": {
+        "title": "For the client",
+        "items": [
+          "No heat or glue on your own hair",
+          "A discreet and natural result",
+          "Comfortable to wear",
+          "Quick and comfortable removal",
+          "The same hair is used across multiple maintenances"
+        ]
+      },
+      "stylist": {
+        "title": "Benefits for the hairdresser",
+        "items": [
+          "Once the technique is mastered, installation and maintenance are very efficient: the most common two-row installation takes about an hour to an hour and 15 minutes",
+          "Quick removal, without painstaking glue removal",
+          "Placement and weight distribution are adapted to every client",
+          "Satisfied clients who regularly come back for maintenance"
+        ]
+      }
+    },
+    "gallery": {
+      "title": "Work from Studio One by Nina",
+      "subtitle": "Real clients, before and after an installation by the Brendia Pro® method.",
+      "before": "Before",
+      "after": "After",
+      "empty": "Photos of our work are coming soon."
+    },
+    "video": {
+      "title": "See the method in action",
+      "description": "A short look at an installation from Studio One by Nina.",
+      "play": "Play video",
+      "pause": "Pause video"
+    },
+    "cta": {
+      "title": "Learn the Brendia Pro® method",
+      "description": "Online through the Brendia Pro® Academy or in person with Nikolina. With the Brendia Pro® certificate.",
+      "button": "View programs"
+    }
+  },
+  "blogPage": {
+    "tagline": "Brendia Pro® Blog",
+    "title": "Blog",
+    "description": "Advice for hairdressers and clients: installation, maintenance, method comparisons and working with sewn-in weft extensions.",
+    "allCategories": "All categories",
+    "categories": {
+      "za-frizerke": "For hairdressers",
+      "za-klijentice": "For clients",
+      "iza-kulisa": "Behind the scenes"
+    },
+    "readMore": "Read the article",
+    "empty": "The first articles are coming soon.",
+    "backToBlog": "Back to the blog",
+    "relatedPosts": "Related articles",
+    "ctaTitle": "Learn the Brendia Pro® method",
+    "ctaButton": "View programs",
+    "publishedOn": "Published"
   }
 }

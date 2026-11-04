@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Container, Button } from "@/components/ui";
@@ -17,12 +17,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 // Nova ponuda (faza 1 redizajna): pet programa, cijene s PDV-om
+// Slugovi su SEO URL-ovi (urlSlug iz lib/constants/courses.ts)
 const PROGRAMS = [
-  { slug: "foundation-certification", key: "online", image: "/images/courses/foundation.jpg" },
-  { slug: "artist-online-live", key: "onlineLive", image: "/images/courses/foundation.jpg" },
-  { slug: "artist-group", key: "group", image: "/images/courses/master.jpg" },
-  { slug: "brendia-pro-artist-1v1", key: "oneDay", image: "/images/courses/foundation.jpg" },
-  { slug: "artist-1v1-two-days", key: "twoDays", image: "/images/courses/master.jpg" },
+  { slug: "artist-online", key: "online", image: "/images/courses/foundation.jpg" },
+  { slug: "artist-online-uzivo", key: "onlineLive", image: "/images/courses/foundation.jpg" },
+  { slug: "artist-grupna-edukacija", key: "group", image: "/images/courses/master.jpg" },
+  { slug: "artist-1-na-1-jedan-dan", key: "oneDay", image: "/images/courses/foundation.jpg" },
+  { slug: "artist-1-na-1-dva-dana", key: "twoDays", image: "/images/courses/master.jpg" },
 ] as const;
 
 const COMPARISON_ROWS = [
@@ -295,7 +296,7 @@ export default function CoursesPage() {
                   </p>
 
                   <div className="mt-auto">
-                    <Link href={`/courses/${program.slug}`} className="block">
+                    <Link href={{ pathname: "/courses/[slug]", params: { slug: program.slug } }} className="block">
                       <Button variant="outline" className="w-full">
                         {t("courses.viewProgram")}
                       </Button>
@@ -353,7 +354,7 @@ export default function CoursesPage() {
                   <td className="sticky left-0 bg-white p-4 z-10"></td>
                   {PROGRAMS.map((p) => (
                     <td key={p.key} className="p-4 text-center">
-                      <Link href={`/courses/${p.slug}`}>
+                      <Link href={{ pathname: "/courses/[slug]", params: { slug: p.slug } }}>
                         <Button variant="outline" size="sm">{t("comparison.select")}</Button>
                       </Link>
                     </td>

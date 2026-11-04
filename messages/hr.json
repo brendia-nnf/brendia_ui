@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "Brendia Pro® | Premium edukacija za weft ekstenzije",
+    "title": "Brendia Pro® Academy | Šivane weft ekstenzije",
     "titleTemplate": "%s | Brendia Pro®",
-    "description": "Ovladajte umijećem weft ekstenzija s premium certifikacijskim tečajevima Brendia Pro®. Učite od stručne edukatorice Nikoline Kljaić i transformirajte svoju karijeru."
+    "description": "Naučite Brendia Pro® metodu šivanih weft ekstenzija, bez topline i ljepila. Online ili uživo s Nikolinom Kljaić, uz certifikat."
   },
   "navigation": {
     "home": "Početna",
@@ -12,7 +12,8 @@
     "contact": "Kontakt",
     "enrollNow": "Upišite se",
     "toggleMenu": "Otvori izbornik",
-    "certifiedArtists": "Certificirane Artistice"
+    "certifiedArtists": "Certificirane Artistice",
+    "method": "Brendia Pro® metoda"
   },
   "hero": {
     "tagline": "Brendia Pro® Academy",
@@ -1357,5 +1358,122 @@
     "emptyState": "Popis certificiranih Artistica uskoro objavljujemo. Prve polaznice upravo prolaze edukaciju.",
     "becomeOne": "Želite li i vi postati certificirana Brendia Pro® Artistica?",
     "becomeOneCta": "Pogledajte programe"
+  },
+  "methodPage": {
+    "hero": {
+      "tagline": "Brendia Pro® Academy",
+      "title": "Brendia Pro® metoda",
+      "subtitle": "Profesionalna metoda šivanih weft ekstenzija. Bez topline i ljepila, s diskretnim rezultatom, udobna za nošenje i brza za uklanjanje."
+    },
+    "what": {
+      "title": "Što je Brendia Pro® metoda",
+      "p1": "Brendia Pro® metoda je profesionalna metoda šivanih weft ekstenzija koju je Nikolina Kljaić razvila kroz više od 350 ugradnji u Studio One by Nina. Weft se šiva na precizno izrađenu bazu, bez topline i ljepila, a težina se raspoređuje kroz planirani red umjesto kroz velik broj pojedinačnih spojeva. Zato se ekstenzije bolje stapaju s vlastitom kosom.",
+      "p2": "Fokus metode nije samo na tehnici šivanja, nego na pravilnoj procjeni kose, placementu i dugoročnom očuvanju prirodne kose. Pri svakom održavanju placement se ponovno procjenjuje i po potrebi prilagođava stanju kose."
+    },
+    "comparison": {
+      "title": "Brendia Pro® metoda i drugi načini ugradnje",
+      "note": "Usporedba je općenita i ovisi o kvaliteti kose i izvedbi.",
+      "methods": {
+        "bp": "Brendia Pro® metoda",
+        "keratin": "Keratinske ekstenzije",
+        "tape": "Trake",
+        "rings": "Mikroprstenovi"
+      },
+      "rows": {
+        "attachment": {
+          "feature": "Pričvršćivanje",
+          "bp": "Weft se šiva na precizno izrađenu bazu",
+          "keratin": "Keratinski spojevi i toplina",
+          "tape": "Ljepljive trake",
+          "rings": "Pojedinačni pramenovi kroz prstenove"
+        },
+        "heatGlue": {
+          "feature": "Toplina ili ljepilo",
+          "bp": "Ne",
+          "keratin": "Toplina",
+          "tape": "Ljepilo",
+          "rings": "Ne"
+        },
+        "weight": {
+          "feature": "Raspodjela težine",
+          "bp": "Kroz planirani red",
+          "keratin": "Kroz velik broj pojedinačnih spojeva",
+          "tape": "Kroz trake",
+          "rings": "Kroz velik broj pojedinačnih spojeva"
+        },
+        "removal": {
+          "feature": "Uklanjanje",
+          "bp": "Brzo, bez skidanja ljepila ili keratina",
+          "keratin": "Otapanje keratinskih spojeva",
+          "tape": "Skidanje ljepila",
+          "rings": "Otvaranje svakog prstena"
+        },
+        "maintenance": {
+          "feature": "Održavanje",
+          "bp": "Svakih 2 do 2,5 mjeseca; red se brzo skida i ponovno postavlja",
+          "keratin": "Kosa se može ponovno ugraditi, ali se skidanjem izgubi oko pola, pa je treba nadopuniti novom",
+          "tape": "Nove trake svakih nekoliko tjedana",
+          "rings": "Pomicanje prstenova"
+        }
+      }
+    },
+    "benefits": {
+      "title": "Prednosti",
+      "client": {
+        "title": "Za klijenticu",
+        "items": [
+          "Bez topline i ljepila na vlastitoj kosi",
+          "Diskretan i prirodan rezultat",
+          "Udobnost pri nošenju",
+          "Brzo i ugodno uklanjanje",
+          "Ista kosa koristi se kroz više održavanja"
+        ]
+      },
+      "stylist": {
+        "title": "Prednosti za frizera",
+        "items": [
+          "Nakon što se tehnika usvoji, ugradnja i održavanje su vrlo učinkoviti: najčešća ugradnja od dva reda traje oko sat do sat i 15 minuta",
+          "Brzo uklanjanje, bez mukotrpnog skidanja ljepila",
+          "Placement i raspodjela težine prilagođavaju se svakoj klijentici",
+          "Zadovoljne klijentice koje se redovito vraćaju na održavanje"
+        ]
+      }
+    },
+    "gallery": {
+      "title": "Radovi iz Studio One by Nina",
+      "subtitle": "Stvarne klijentice, prije i poslije ugradnje po Brendia Pro® metodi.",
+      "before": "Prije",
+      "after": "Poslije",
+      "empty": "Fotografije radova uskoro objavljujemo."
+    },
+    "video": {
+      "title": "Pogledajte metodu na djelu",
+      "description": "Kratki prikaz ugradnje iz Studio One by Nina.",
+      "play": "Pokreni video",
+      "pause": "Pauziraj video"
+    },
+    "cta": {
+      "title": "Naučite Brendia Pro® metodu",
+      "description": "Online kroz Brendia Pro® Academy ili uživo s Nikolinom. Uz Brendia Pro® certifikat.",
+      "button": "Pogledajte programe"
+    }
+  },
+  "blogPage": {
+    "tagline": "Brendia Pro® Blog",
+    "title": "Blog",
+    "description": "Savjeti za frizere i klijentice: ugradnja, održavanje, usporedba metoda i rad sa šivanim weft ekstenzijama.",
+    "allCategories": "Sve kategorije",
+    "categories": {
+      "za-frizerke": "Za frizerke",
+      "za-klijentice": "Za klijentice",
+      "iza-kulisa": "Iza kulisa"
+    },
+    "readMore": "Pročitajte članak",
+    "empty": "Prvi članci stižu uskoro.",
+    "backToBlog": "Povratak na blog",
+    "relatedPosts": "Povezani članci",
+    "ctaTitle": "Naučite Brendia Pro® metodu",
+    "ctaButton": "Pogledajte programe",
+    "publishedOn": "Objavljeno"
   }
 }

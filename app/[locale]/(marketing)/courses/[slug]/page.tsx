@@ -1,9 +1,9 @@
 "use client";
 
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import { Link, getPathname } from "@/i18n/routing";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { use } from "react";
 import {
   Container,
@@ -26,7 +26,7 @@ import {
   InquiryForm,
 } from "@/components/sections";
 import {
-  courses as courseData,
+  getCourseByUrlSlug,
   calculateDepositPricing,
   formatPrice,
 } from "@/lib/constants/courses";
@@ -40,13 +40,14 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-// Pet programa nove ponude; purchase tip dolazi iz lib/constants/courses.ts
+// Pet programa nove ponude; URL slug (3.3) -> i18n ključ. Purchase tip
+// dolazi iz lib/constants/courses.ts (lookup po urlSlug).
 const slugToKey: Record<string, string> = {
-  "foundation-certification": "online",
-  "artist-online-live": "onlineLive",
-  "artist-group": "group",
-  "brendia-pro-artist-1v1": "oneDay",
-  "artist-1v1-two-days": "twoDays",
+  "artist-online": "online",
+  "artist-online-uzivo": "onlineLive",
+  "artist-grupna-edukacija": "group",
+  "artist-1-na-1-jedan-dan": "oneDay",
+  "artist-1-na-1-dva-dana": "twoDays",
 };
 
 export default function CoursePage({ params }: PageProps) {
@@ -56,7 +57,7 @@ export default function CoursePage({ params }: PageProps) {
   const { session, loaded } = useGroupSession();
 
   const courseKey = slugToKey[slug];
-  const courseConfig = courseData[slug];
+  const courseConfig = getCourseByUrlSlug(slug);
   if (!courseKey || !courseConfig) {
     notFound();
   }
@@ -83,6 +84,12 @@ export default function CoursePage({ params }: PageProps) {
   );
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://brendiapro.hr";
+  const locale = useLocale() as "hr" | "en";
+  const coursesPath = getPathname({ locale, href: "/courses" });
+  const coursePath = getPathname({
+    locale,
+    href: { pathname: "/courses/[slug]", params: { slug } },
+  });
 
   const groupCheckoutDisabled = isGroup && loaded && !session?.open;
 
@@ -95,7 +102,7 @@ export default function CoursePage({ params }: PageProps) {
       </a>
     ) : (
       <Link
-        href={`/checkout/${slug}`}
+        href={{ pathname: "/checkout/[slug]", params: { slug: courseConfig.id } }}
         className={groupCheckoutDisabled ? "pointer-events-none" : ""}
       >
         <Button
@@ -114,14 +121,14 @@ export default function CoursePage({ params }: PageProps) {
         name={course.title}
         description={course.description}
         price={course.price}
-        url={`${baseUrl}/courses/${slug}`}
+        url={`${baseUrl}${coursePath}`}
         duration={course.duration}
       />
       <BreadcrumbSchema
         items={[
           { name: tNav("home"), url: baseUrl },
-          { name: tNav("courses"), url: `${baseUrl}/courses` },
-          { name: course.title, url: `${baseUrl}/courses/${slug}` },
+          { name: tNav("courses"), url: `${baseUrl}${coursesPath}` },
+          { name: course.title, url: `${baseUrl}${coursePath}` },
         ]}
       />
       {/* Hero Section */}
@@ -374,7 +381,7 @@ export default function CoursePage({ params }: PageProps) {
                 </a>
               ) : (
                 <Link
-                  href={`/checkout/${slug}`}
+                  href={{ pathname: "/checkout/[slug]", params: { slug: courseConfig.id } }}
                   className={groupCheckoutDisabled ? "pointer-events-none" : ""}
                 >
                   <Button variant="secondary" size="lg" disabled={groupCheckoutDisabled}>

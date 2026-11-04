@@ -1,7 +1,7 @@
 "use client";
 
 import { Suspense } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
@@ -18,7 +18,9 @@ function CheckoutCancelContent() {
   // For retry link, we need the course slug
   // Order number format is BP-YYMMDD-XXXX, doesn't contain course info
   // So we still rely on the course param for retry functionality
-  const retryLink = course ? `/checkout/${course}` : "/courses";
+  const retryLink = course
+    ? ({ pathname: "/checkout/[slug]", params: { slug: course } } as const)
+    : ("/courses" as const);
 
   return (
     <section className="min-h-screen bg-cream">

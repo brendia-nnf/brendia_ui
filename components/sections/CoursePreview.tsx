@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { Container, Button } from "@/components/ui";
 import { useGSAP } from "@/hooks";
@@ -16,27 +16,27 @@ export function CoursePreview() {
 
   const programs = [
     {
-      slug: "foundation-certification",
+      slug: "artist-online",
       key: "online",
       featured: false,
     },
     {
-      slug: "artist-online-live",
+      slug: "artist-online-uzivo",
       key: "onlineLive",
       featured: false,
     },
     {
-      slug: "artist-group",
+      slug: "artist-grupna-edukacija",
       key: "group",
       featured: true,
     },
     {
-      slug: "brendia-pro-artist-1v1",
+      slug: "artist-1-na-1-jedan-dan",
       key: "oneDay",
       featured: false,
     },
     {
-      slug: "artist-1v1-two-days",
+      slug: "artist-1-na-1-dva-dana",
       key: "twoDays",
       featured: false,
     },
@@ -141,7 +141,7 @@ export function CoursePreview() {
 
               {/* CTA */}
               <div className="mt-auto">
-                <Link href={`/courses/${program.slug}`} className="block">
+                <Link href={{ pathname: "/courses/[slug]", params: { slug: program.slug } }} className="block">
                   <Button
                     variant={program.featured ? "primary" : "outline"}
                     className="w-full"
