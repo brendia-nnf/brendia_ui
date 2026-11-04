@@ -21,6 +21,9 @@ interface CheckoutFormFullProps {
   courseId: string;
   courseName: string;
   pricing: Pricing;
+  // Predujam 30 % za edukacije uživo: bez ugovora/potpisa i bez kvačice o
+  // digitalnom sadržaju, umjesto toga obavezni uvjeti rezervacije.
+  isDeposit?: boolean;
 }
 
 interface FormData {
@@ -59,6 +62,8 @@ interface FormErrors {
   acceptTerms?: string;
   acceptContract?: string;
   signature?: string;
+  digitalActivation?: string;
+  liveReservation?: string;
   submit?: string;
 }
 
@@ -77,6 +82,7 @@ export function CheckoutFormFull({
   courseId,
   courseName,
   pricing,
+  isDeposit = false,
 }: CheckoutFormFullProps) {
   const t = useTranslations("checkout.form");
 
@@ -124,6 +130,10 @@ export function CheckoutFormFull({
   const [paymentChoice, setPaymentChoice] = useState<"full" | number>("full");
   const [contractAccepted, setContractAccepted] = useState(false);
   const [signatureDataUrl, setSignatureDataUrl] = useState<string | null>(null);
+  // Obavezna kvačica za trenutnu aktivaciju digitalnog sadržaja (online
+  // programi) odnosno uvjete rezervacije (predujam za edukacije uživo)
+  const [digitalActivation, setDigitalActivation] = useState(false);
+  const [liveReservation, setLiveReservation] = useState(false);
   // Monri mode: /api/checkout vraća formUrl + formData koje auto-submitamo
   // skrivenim POST formom prema Monri v2 stranici za plaćanje
   const monriFormRef = useRef<HTMLFormElement>(null);
@@ -181,11 +191,22 @@ export function CheckoutFormFull({
       newErrors.acceptTerms = t("validation.acceptTerms");
     }
 
-    if (!contractAccepted) {
+    // Bez kvačice o trenutnoj aktivaciji digitalnog sadržaja plaćanje
+    // online programa nije moguće (1.2); kod predujma za edukacije uživo
+    // obavezni su uvjeti rezervacije.
+    if (!isDeposit && !digitalActivation) {
+      newErrors.digitalActivation = t("validation.digitalActivation");
+    }
+
+    if (isDeposit && !liveReservation) {
+      newErrors.liveReservation = t("validation.liveReservation");
+    }
+
+    if (!isDeposit && !contractAccepted) {
       newErrors.acceptContract = t("validation.acceptContract");
     }
 
-    if (!signatureDataUrl) {
+    if (!isDeposit && !signatureDataUrl) {
       newErrors.signature = t("validation.signature");
     }
 
@@ -244,6 +265,8 @@ export function CheckoutFormFull({
           hearAboutUs: formData.hearAboutUs || undefined,
           acceptTerms: formData.acceptTerms,
           acceptMarketing: formData.acceptMarketing,
+          digitalActivationConsent: digitalActivation,
+          reservationTermsAccepted: liveReservation,
           contractAccepted,
           signatureDataUrl,
           paymentPlan:
@@ -478,7 +501,10 @@ export function CheckoutFormFull({
           />
         </div>
 
-        {/* Contract (ugovor) — read, accept, sign */}
+        {/* Contract (ugovor) — read, accept, sign. Kod predujma za
+            edukacije uživo ugovor se ne potpisuje na checkoutu (postojeći
+            ugovor pokriva online edukaciju). */}
+        {!isDeposit && (
         <div className="pt-4 border-t border-primary/10">
           <ContractSection
             party={{
@@ -506,6 +532,7 @@ export function CheckoutFormFull({
             signatureError={errors.signature}
           />
         </div>
+        )}
 
         {/* Terms & Conditions */}
         <div className="pt-4 border-t border-primary/10">
@@ -533,10 +560,43 @@ export function CheckoutFormFull({
                   >
                     {t("terms.privacyPolicy")}
                   </Link>
-                  {t("terms.digitalProduct")}
+                  {/* Napomena o digitalnom proizvodu ne vrijedi za
+                      rezervacije edukacija uživo */}
+                  {!isDeposit && t("terms.digitalProduct")}
                 </>
               }
             />
+            {/* Obavezna kvačica: trenutna aktivacija digitalnog sadržaja
+                (online programi) — bez nje plaćanje nije moguće */}
+            {!isDeposit && (
+              <Checkbox
+                name="digitalActivation"
+                checked={digitalActivation}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  setDigitalActivation(e.target.checked);
+                  if (errors.digitalActivation) {
+                    setErrors((prev) => ({ ...prev, digitalActivation: undefined }));
+                  }
+                }}
+                error={errors.digitalActivation}
+                label={t("terms.digitalActivation")}
+              />
+            )}
+            {/* Obavezna kvačica: uvjeti rezervacije (predujam 30 %) */}
+            {isDeposit && (
+              <Checkbox
+                name="liveReservation"
+                checked={liveReservation}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  setLiveReservation(e.target.checked);
+                  if (errors.liveReservation) {
+                    setErrors((prev) => ({ ...prev, liveReservation: undefined }));
+                  }
+                }}
+                error={errors.liveReservation}
+                label={t("terms.liveReservation")}
+              />
+            )}
             <Checkbox
               name="acceptMarketing"
               checked={formData.acceptMarketing}
@@ -643,15 +703,17 @@ export function CheckoutFormFull({
             className="w-full h-16 text-base"
             isLoading={isSubmitting}
           >
-            {IS_PREDRACUN
-              ? t("submit.predracunButton", { price: formatPrice(pricing.total) })
-              : offerInstallments && paymentChoice !== "full"
-                ? t("submit.installmentsButton", {
-                    price: formatPrice(perInstallment(paymentChoice)),
-                  })
-                : IS_MONRI
-                  ? t("submit.buttonMonri", { price: formatPrice(pricing.total) })
-                  : t("submit.button", { price: formatPrice(pricing.total) })}
+            {isDeposit
+              ? t("submit.depositButton", { price: formatPrice(pricing.total) })
+              : IS_PREDRACUN
+                ? t("submit.predracunButton", { price: formatPrice(pricing.total) })
+                : offerInstallments && paymentChoice !== "full"
+                  ? t("submit.installmentsButton", {
+                      price: formatPrice(perInstallment(paymentChoice)),
+                    })
+                  : IS_MONRI
+                    ? t("submit.buttonMonri", { price: formatPrice(pricing.total) })
+                    : t("submit.button", { price: formatPrice(pricing.total) })}
           </Button>
           <p className="text-xs text-center text-primary/50 mt-4">
             {IS_PREDRACUN ? (
@@ -665,7 +727,11 @@ export function CheckoutFormFull({
             )}
           </p>
           <div className="mt-4 p-3 bg-secondary/10 border border-secondary/20 text-sm text-primary/70 text-center">
-            {IS_PREDRACUN ? t("submit.predracunEmailNote") : t("submit.emailNote")}
+            {isDeposit
+              ? t("submit.depositEmailNote")
+              : IS_PREDRACUN
+                ? t("submit.predracunEmailNote")
+                : t("submit.emailNote")}
           </div>
 
           {/* Trust signals uz akciju plaćanja — kartice, 3DS i Stripe badge */}

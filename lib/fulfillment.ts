@@ -61,7 +61,7 @@ export async function fulfillCourseOrder(
   const { data: order, error: findError } = await supabase
     .from("orders")
     .select(
-      "id, status, email, first_name, last_name, phone, course_id, course_name, amount, currency, subtotal, vat_amount, vat_rate, street, city, postal_code, country, company_name, vat_number"
+      "id, status, email, first_name, last_name, phone, course_id, course_name, amount, currency, subtotal, vat_amount, vat_rate, street, city, postal_code, country, company_name, vat_number, payment_type, program_price, group_session_id"
     )
     .eq("order_number", orderNumber)
     .single();
@@ -80,6 +80,8 @@ export async function fulfillCourseOrder(
 
   const now = new Date().toISOString();
   const isInstallments = refs.paymentPlan === "installments";
+  // Predujam (30 %) za edukacije uživo: rezervacija bez online aktivacije
+  const isDeposit = order.payment_type === "deposit";
 
   // Generate enrollment token (expires in 7 days)
   const enrollmentToken = generateEnrollmentToken();
@@ -92,11 +94,14 @@ export async function fulfillCourseOrder(
     stripe_session_id: refs.sessionId,
     stripe_payment_intent: refs.paymentIntentId || null,
     stripe_customer_id: refs.customerId || null,
-    enrollment_token: enrollmentToken,
-    enrollment_token_expires_at: tokenExpiresAt.toISOString(),
     payment_plan: refs.paymentPlan,
     updated_at: now,
   };
+
+  if (!isDeposit) {
+    updateData.enrollment_token = enrollmentToken;
+    updateData.enrollment_token_expires_at = tokenExpiresAt.toISOString();
+  }
 
   if (isInstallments) {
     updateData.stripe_subscription_id = refs.subscriptionId || null;
@@ -130,6 +135,20 @@ export async function fulfillCourseOrder(
   }
 
   console.log(`Order ${orderNumber} updated to status: paid`);
+
+  // Grupna edukacija: zauzmi mjesto nakon uspješne uplate predujma
+  if (isDeposit && order.group_session_id) {
+    const { data: claimed, error: claimError } = await supabase.rpc(
+      "claim_group_seat",
+      { session_id: order.group_session_id }
+    );
+    if (claimError || !claimed) {
+      console.error(
+        `Failed to claim group seat for ${orderNumber}:`,
+        claimError || "session full"
+      );
+    }
+  }
 
   // The signed contract was archived at checkout — attach it to the
   // confirmation email so card customers get it too (predračun customers
@@ -235,7 +254,9 @@ export async function fulfillCourseOrder(
             },
         lines: [
           {
-            name: order.course_name,
+            name: isDeposit
+              ? `Predujam 30 % - ${order.course_name}`
+              : order.course_name,
             kpdCode: process.env.FAKTURKO_KPD_CODE || "85.59.19",
             quantity: 1,
             unitPriceWithoutVat: netTotal,
@@ -372,8 +393,38 @@ export async function fulfillCourseOrder(
     }
   }
 
+  // Predujam: potvrda rezervacije umjesto aktivacijskog maila
+  if (isDeposit && process.env.RESEND_API_KEY) {
+    try {
+      const fromEmail =
+        process.env.RESEND_FROM_EMAIL || "Brendia Pro <info@brendiapro.hr>";
+      const programTotal = order.program_price || 0;
+      const remaining = Math.max(0, programTotal - order.amount);
+      await getResend().emails.send({
+        from: fromEmail,
+        to: order.email,
+        subject: `Rezervacija potvrđena: ${order.course_name} - Brendia Pro®`,
+        html: `
+          <p>Poštovana ${order.first_name} ${order.last_name},</p>
+          <p>vaša uplata predujma je uspješno zaprimljena i mjesto na edukaciji <strong>${order.course_name}</strong> je rezervirano.</p>
+          <ul>
+            <li>Broj narudžbe: <strong>${orderNumber}</strong></li>
+            <li>Uplaćeni predujam (30 %): <strong>${formatPrice(order.amount)}</strong></li>
+            ${programTotal ? `<li>Cijena programa (s PDV-om): <strong>${formatPrice(programTotal)}</strong></li>` : ""}
+            ${remaining ? `<li>Ostatak iznosa: <strong>${formatPrice(remaining)}</strong> (plaća se prije ili na dan edukacije)</li>` : ""}
+          </ul>
+          <p>Termin možete jednom besplatno promijeniti uz najavu najmanje 14 dana unaprijed. Za sva pitanja odgovorite na ovaj email.</p>
+          <p>Vidimo se!<br/>Brendia Pro® tim</p>
+        `,
+      });
+      console.log(`Reservation confirmation sent to ${order.email}`);
+    } catch (emailError) {
+      console.error("Failed to send reservation confirmation:", emailError);
+    }
+  }
+
   // Send magic link email if the buyer isn't an upgraded existing user
-  if (!upgradedExistingUser && process.env.RESEND_API_KEY) {
+  if (!isDeposit && !upgradedExistingUser && process.env.RESEND_API_KEY) {
     try {
       const customerName = `${order.first_name} ${order.last_name}`;
       const courseName = COURSE_NAMES[order.course_id] || order.course_name;

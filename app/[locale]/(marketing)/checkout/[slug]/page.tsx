@@ -6,7 +6,12 @@ import Image from "next/image";
 import { use } from "react";
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui";
-import { getCourse, calculatePricing, formatPrice } from "@/lib/constants/courses";
+import {
+  getCourse,
+  calculatePricing,
+  calculateDepositPricing,
+  formatPrice,
+} from "@/lib/constants/courses";
 import { CheckoutFormFull } from "./CheckoutFormFull";
 
 interface PageProps {
@@ -16,10 +21,11 @@ interface PageProps {
 // Same slug → i18n key mapping the course detail pages use, so the order
 // summary shows the identical localized subtitle and feature list.
 const slugToKey: Record<string, string> = {
-  "foundation-certification": "foundation",
-  "master-certification": "master",
-  "brendia-pro-artist-1v1": "artist1v1",
-  "brendia-pro-master-1v1": "master1v1",
+  "foundation-certification": "online",
+  "artist-online-live": "onlineLive",
+  "artist-group": "group",
+  "brendia-pro-artist-1v1": "oneDay",
+  "artist-1v1-two-days": "twoDays",
 };
 
 export default function CheckoutPage({ params }: PageProps) {
@@ -33,9 +39,23 @@ export default function CheckoutPage({ params }: PageProps) {
     notFound();
   }
 
+  // Predujam 30 % za sve programe uživo. Programi s tipom "inquiry" nemaju
+  // javni link na ovu stranicu — kupcu je šaljemo nakon dogovora termina.
+  const isDeposit = course.purchase !== "direct";
+  const fullPricing = calculatePricing(course.price);
+  const depositPricing = calculateDepositPricing(course.price);
+  const pricing = isDeposit
+    ? {
+        subtotal: depositPricing.subtotal,
+        vat: depositPricing.vat,
+        total: depositPricing.total,
+        vatRate: depositPricing.vatRate,
+        vatPercentage: depositPricing.vatPercentage,
+      }
+    : fullPricing;
+
   const subtitle = tCourse(`${courseKey}.subtitle`);
   const features = tCourse.raw(`${courseKey}.features`) as string[];
-  const pricing = calculatePricing(course.price);
 
   return (
     <section className="min-h-screen bg-cream pt-24 md:pt-28">
@@ -139,6 +159,18 @@ export default function CheckoutPage({ params }: PageProps) {
 
                 {/* Pricing Breakdown */}
                 <div className="pt-6 space-y-3">
+                  {isDeposit && (
+                    <>
+                      <div className="flex justify-between text-sm">
+                        <span className="text-primary/70">{t("orderSummary.programPrice")}</span>
+                        <span className="text-primary">{formatPrice(depositPricing.programTotal)}</span>
+                      </div>
+                      <div className="flex justify-between text-sm">
+                        <span className="text-primary/70">{t("orderSummary.remaining")}</span>
+                        <span className="text-primary">{formatPrice(depositPricing.remaining)}</span>
+                      </div>
+                    </>
+                  )}
                   <div className="flex justify-between text-sm">
                     <span className="text-primary/70">{t("orderSummary.subtotal")}</span>
                     <span className="text-primary">{formatPrice(pricing.subtotal)}</span>
@@ -148,11 +180,18 @@ export default function CheckoutPage({ params }: PageProps) {
                     <span className="text-primary">{formatPrice(pricing.vat)}</span>
                   </div>
                   <div className="flex justify-between pt-3 border-t border-primary/10">
-                    <span className="font-medium text-primary">{t("orderSummary.total")}</span>
+                    <span className="font-medium text-primary">
+                      {isDeposit ? t("orderSummary.deposit") : t("orderSummary.total")}
+                    </span>
                     <span className="text-2xl font-heading text-primary">
                       {formatPrice(pricing.total)}
                     </span>
                   </div>
+                  {isDeposit && (
+                    <p className="text-xs text-primary/50 pt-1">
+                      {t("orderSummary.remainingNote")}
+                    </p>
+                  )}
                 </div>
 
                 {/* Trust Badges */}
@@ -200,6 +239,7 @@ export default function CheckoutPage({ params }: PageProps) {
                   courseId={course.id}
                   courseName={course.name}
                   pricing={pricing}
+                  isDeposit={isDeposit}
                 />
               </div>
             </div>

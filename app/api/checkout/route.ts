@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
-import { getCourse, calculatePricing } from "@/lib/constants/courses";
+import {
+  getCourse,
+  calculatePricing,
+  calculateDepositPricing,
+} from "@/lib/constants/courses";
 import {
   generateOrderNumber,
   createCourseCheckoutSession,
@@ -47,7 +51,12 @@ interface CheckoutRequest {
   // Terms
   acceptTerms: boolean;
   acceptMarketing: boolean;
-  // Contract acceptance (required for all course purchases)
+  // Obavezna kvačica (online programi): trenutna aktivacija digitalnog
+  // sadržaja i gubitak prava na jednostrani raskid — bilježi se uz narudžbu
+  digitalActivationConsent?: boolean;
+  // Obavezna kvačica (predujam za edukacije uživo): uvjeti rezervacije
+  reservationTermsAccepted?: boolean;
+  // Contract acceptance (required for online course purchases)
   contractAccepted: boolean;
   signatureDataUrl?: string;
   // Payment plan (installments are feature-flagged; validated server-side)
@@ -75,6 +84,8 @@ export async function POST(request: NextRequest) {
       hearAboutUs,
       acceptTerms,
       acceptMarketing,
+      digitalActivationConsent,
+      reservationTermsAccepted,
       contractAccepted,
       signatureDataUrl,
       paymentPlan: requestedPlan,
@@ -106,14 +117,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // The education contract must be accepted and signed for every course
-    if (!contractAccepted || !signatureDataUrl?.startsWith("data:image/png;base64,")) {
-      return NextResponse.json(
-        { error: "Ugovor mora biti prihvaćen i potpisan" },
-        { status: 400 }
-      );
-    }
-
     if (country === "HR" && !/^\d{11}$/.test(oib || "")) {
       return NextResponse.json(
         { error: "OIB je obavezan za kupce iz Hrvatske (11 znamenki)" },
@@ -127,39 +130,86 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Course not found" }, { status: 404 });
     }
 
-    // The Advanced course can only be bought by students whose
-    // Brendia Pro Artist certification has been APPROVED. The buyer
-    // must use the email of their existing platform account.
-    if (course.id === "master-certification") {
-      const { data: usersList } = await supabase.auth.admin.listUsers({
-        perPage: 1000,
-      });
-      const existingUser = usersList?.users?.find(
-        (u) => u.email?.toLowerCase() === email.toLowerCase()
+    // Programi uživo plaćaju se predujmom od 30 % (rezervacija); online
+    // program ide u punom iznosu.
+    const isDeposit = course.purchase !== "direct";
+
+    // The education contract must be accepted and signed for online course
+    // purchases (deposit reservations are confirmed without the online
+    // education contract).
+    if (
+      !isDeposit &&
+      (!contractAccepted || !signatureDataUrl?.startsWith("data:image/png;base64,"))
+    ) {
+      return NextResponse.json(
+        { error: "Ugovor mora biti prihvaćen i potpisan" },
+        { status: 400 }
       );
+    }
 
-      let certApproved = false;
-      if (existingUser) {
-        const { data: certification } = await supabase
-          .from("certifications")
-          .select("status")
-          .eq("user_id", existingUser.id)
-          .maybeSingle() as { data: { status: string } | null };
-        certApproved = certification?.status === "approved";
-      }
+    // Obavezna kvačica: bez pristanka na trenutnu aktivaciju digitalnog
+    // sadržaja plaćanje online programa nije moguće (čl. 79. ZZP).
+    if (!isDeposit && !digitalActivationConsent) {
+      return NextResponse.json(
+        {
+          error:
+            "Za kupnju online edukacije potreban je pristanak na trenutnu aktivaciju digitalnog sadržaja",
+        },
+        { status: 400 }
+      );
+    }
 
-      if (!certApproved) {
+    if (isDeposit && !reservationTermsAccepted) {
+      return NextResponse.json(
+        { error: "Potrebno je prihvatiti uvjete rezervacije" },
+        { status: 400 }
+      );
+    }
+
+    // Grupna edukacija: provjeri da postoji otvoren termin sa slobodnim
+    // mjestima i da rok za upis nije prošao (mjesto se zauzima tek nakon
+    // uspješne uplate predujma).
+    let groupSessionId: string | null = null;
+    if (course.id === "artist-group") {
+      const today = new Date().toISOString().slice(0, 10);
+      const { data: session } = await supabase
+        .from("group_education_sessions")
+        .select("id, total_seats, seats_taken, enrollment_deadline, is_open")
+        .eq("is_open", true)
+        .gte("starts_on", today)
+        .order("starts_on", { ascending: true })
+        .limit(1)
+        .maybeSingle();
+
+      const seatsLeft = session
+        ? session.total_seats - session.seats_taken
+        : 0;
+      const deadlinePassed = session
+        ? new Date(session.enrollment_deadline + "T23:59:59") < new Date()
+        : true;
+
+      if (!session || seatsLeft <= 0 || deadlinePassed) {
         return NextResponse.json(
           {
             error:
-              "Advanced Brendia Pro® Artist tečaj dostupan je nakon uspješno završene certifikacije Brendia Pro® Artist tečaja. Molimo koristite email adresu s kojom ste registrirani na platformi.",
+              "Upis u grupnu edukaciju trenutno nije moguć (termin je popunjen ili je rok za upis prošao).",
           },
-          { status: 403 }
+          { status: 409 }
         );
       }
+      groupSessionId = session.id;
     }
 
-    const pricing = calculatePricing(course.price);
+    const depositPricing = calculateDepositPricing(course.price);
+    const pricing = isDeposit
+      ? {
+          subtotal: depositPricing.subtotal,
+          vat: depositPricing.vat,
+          total: depositPricing.total,
+          vatRate: depositPricing.vatRate,
+          vatPercentage: depositPricing.vatPercentage,
+        }
+      : calculatePricing(course.price);
     const customerName = `${firstName} ${lastName}`;
 
     // Installments must be enabled globally AND per-course, and the chosen
@@ -228,10 +278,18 @@ export async function POST(request: NextRequest) {
       installment_amount: installmentCount
         ? installmentAmount(pricing.total, installmentCount)
         : null,
+      // Predujam za edukacije uživo (30 % bruto cijene programa)
+      payment_type: isDeposit ? "deposit" : "full",
+      program_price: isDeposit ? depositPricing.programTotal : null,
+      group_session_id: groupSessionId,
+      reservation_terms_accepted: isDeposit ? true : false,
       // Terms
       terms_accepted: true,
       terms_accepted_at: new Date().toISOString(),
       marketing_accepted: acceptMarketing,
+      // Pristanak na trenutnu aktivaciju digitalnog sadržaja (online)
+      digital_activation_consent: !isDeposit,
+      digital_activation_consent_at: !isDeposit ? new Date().toISOString() : null,
     });
 
     if (dbError) {
@@ -251,7 +309,8 @@ export async function POST(request: NextRequest) {
       request.headers.get("x-real-ip") ||
       "unknown";
 
-    let contractPdf: Uint8Array;
+    let contractPdf: Uint8Array | null = null;
+    if (!isDeposit) {
     try {
       contractPdf = await generateContractPdf({
         fullName: customerName,
@@ -285,6 +344,7 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       );
     }
+    }
 
     // Predračun mode: card payments are paused —
     // email the customer a predračun with bank-transfer details and notify
@@ -302,7 +362,7 @@ export async function POST(request: NextRequest) {
         country,
         companyName: companyName || null,
         vatNumber: vatNumber || null,
-        courseName: course.name,
+        courseName: isDeposit ? `${course.name} (predujam 30 %)` : course.name,
         subtotal: pricing.subtotal,
         vat: pricing.vat,
         total: pricing.total,
@@ -313,10 +373,14 @@ export async function POST(request: NextRequest) {
         const fromEmail =
           process.env.RESEND_FROM_EMAIL || "Brendia Pro <info@brendiapro.hr>";
 
-        const contractAttachment = {
-          filename: `Ugovor-${orderNumber}.pdf`,
-          content: Buffer.from(contractPdf).toString("base64"),
-        };
+        const attachments = contractPdf
+          ? [
+              {
+                filename: `Ugovor-${orderNumber}.pdf`,
+                content: Buffer.from(contractPdf).toString("base64"),
+              },
+            ]
+          : [];
 
         try {
           await resend.emails.send({
@@ -324,7 +388,7 @@ export async function POST(request: NextRequest) {
             to: email,
             subject: `Predračun za narudžbu ${orderNumber} - Brendia Pro®`,
             html: generatePredracunEmailHtml(predracunOrder),
-            attachments: [contractAttachment],
+            attachments,
           });
         } catch (emailError) {
           console.error("Failed to send predračun email:", emailError);
@@ -340,7 +404,7 @@ export async function POST(request: NextRequest) {
             to: getOrderNotificationsEmail(),
             subject: `Nova narudžba ${orderNumber} — ${course.name} (predračun)`,
             html: generateOrderNotificationEmailHtml(predracunOrder),
-            attachments: [contractAttachment],
+            attachments,
           });
         } catch (emailError) {
           // Customer already got their predračun — log and continue
@@ -366,7 +430,9 @@ export async function POST(request: NextRequest) {
         city,
         postalCode,
         country,
-        orderInfo: `${course.name} - Brendia Pro`,
+        orderInfo: isDeposit
+          ? `${course.name} (predujam 30%) - Brendia Pro`
+          : `${course.name} - Brendia Pro`,
         customData: JSON.stringify({
           courseId: course.id,
           companyName: companyName || null,

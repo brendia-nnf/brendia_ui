@@ -11,11 +11,15 @@ export function generateEnrollmentToken(): string {
   return result;
 }
 
-// Course ID mapping for display names
+// Course ID mapping for display names (stari Advanced ID-jevi ostaju zbog
+// postojećih narudžbi u bazi)
 export const COURSE_NAMES: Record<string, string> = {
-  "foundation-certification": "Brendia Pro® Artist",
+  "foundation-certification": "Brendia Pro® Artist Online",
+  "artist-online-live": "Brendia Pro® Artist Online + uživo",
+  "artist-group": "Brendia Pro® Artist grupna edukacija",
+  "brendia-pro-artist-1v1": "Brendia Pro® Artist 1:1 – jedan dan",
+  "artist-1v1-two-days": "Brendia Pro® Artist 1:1 – dva dana + online",
   "master-certification": "Advanced Brendia Pro® Artist",
-  "brendia-pro-artist-1v1": "Brendia Pro® Artist 1v1",
   "brendia-pro-master-1v1": "Advanced Brendia Pro® Artist 1v1",
 };
 

@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
     const { data: order, error: findError } = await supabase
       .from("orders")
       .select(
-        "id, status, email, first_name, last_name, phone, course_id, course_name, amount, currency, subtotal, vat_amount, vat_rate, street, city, postal_code, country, company_name, vat_number"
+        "id, status, email, first_name, last_name, phone, course_id, course_name, amount, currency, subtotal, vat_amount, vat_rate, street, city, postal_code, country, company_name, vat_number, payment_type, program_price, group_session_id"
       )
       .eq("order_number", orderNumber)
       .single();
@@ -116,6 +116,10 @@ export async function POST(request: NextRequest) {
     const isSuccess = isSuccessfulPayment(responseCode);
     const newStatus = isSuccess ? "paid" : "cancelled";
 
+    // Predujam (30 %) za edukacije uživo: rezervacija bez aktivacije
+    // online pristupa — bez enrollment tokena i aktivacijskog maila.
+    const isDeposit = order.payment_type === "deposit";
+
     // Update the order with Monri response data
     const updateData: Record<string, unknown> = {
       status: newStatus,
@@ -128,16 +132,19 @@ export async function POST(request: NextRequest) {
     };
 
     // If successful payment, generate enrollment token and set expiry
+    // (deposit reservations don't activate online access)
     if (isSuccess) {
       updateData.paid_at = new Date().toISOString();
 
-      // Generate enrollment token (expires in 7 days)
-      const enrollmentToken = generateEnrollmentToken();
-      const tokenExpiresAt = new Date();
-      tokenExpiresAt.setDate(tokenExpiresAt.getDate() + 7);
+      if (!isDeposit) {
+        // Generate enrollment token (expires in 7 days)
+        const enrollmentToken = generateEnrollmentToken();
+        const tokenExpiresAt = new Date();
+        tokenExpiresAt.setDate(tokenExpiresAt.getDate() + 7);
 
-      updateData.enrollment_token = enrollmentToken;
-      updateData.enrollment_token_expires_at = tokenExpiresAt.toISOString();
+        updateData.enrollment_token = enrollmentToken;
+        updateData.enrollment_token_expires_at = tokenExpiresAt.toISOString();
+      }
     }
 
     const { error: updateError } = await supabase
@@ -154,6 +161,23 @@ export async function POST(request: NextRequest) {
     }
 
     console.log(`Order ${orderNumber} updated to status: ${newStatus}`);
+
+    // Grupna edukacija: zauzmi mjesto nakon uspješne uplate predujma
+    // (samo pri prvom prijelazu iz "pending" — retry callbacka ne duplicira)
+    if (isSuccess && isDeposit && order.group_session_id && order.status === "pending") {
+      const { data: claimed, error: claimError } = await supabase.rpc(
+        "claim_group_seat",
+        { session_id: order.group_session_id }
+      );
+      if (claimError) {
+        console.error(`Failed to claim group seat for ${orderNumber}:`, claimError);
+      } else if (!claimed) {
+        // Plaćeno, a termin pun (rijetka utrka) — admin rješava ručno
+        console.error(`Group session full for paid order ${orderNumber} - manual follow-up needed`);
+      } else {
+        console.log(`Group seat claimed for ${orderNumber}`);
+      }
+    }
 
     // Create a fiscalized invoice via Fakturko (privatna → fiskalizacija,
     // pravna/company → eRačun). Failures are stored on the order and never
@@ -198,7 +222,9 @@ export async function POST(request: NextRequest) {
               },
           lines: [
             {
-              name: order.course_name,
+              name: isDeposit
+                ? `Predujam 30 % - ${order.course_name}`
+                : order.course_name,
               kpdCode: process.env.FAKTURKO_KPD_CODE || "85.59.19",
               quantity: 1,
               unitPriceWithoutVat: netTotal,
@@ -210,7 +236,9 @@ export async function POST(request: NextRequest) {
           totalWithoutVat: netTotal,
           totalWithVat: grossTotal,
           extRef: orderNumber,
-          note: `Narudžba ${orderNumber} — plaćeno karticom putem Monri`,
+          note: isDeposit
+            ? `Narudžba ${orderNumber} — predujam 30 % za edukaciju uživo, plaćeno karticom putem Monri`
+            : `Narudžba ${orderNumber} — plaćeno karticom putem Monri`,
         });
 
         if (invoiceResult.ok) {
@@ -325,8 +353,52 @@ export async function POST(request: NextRequest) {
       }
     }
 
+    // Predujam: potvrda rezervacije kupcu + obavijest administratorici
+    // (umjesto aktivacijskog maila — online pristup se ne aktivira)
+    if (isSuccess && isDeposit && process.env.RESEND_API_KEY) {
+      const fromEmail =
+        process.env.RESEND_FROM_EMAIL || "Brendia Pro <info@brendiapro.hr>";
+      const customerName = `${order.first_name} ${order.last_name}`;
+      const programTotal = order.program_price || 0;
+      const remaining = Math.max(0, programTotal - order.amount);
+
+      try {
+        await getResend().emails.send({
+          from: fromEmail,
+          to: order.email,
+          subject: `Rezervacija potvrđena: ${order.course_name} - Brendia Pro®`,
+          html: `
+            <p>Poštovana ${customerName},</p>
+            <p>vaša uplata predujma je uspješno zaprimljena i mjesto na edukaciji <strong>${order.course_name}</strong> je rezervirano.</p>
+            <ul>
+              <li>Broj narudžbe: <strong>${orderNumber}</strong></li>
+              <li>Uplaćeni predujam (30 %): <strong>${formatPrice(order.amount)}</strong></li>
+              ${programTotal ? `<li>Cijena programa (s PDV-om): <strong>${formatPrice(programTotal)}</strong></li>` : ""}
+              ${remaining ? `<li>Ostatak iznosa: <strong>${formatPrice(remaining)}</strong> (plaća se prije ili na dan edukacije)</li>` : ""}
+            </ul>
+            <p>Termin možete jednom besplatno promijeniti uz najavu najmanje 14 dana unaprijed. Za sva pitanja odgovorite na ovaj email ili nam pišite na info@brendiapro.hr.</p>
+            <p>Vidimo se!<br/>Brendia Pro® tim</p>
+          `,
+        });
+        console.log(`Reservation confirmation sent to ${order.email}`);
+      } catch (emailError) {
+        console.error("Failed to send reservation confirmation:", emailError);
+      }
+
+      try {
+        await getResend().emails.send({
+          from: fromEmail,
+          to: process.env.ORDER_NOTIFICATIONS_EMAIL || process.env.ADMIN_EMAIL || "info@brendiapro.hr",
+          subject: `Nova rezervacija ${orderNumber} — ${order.course_name} (predujam 30 %)`,
+          html: `<p>Uplaćen je predujam za edukaciju uživo.</p><ul><li>Kupac: ${order.first_name} ${order.last_name} (${order.email}, ${order.phone || "bez telefona"})</li><li>Program: ${order.course_name}</li><li>Predujam: ${formatPrice(order.amount)}</li>${programTotal ? `<li>Ostatak: ${formatPrice(remaining)}</li>` : ""}</ul><p>Narudžba: ${orderNumber}</p>`,
+        });
+      } catch (adminEmailError) {
+        console.error("Failed to send reservation admin notification:", adminEmailError);
+      }
+    }
+
     // Send magic link email if payment was successful
-    if (isSuccess && !upgradedExistingUser && process.env.RESEND_API_KEY) {
+    if (isSuccess && !isDeposit && !upgradedExistingUser && process.env.RESEND_API_KEY) {
       try {
         const customerName = `${order.first_name} ${order.last_name}`;
         const courseName = COURSE_NAMES[order.course_id] || order.course_name;

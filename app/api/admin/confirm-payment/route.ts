@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
     const { data: order, error: findError } = await supabase
       .from("orders")
       .select(
-        "id, status, email, first_name, last_name, course_id, course_name, amount, currency"
+        "id, status, email, first_name, last_name, course_id, course_name, amount, currency, payment_type, program_price, group_session_id"
       )
       .eq("order_number", orderNumber)
       .single();
@@ -69,19 +69,26 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Predujam za edukacije uživo: bez enrollment tokena / aktivacije
+    const isDeposit = order.payment_type === "deposit";
+
     const enrollmentToken = generateEnrollmentToken();
     const tokenExpiresAt = new Date();
     tokenExpiresAt.setDate(tokenExpiresAt.getDate() + 7);
 
+    const updateData: Record<string, unknown> = {
+      status: "paid",
+      paid_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    };
+    if (!isDeposit) {
+      updateData.enrollment_token = enrollmentToken;
+      updateData.enrollment_token_expires_at = tokenExpiresAt.toISOString();
+    }
+
     const { error: updateError } = await supabase
       .from("orders")
-      .update({
-        status: "paid",
-        paid_at: new Date().toISOString(),
-        enrollment_token: enrollmentToken,
-        enrollment_token_expires_at: tokenExpiresAt.toISOString(),
-        updated_at: new Date().toISOString(),
-      })
+      .update(updateData)
       .eq("id", order.id);
 
     if (updateError) {
@@ -98,6 +105,50 @@ export async function POST(request: NextRequest) {
     const platformUrl =
       process.env.NEXT_PUBLIC_PLATFORM_URL || "https://app.brendiapro.hr";
     const customerName = `${order.first_name} ${order.last_name}`;
+
+    // Predujam: zauzmi mjesto u grupi i pošalji potvrdu rezervacije
+    if (isDeposit) {
+      if (order.group_session_id) {
+        const { data: claimed, error: claimError } = await supabase.rpc(
+          "claim_group_seat",
+          { session_id: order.group_session_id }
+        );
+        if (claimError || !claimed) {
+          console.error(
+            `Failed to claim group seat for ${orderNumber}:`,
+            claimError || "session full"
+          );
+        }
+      }
+
+      const programTotal = order.program_price || 0;
+      const remaining = Math.max(0, programTotal - order.amount);
+
+      await resend.emails.send({
+        from: fromEmail,
+        to: order.email,
+        subject: `Rezervacija potvrđena: ${order.course_name} - Brendia Pro®`,
+        html: `
+          <p>Poštovana ${customerName},</p>
+          <p>vaša uplata predujma je evidentirana i mjesto na edukaciji <strong>${order.course_name}</strong> je rezervirano.</p>
+          <ul>
+            <li>Broj narudžbe: <strong>${orderNumber}</strong></li>
+            <li>Uplaćeni predujam (30 %): <strong>${formatPrice(order.amount)}</strong></li>
+            ${programTotal ? `<li>Cijena programa (s PDV-om): <strong>${formatPrice(programTotal)}</strong></li>` : ""}
+            ${remaining ? `<li>Ostatak iznosa: <strong>${formatPrice(remaining)}</strong> (plaća se prije ili na dan edukacije)</li>` : ""}
+          </ul>
+          <p>Termin možete jednom besplatno promijeniti uz najavu najmanje 14 dana unaprijed. Za sva pitanja odgovorite na ovaj email.</p>
+          <p>Vidimo se!<br/>Brendia Pro® tim</p>
+        `,
+      });
+
+      return NextResponse.json({
+        success: true,
+        orderNumber,
+        action: "reservation-confirmed",
+        email: order.email,
+      });
+    }
 
     // Advanced course buyers are existing certified students — unlock
     // their account directly instead of sending an activation link.
