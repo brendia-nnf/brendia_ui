@@ -14,11 +14,12 @@ export function Header() {
   const t = useTranslations("navigation");
 
   const navigation = [
-    // Izbornik (faza 3): Početna · Brendia Pro® metoda · Tečajevi · (Blog
-    // ulazi kad su objavljena prva dva članka) · O nama · FAQ · Kontakt
+    // Izbornik (faza 3): Početna · Brendia Pro® metoda · Tečajevi · Blog ·
+    // O nama · FAQ · Kontakt
     { name: t("home"), href: "/" },
     { name: t("method"), href: "/method" },
     { name: t("courses"), href: "/courses" },
+    { name: t("blog"), href: "/blog" },
     { name: t("about"), href: "/about" },
     { name: t("faq"), href: "/faq" },
     { name: t("contact"), href: "/contact" },
