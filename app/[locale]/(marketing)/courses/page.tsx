@@ -5,68 +5,41 @@ import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Container, Button } from "@/components/ui";
+import {
+  PaymentMethodsBlock,
+  RefundPolicyBlock,
+  MasterclassBlock,
+} from "@/components/sections";
 import { useGSAP } from "@/hooks";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Nova ponuda (faza 1 redizajna): pet programa, cijene s PDV-om
+const PROGRAMS = [
+  { slug: "foundation-certification", key: "online", image: "/images/courses/foundation.jpg" },
+  { slug: "artist-online-live", key: "onlineLive", image: "/images/courses/foundation.jpg" },
+  { slug: "artist-group", key: "group", image: "/images/courses/master.jpg" },
+  { slug: "brendia-pro-artist-1v1", key: "oneDay", image: "/images/courses/foundation.jpg" },
+  { slug: "artist-1v1-two-days", key: "twoDays", image: "/images/courses/master.jpg" },
+] as const;
+
+const COMPARISON_ROWS = [
+  "price",
+  "videoLessons",
+  "liveWork",
+  "mentorship",
+  "educationKit",
+  "masterclass",
+  "dates",
+] as const;
+
 export default function CoursesPage() {
   const t = useTranslations("coursesPage");
   const heroRef = useRef<HTMLElement>(null);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  const courses = [
-    {
-      slug: "foundation-certification",
-      title: t("courses.foundation.title"),
-      subtitle: t("courses.foundation.subtitle"),
-      price: t("courses.foundation.price"),
-      duration: t("courses.foundation.duration"),
-      image: "/images/courses/foundation.jpg",
-      description: t("courses.foundation.description"),
-      features: t.raw("courses.foundation.features") as string[],
-      popular: false,
-      requiresCertification: false,
-    },
-    {
-      slug: "master-certification",
-      title: t("courses.master.title"),
-      subtitle: t("courses.master.subtitle"),
-      price: t("courses.master.price"),
-      duration: t("courses.master.duration"),
-      image: "/images/courses/master.jpg",
-      description: t("courses.master.description"),
-      features: t.raw("courses.master.features") as string[],
-      popular: true,
-      requiresCertification: true,
-    },
-    {
-      slug: "brendia-pro-artist-1v1",
-      title: t("courses.artist1v1.title"),
-      subtitle: t("courses.artist1v1.subtitle"),
-      price: t("courses.artist1v1.price"),
-      duration: t("courses.artist1v1.duration"),
-      image: "/images/courses/foundation.jpg",
-      description: t("courses.artist1v1.description"),
-      features: t.raw("courses.artist1v1.features") as string[],
-      popular: false,
-      requiresCertification: false,
-    },
-    {
-      slug: "brendia-pro-master-1v1",
-      title: t("courses.master1v1.title"),
-      subtitle: t("courses.master1v1.subtitle"),
-      price: t("courses.master1v1.price"),
-      duration: t("courses.master1v1.duration"),
-      image: "/images/courses/master.jpg",
-      description: t("courses.master1v1.description"),
-      features: t.raw("courses.master1v1.features") as string[],
-      popular: false,
-      requiresCertification: false,
-    },
-  ];
 
   const skills = [
     {
@@ -119,15 +92,6 @@ export default function CoursesPage() {
     },
   ];
 
-  const comparisonRows = [
-    "videoLessons",
-    "installation",
-    "colorMatching",
-    "business",
-    "community",
-    "updates",
-  ] as const;
-
   useGSAP(
     () => {
       gsap.fromTo(
@@ -175,7 +139,7 @@ export default function CoursesPage() {
             <p data-animate className="text-lg text-primary/70 leading-relaxed mb-8">
               {t("hero.description")}
             </p>
-            <div data-animate className="flex items-center justify-center gap-6 text-sm text-primary/50">
+            <div data-animate className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-primary/50">
               <span className="flex items-center gap-2">
                 <svg className="w-5 h-5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -279,7 +243,7 @@ export default function CoursesPage() {
         </Container>
       </section>
 
-      {/* Course Cards */}
+      {/* Program Cards */}
       <section className="py-20 md:py-32 bg-white">
         <Container>
           <div className="text-center mb-16">
@@ -291,86 +255,60 @@ export default function CoursesPage() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
-            {courses.map((course) => (
-              <div
-                key={course.slug}
-                className={`relative bg-cream overflow-hidden ${
-                  course.popular ? "ring-2 ring-secondary" : ""
-                }`}
-              >
-                {course.popular && (
-                  <div className="absolute top-0 right-0 bg-secondary text-white px-4 py-1 text-xs font-medium tracking-wider uppercase z-10">
-                    {t("courses.mostPopular")}
-                  </div>
-                )}
-
-                {/* Course Image */}
-                <div className="relative h-48 overflow-hidden">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {PROGRAMS.map((program) => (
+              <div key={program.slug} className="relative bg-cream overflow-hidden flex flex-col">
+                {/* Program Image */}
+                <div className="relative h-44 overflow-hidden">
                   <Image
-                    src={course.image}
-                    alt={course.title}
+                    src={program.image}
+                    alt={t(`courses.${program.key}.title`)}
                     fill
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
-                  {course.requiresCertification && (
-                    <div className="absolute top-0 left-0 bg-primary/90 text-white px-3 py-1 text-xs font-medium tracking-wider uppercase z-10 flex items-center gap-1.5">
-                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 00-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-                      </svg>
-                      {t("courses.prerequisiteBadge")}
+                  {program.key === "group" && (
+                    <div className="absolute top-0 left-0 bg-secondary text-white px-3 py-1 text-xs font-medium tracking-wider uppercase z-10">
+                      {t("courses.group.firstGroupNote")}
                     </div>
                   )}
-                  <div className="absolute bottom-4 left-6">
-                    <p className="text-white/80 text-sm">{course.subtitle}</p>
-                    <h3 className="text-2xl font-heading text-white">{course.title}</h3>
+                  <div className="absolute bottom-4 left-6 right-6">
+                    <p className="text-white/80 text-sm">{t(`courses.${program.key}.subtitle`)}</p>
+                    <h3 className="text-xl font-heading text-white">{t(`courses.${program.key}.title`)}</h3>
                   </div>
                 </div>
 
-                <div className="p-8">
-                  <p className="text-primary/70 mb-6">{course.description}</p>
-
-                  <div className="flex items-end justify-between mb-6">
-                    <div>
-                      <p className="text-4xl font-heading text-primary">{course.price}</p>
-                      <p className="text-sm text-primary/50">{course.duration}</p>
-                    </div>
+                <div className="p-6 lg:p-8 flex flex-col flex-1">
+                  <div className="mb-4">
+                    <p className="text-3xl font-heading text-primary">{t(`courses.${program.key}.price`)}</p>
+                    <p className="text-xs text-primary/40 mt-1">{t("courses.vatNote")}</p>
+                    <p className="text-sm text-primary/50 mt-2">{t(`courses.${program.key}.duration`)}</p>
                   </div>
 
-                  <ul className="space-y-3 mb-8">
-                    {course.features.map((feature, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span className="text-primary/70 text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="text-primary/70 text-sm leading-relaxed mb-4">
+                    {t(`courses.${program.key}.description`)}
+                  </p>
 
-                  {course.requiresCertification && (
-                    <div className="flex items-start gap-2.5 mb-5 p-3.5 bg-secondary/5 border border-secondary/20">
-                      <svg className="w-4 h-4 text-secondary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 00-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-                      </svg>
-                      <p className="text-xs text-primary/70 leading-relaxed">{t("courses.prerequisiteNote")}</p>
-                    </div>
-                  )}
+                  <p className="text-primary/70 text-sm leading-relaxed mb-6">
+                    <span className="font-medium text-primary">{t("courses.forWhoLabel")}:</span>{" "}
+                    {t(`courses.${program.key}.forWho`)}
+                  </p>
 
-                  <Link href={`/courses/${course.slug}`} className="block">
-                    <Button
-                      variant={course.popular ? "primary" : "outline"}
-                      className="w-full"
-                      size="lg"
-                    >
-                      {t("courses.viewCurriculum")}
-                    </Button>
-                  </Link>
+                  <div className="mt-auto">
+                    <Link href={`/courses/${program.slug}`} className="block">
+                      <Button variant="outline" className="w-full">
+                        {t("courses.viewProgram")}
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
+
+          <p className="text-center text-primary/60 text-sm mt-10 max-w-3xl mx-auto">
+            {t("courses.kicker")}
+          </p>
         </Container>
       </section>
 
@@ -386,49 +324,64 @@ export default function CoursesPage() {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto overflow-x-auto">
-            <table className="w-full bg-white">
+          <div className="max-w-6xl mx-auto overflow-x-auto">
+            <table className="w-full min-w-[860px] bg-white text-sm">
               <thead>
                 <tr className="border-b border-primary/10">
-                  <th className="text-left p-4 font-heading text-primary">{t("comparison.feature")}</th>
-                  <th className="text-center p-4 font-heading text-primary">{t("comparison.foundation")}</th>
-                  <th className="text-center p-4 font-heading text-primary bg-secondary/5">
-                    {t("comparison.master")}
-                    <span className="block text-xs font-normal text-secondary">{t("comparison.recommended")}</span>
-                  </th>
+                  <th className="sticky left-0 bg-white text-left p-4 font-heading text-primary z-10 min-w-[160px]"></th>
+                  {PROGRAMS.map((p) => (
+                    <th key={p.key} className="text-center p-4 font-heading text-primary">
+                      {t(`comparison.columns.${p.key}`)}
+                    </th>
+                  ))}
                 </tr>
               </thead>
               <tbody>
-                {comparisonRows.map((row, index) => (
-                  <tr key={index} className="border-b border-primary/5">
-                    <td className="p-4 text-primary/70">{t(`comparison.rows.${row}.feature`)}</td>
-                    <td className="p-4 text-center text-primary/70">{t(`comparison.rows.${row}.foundation`)}</td>
-                    <td className="p-4 text-center text-primary bg-secondary/5 font-medium">{t(`comparison.rows.${row}.master`)}</td>
+                {COMPARISON_ROWS.map((row) => (
+                  <tr key={row} className="border-b border-primary/5">
+                    <td className="sticky left-0 bg-white p-4 text-primary font-medium z-10">
+                      {t(`comparison.rows.${row}.feature`)}
+                    </td>
+                    {PROGRAMS.map((p) => (
+                      <td key={p.key} className="p-4 text-center text-primary/70">
+                        {t(`comparison.rows.${row}.${p.key}`)}
+                      </td>
+                    ))}
                   </tr>
                 ))}
                 <tr>
-                  <td className="p-4"></td>
-                  <td className="p-4 text-center">
-                    <p className="text-2xl font-heading text-primary mb-2">€3,000</p>
-                    <Link href="/courses/foundation-certification">
-                      <Button variant="outline" size="sm">{t("comparison.select")}</Button>
-                    </Link>
-                  </td>
-                  <td className="p-4 text-center bg-secondary/5">
-                    <p className="text-2xl font-heading text-primary mb-2">€4,000</p>
-                    <Link href="/courses/master-certification">
-                      <Button size="sm">{t("comparison.select")}</Button>
-                    </Link>
-                  </td>
+                  <td className="sticky left-0 bg-white p-4 z-10"></td>
+                  {PROGRAMS.map((p) => (
+                    <td key={p.key} className="p-4 text-center">
+                      <Link href={`/courses/${p.slug}`}>
+                        <Button variant="outline" size="sm">{t("comparison.select")}</Button>
+                      </Link>
+                    </td>
+                  ))}
                 </tr>
               </tbody>
             </table>
+          </div>
+
+          <p className="text-center text-primary/50 text-sm mt-8 max-w-4xl mx-auto">
+            {t("comparison.belowNote")}
+          </p>
+        </Container>
+      </section>
+
+      {/* Masterclass + Payment methods + Refund policy */}
+      <section className="py-20 md:py-32 bg-white">
+        <Container>
+          <div className="max-w-5xl mx-auto space-y-10">
+            <MasterclassBlock ns="coursesPage" />
+            <PaymentMethodsBlock ns="coursesPage" />
+            <RefundPolicyBlock ns="coursesPage" />
           </div>
         </Container>
       </section>
 
       {/* Meet Your Instructor */}
-      <section className="py-20 md:py-32 bg-white">
+      <section className="py-20 md:py-32 bg-cream">
         <Container>
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="relative aspect-[4/3] overflow-hidden">
@@ -471,70 +424,8 @@ export default function CoursesPage() {
         </Container>
       </section>
 
-      {/* Trust & Guarantee */}
-      <section className="py-20 md:py-32 bg-primary text-white">
-        <Container>
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-heading mb-4">
-                {t("trust.title")}
-              </h2>
-              <p className="text-white/60">
-                {t("trust.description")}
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-secondary/20 flex items-center justify-center">
-                  <svg className="w-8 h-8 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-heading mb-2">{t("trust.guarantee.title")}</h3>
-                <p className="text-white/50 text-sm">
-                  {t("trust.guarantee.description")}
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-secondary/20 flex items-center justify-center">
-                  <svg className="w-8 h-8 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-heading mb-2">{t("trust.lifetime.title")}</h3>
-                <p className="text-white/50 text-sm">
-                  {t("trust.lifetime.description")}
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-secondary/20 flex items-center justify-center">
-                  <svg className="w-8 h-8 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-heading mb-2">{t("trust.payment.title")}</h3>
-                <p className="text-white/50 text-sm">
-                  {t("trust.payment.description")}
-                </p>
-              </div>
-            </div>
-
-            <div className="text-center mt-12">
-              <Link href="/contact">
-                <Button variant="secondary" size="lg">
-                  {t("trust.cta")}
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </Container>
-      </section>
-
       {/* FAQ Preview */}
-      <section className="py-20 md:py-32 bg-cream">
+      <section className="py-20 md:py-32 bg-white">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-heading text-primary mb-6">

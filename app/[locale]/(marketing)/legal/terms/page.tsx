@@ -86,9 +86,22 @@ export default function TermsPage() {
             <p>
               Organizator nije dužan omogućiti pristup Edukaciji prije evidentiranja plaćanja cjelokupne naknade.
             </p>
+
+            <h3>Politika povrata i otkazivanja</h3>
             <p>
-              <strong>Uplate su nepovratne</strong> nakon aktivacije pristupa Edukaciji, osim u slučajevima
-              u kojima Organizator otkaže Edukaciju bez omogućavanja razumno istovrijedne zamjene.
+              <strong>Online edukacija — aktivacija pristupa i pravo na raskid.</strong>{" "}
+              Pristup online edukaciji aktivira se odmah nakon uplate, uz vaš izričit
+              pristanak na trenutnu aktivaciju i potvrdu da aktivacijom gubite pravo na
+              jednostrani raskid ugovora. Nakon aktivacije uplate nisu povratne. Ako ste
+              potrošač, a pristup još nije aktiviran, imate zakonsko pravo na raskid
+              ugovora u roku od 14 dana.
+            </p>
+            <p>
+              <strong>Edukacije uživo — rezervacija i promjena termina.</strong>{" "}
+              Termin edukacije uživo potvrđuje se uplatom predujma od 30 %. Termin
+              možete jednom besplatno promijeniti ako promjenu zatražite najmanje
+              14 dana unaprijed. Kod otkazivanja predujam se ne vraća, ali ga uz
+              obavijest najmanje 14 dana prije termina možete prenijeti na drugi termin.
             </p>
 
             <h2>6. Certifikacija</h2>

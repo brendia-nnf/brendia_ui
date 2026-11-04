@@ -14,42 +14,31 @@ export function CoursePreview() {
   const t = useTranslations("coursePreview");
   const sectionRef = useRef<HTMLElement>(null);
 
-  const courses = [
+  const programs = [
     {
       slug: "foundation-certification",
-      title: t("foundation.title"),
-      subtitle: t("foundation.subtitle"),
-      price: t("foundation.price"),
-      description: t("foundation.description"),
-      features: t.raw("foundation.features") as string[],
-      popular: false,
+      key: "online",
+      featured: false,
     },
     {
-      slug: "master-certification",
-      title: t("master.title"),
-      subtitle: t("master.subtitle"),
-      price: t("master.price"),
-      description: t("master.description"),
-      features: t.raw("master.features") as string[],
-      popular: true,
+      slug: "artist-online-live",
+      key: "onlineLive",
+      featured: false,
+    },
+    {
+      slug: "artist-group",
+      key: "group",
+      featured: true,
     },
     {
       slug: "brendia-pro-artist-1v1",
-      title: t("artist1v1.title"),
-      subtitle: t("artist1v1.subtitle"),
-      price: t("artist1v1.price"),
-      description: t("artist1v1.description"),
-      features: t.raw("artist1v1.features") as string[],
-      popular: false,
+      key: "oneDay",
+      featured: false,
     },
     {
-      slug: "brendia-pro-master-1v1",
-      title: t("master1v1.title"),
-      subtitle: t("master1v1.subtitle"),
-      price: t("master1v1.price"),
-      description: t("master1v1.description"),
-      features: t.raw("master1v1.features") as string[],
-      popular: false,
+      slug: "artist-1v1-two-days",
+      key: "twoDays",
+      featured: false,
     },
   ];
 
@@ -79,7 +68,7 @@ export function CoursePreview() {
           y: 0,
           opacity: 1,
           duration: 1,
-          stagger: 0.2,
+          stagger: 0.15,
           ease: "power3.out",
           scrollTrigger: {
             trigger: "[data-courses]",
@@ -107,85 +96,76 @@ export function CoursePreview() {
           </p>
         </div>
 
-        {/* Course cards */}
+        {/* Program cards */}
         <div
           data-courses
-          className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto"
         >
-          {courses.map((course, index) => (
+          {programs.map((program) => (
             <div
-              key={index}
+              key={program.slug}
               data-course
-              className={`relative bg-white p-8 lg:p-10 ${
-                course.popular ? "ring-2 ring-secondary" : ""
-              }`}
+              className="relative bg-white p-8 flex flex-col"
             >
-              {/* Popular badge */}
-              {course.popular && (
+              {/* Prva grupa badge */}
+              {program.key === "group" && (
                 <div className="absolute -top-4 left-8 bg-secondary text-white px-4 py-1 text-xs font-medium tracking-wider uppercase">
-                  {t("mostPopular")}
+                  {t("group.firstGroupNote")}
                 </div>
               )}
 
-              {/* Course header */}
-              <div className="mb-8">
+              {/* Program header */}
+              <div className="mb-6">
                 <p className="text-secondary text-sm font-medium mb-2">
-                  {course.subtitle}
+                  {t(`${program.key}.subtitle`)}
                 </p>
-                <h3 className="text-2xl lg:text-3xl font-heading text-primary mb-4">
-                  {course.title}
+                <h3 className="text-xl lg:text-2xl font-heading text-primary mb-3">
+                  {t(`${program.key}.title`)}
                 </h3>
-                <p className="text-primary/60 leading-relaxed mb-6">
-                  {course.description}
+                <p className="text-3xl font-heading text-primary">
+                  {t(`${program.key}.price`)}
                 </p>
-                <p className="text-4xl font-heading text-primary">
-                  {course.price}
-                </p>
+                <p className="text-xs text-primary/40 mt-1">{t("vatNote")}</p>
               </div>
 
-              {/* Features */}
-              <ul className="space-y-4 mb-8">
-                {course.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start gap-3">
-                    <svg
-                      className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span className="text-primary/70">{feature}</span>
-                  </li>
-                ))}
-              </ul>
+              <p className="text-primary/60 text-sm leading-relaxed mb-4">
+                {t(`${program.key}.description`)}
+              </p>
+
+              <p className="text-primary/70 text-sm leading-relaxed mb-8">
+                <span className="font-medium text-primary">
+                  {t("forWhoLabel")}:
+                </span>{" "}
+                {t(`${program.key}.forWho`)}
+              </p>
 
               {/* CTA */}
-              <Link href={`/courses/${course.slug}`} className="block">
-                <Button
-                  variant={course.popular ? "primary" : "outline"}
-                  className="w-full"
-                  size="lg"
-                >
-                  {t("learnMore")}
-                </Button>
-              </Link>
+              <div className="mt-auto">
+                <Link href={`/courses/${program.slug}`} className="block">
+                  <Button
+                    variant={program.featured ? "primary" : "outline"}
+                    className="w-full"
+                  >
+                    {t("learnMore")}
+                  </Button>
+                </Link>
+              </div>
             </div>
           ))}
-        </div>
 
-        {/* Additional info */}
-        <p
-          data-heading
-          className="text-center text-primary/50 text-sm mt-12"
-        >
-          {t("additionalInfo")}
-        </p>
+          {/* "All programs" tile keeps the 6-grid balanced */}
+          <div
+            data-course
+            className="relative bg-primary text-white p-8 flex flex-col justify-center items-center text-center"
+          >
+            <p className="text-white/70 text-sm leading-relaxed mb-6">
+              {t("additionalInfo")}
+            </p>
+            <Link href="/courses">
+              <Button variant="secondary">{t("viewAll")}</Button>
+            </Link>
+          </div>
+        </div>
       </Container>
     </section>
   );

@@ -16,18 +16,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: 0.9,
     },
-    {
-      url: `${baseUrl}/courses/foundation-certification`,
+    // Pet programa nove ponude
+    ...[
+      "foundation-certification",
+      "artist-online-live",
+      "artist-group",
+      "brendia-pro-artist-1v1",
+      "artist-1v1-two-days",
+    ].map((slug) => ({
+      url: `${baseUrl}/courses/${slug}`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/courses/master-certification`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.9,
-    },
+    })),
     {
       url: `${baseUrl}/about`,
       lastModified: new Date(),

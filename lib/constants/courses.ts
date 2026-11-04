@@ -1,10 +1,19 @@
+export type PurchaseType = "direct" | "deposit" | "inquiry";
+
 export interface Course {
   id: string;
   name: string;
   subtitle: string;
   price: number; // in cents, without VAT
-  displayPrice: string;
+  displayPrice: string; // gross price incl. VAT, HR format (e.g. "1.600 €")
   currency: string;
+  // How the program is sold:
+  //  - "direct":  full online purchase through checkout
+  //  - "deposit": checkout charges a 30% deposit (reservation); publicly linked
+  //  - "inquiry": no public checkout — "Pošaljite upit za termin" form; after
+  //               the date is agreed we send a 30% deposit payment link
+  //               (the deposit checkout URL, reachable by direct link only)
+  purchase: PurchaseType;
   features: string[];
   image: string;
   // Monthly installment options — only offered when BOTH this and the
@@ -16,82 +25,102 @@ export interface Course {
 
 export const VAT_RATE = 0.25; // 25% Croatian VAT
 
+// Deposit rate for live-education reservations (predujam)
+export const DEPOSIT_RATE = 0.3;
+
+// New offer (2026-11): five programs, prices communicated INCL. VAT.
+// `price` stays net (gross / 1.25) because checkout/invoicing compute VAT
+// from the net amount. All gross amounts divide cleanly by 1.25.
 export const courses: Record<string, Course> = {
   "foundation-certification": {
     id: "foundation-certification",
-    name: "Brendia Pro® Artist",
-    subtitle: "Master the Fundamentals",
-    price: 300000, // €3,000 in cents (without VAT)
-    displayPrice: "€3,000",
+    name: "Brendia Pro® Artist Online",
+    subtitle: "Online edukacija",
+    price: 128000, // €1,280 net → €1,600 incl. VAT
+    displayPrice: "1.600 €",
     currency: "eur",
-    installments: { enabled: true, counts: [2, 3, 4] }, // gross: €1,875 / €1,250 / €937.50
+    purchase: "direct",
+    installments: { enabled: true, counts: [2, 3, 4] },
     image: "/images/courses/foundation.jpg",
     features: [
-      "30+ comprehensive video lessons",
-      "Step-by-step installation guides",
-      "Client consultation techniques",
-      "Maintenance and aftercare protocols",
-      "Official Brendia Pro® certification",
-      "Private community access",
-      "12-month course access",
-      "Free future updates",
+      "8 video modula kroz Brendia Pro® Academy",
+      "Pristup video lekcijama 36 mjeseci",
+      "Nikolinin pregled i feedback na završni rad",
+      "Brendia Pro® certifikat nakon odobrenog završnog rada",
+      "Brendia Pro® Education Kit",
+      "Besplatan Brendia Pro® Masterclass",
     ],
   },
-  "master-certification": {
-    id: "master-certification",
-    name: "Advanced Brendia Pro® Artist",
-    subtitle: "Achieve Excellence",
-    price: 400000, // €4,000 in cents (without VAT)
-    displayPrice: "€4,000",
+  "artist-online-live": {
+    id: "artist-online-live",
+    name: "Brendia Pro® Artist Online + uživo",
+    subtitle: "Online edukacija + 1 dan uživo",
+    price: 240000, // €2,400 net → €3,000 incl. VAT
+    displayPrice: "3.000 €",
     currency: "eur",
-    installments: { enabled: true, counts: [2, 3, 4] }, // gross: €2,500 / €1,666.67 / €1,250
+    purchase: "inquiry",
+    image: "/images/courses/foundation.jpg",
+    features: [
+      "Kompletna online edukacija (8 video modula, 36 mjeseci)",
+      "1 dan individualnog rada uživo s Nikolinom (6–8 sati)",
+      "Rad u Studio One by Nina",
+      "Brendia Pro® certifikat nakon odobrenog završnog rada",
+      "Brendia Pro® Education Kit",
+      "Besplatan Brendia Pro® Masterclass",
+    ],
+  },
+  "artist-group": {
+    id: "artist-group",
+    name: "Brendia Pro® Artist grupna edukacija",
+    subtitle: "2 dana uživo u maloj grupi",
+    price: 176000, // €1,760 net → €2,200 incl. VAT
+    displayPrice: "2.200 €",
+    currency: "eur",
+    purchase: "deposit",
     image: "/images/courses/master.jpg",
     features: [
-      "Everything in Brendia Pro® Artist",
-      "50+ advanced video lessons",
-      "Complex color matching mastery",
-      "Corrective work procedures",
-      "Business growth strategies",
-      "Marketing templates & guides",
-      "Priority community support",
-      "Guest educator masterclasses",
+      "2 dana edukacije uživo u Studio One by Nina",
+      "Mala grupa od 3 do 5 polaznica",
+      "Rad uz Nikolinino mentorstvo",
+      "Brendia Pro® Education Kit",
+      "Besplatan Brendia Pro® Masterclass",
+      "15 % popusta na prvu narudžbu Brendia Pro® kose",
     ],
   },
   "brendia-pro-artist-1v1": {
     id: "brendia-pro-artist-1v1",
-    name: "Brendia Pro® Artist 1v1",
-    subtitle: "Live Edukacija u Salonu",
-    price: 200000, // €2,000 in cents (without VAT)
-    displayPrice: "€2,000",
+    name: "Brendia Pro® Artist 1:1 – jedan dan",
+    subtitle: "Individualna edukacija uživo",
+    price: 200000, // €2,000 net → €2,500 incl. VAT
+    displayPrice: "2.500 €",
     currency: "eur",
-    installments: { enabled: true, counts: [2, 3, 4] }, // gross: €1,250 / €833.33 / €625
+    purchase: "inquiry",
     image: "/images/courses/foundation.jpg",
     features: [
-      "Live edukacija s mentorom",
-      "4 sata hands-on prakse",
-      "Personalizirani pristup",
-      "Službena Brendia Pro® certifikacija",
-      "Pristup platformi (shop, zajednica)",
-      "Welcome box s materijalima",
+      "1 dan individualnog rada s Nikolinom (6–8 sati, po potrebi i dulje)",
+      "Rad na vlastitom modelu",
+      "Potpuno individualan pristup",
+      "Brendia Pro® Education Kit",
+      "Besplatan Brendia Pro® Masterclass",
+      "15 % popusta na prvu narudžbu Brendia Pro® kose",
     ],
   },
-  "brendia-pro-master-1v1": {
-    id: "brendia-pro-master-1v1",
-    name: "Advanced Brendia Pro® Artist 1v1",
-    subtitle: "Live Edukacija u Studiju",
-    price: 500000, // €5,000 in cents (without VAT)
-    displayPrice: "€5,000",
+  "artist-1v1-two-days": {
+    id: "artist-1v1-two-days",
+    name: "Brendia Pro® Artist 1:1 – dva dana + online",
+    subtitle: "Najkompletniji program",
+    price: 360000, // €3,600 net → €4,500 incl. VAT
+    displayPrice: "4.500 €",
     currency: "eur",
-    installments: { enabled: true, counts: [2, 3, 4] }, // gross: €3,125 / €2,083.33 / €1,562.50
+    purchase: "inquiry",
     image: "/images/courses/master.jpg",
     features: [
-      "2 dana live edukacije s mentorom",
-      "12 sati hands-on prakse (6h/dan)",
-      "Artist + Advanced Artist sadržaj",
-      "Personalizirani pristup",
-      "Službena Brendia Pro® certifikacija",
-      "Pristup platformi (shop, zajednica)",
-      "Welcome box s materijalima",
+      "2 dana individualnog rada s Nikolinom",
+      "Kompletna online edukacija (8 video modula, 36 mjeseci)",
+      "Osobno mentorstvo",
+      "Brendia Pro® certifikat nakon odobrenog završnog rada",
+      "Brendia Pro® Education Kit",
+      "Besplatan Brendia Pro® Masterclass",
     ],
   },
 };
@@ -109,6 +138,24 @@ export function calculatePricing(priceInCents: number) {
     subtotal,
     vat,
     total,
+    vatRate: VAT_RATE,
+    vatPercentage: Math.round(VAT_RATE * 100),
+  };
+}
+
+// Deposit (predujam) pricing for live-education reservations: 30% of the
+// gross program price, then split back into net + VAT for invoicing.
+export function calculateDepositPricing(priceInCents: number) {
+  const gross = calculatePricing(priceInCents).total;
+  const depositGross = Math.round(gross * DEPOSIT_RATE);
+  const depositNet = Math.round(depositGross / (1 + VAT_RATE));
+
+  return {
+    subtotal: depositNet,
+    vat: depositGross - depositNet,
+    total: depositGross,
+    programTotal: gross,
+    remaining: gross - depositGross,
     vatRate: VAT_RATE,
     vatPercentage: Math.round(VAT_RATE * 100),
   };

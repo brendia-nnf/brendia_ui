@@ -62,7 +62,7 @@
     "description": "Elevate your craft with Brendia Pro® certification. Your journey to becoming a sought-after extension specialist starts here.",
     "viewCourses": "View Courses",
     "contactUs": "Contact Us",
-    "lifetimeAccess": "12-Month Access",
+    "lifetimeAccess": "36 months of video lesson access",
     "officialCertification": "Official Certification",
     "paymentPlans": "Payment Plans Available"
   },
@@ -84,15 +84,11 @@
   },
   "courses": {
     "tagline": "Our Programs",
-    "title": "Choose Your Path to Mastery",
+    "title": "Choose the way of learning that suits you",
     "learnMore": "Learn More",
     "foundation": {
-      "title": "Brendia Pro® Artist",
+      "title": "Brendia Pro® Artist Online",
       "description": "Perfect for stylists looking to master the fundamentals of weft extensions and build a solid foundation."
-    },
-    "master": {
-      "title": "Advanced Brendia Pro® Artist",
-      "description": "For experienced stylists seeking to achieve mastery and expand their service offerings."
     }
   },
   "contact": {
@@ -143,67 +139,48 @@
   },
   "coursePreview": {
     "tagline": "Our Programs",
-    "title": "Choose Your Path to Mastery",
-    "description": "Two comprehensive certification programs designed to take you from skilled stylist to sought-after extension specialist.",
-    "mostPopular": "Most Popular",
+    "title": "Choose the way of learning that suits you",
+    "description": "Five Brendia Pro® programs: online at your own pace, in person with Nikolina, or a combination.",
     "learnMore": "Learn More",
-    "additionalInfo": "All courses include 12 months of access and free updates. Payment plans available.",
-    "foundation": {
-      "title": "Brendia Pro® Artist",
+    "additionalInfo": "With every program you receive the Brendia Pro® Education Kit and a free Brendia Pro® Masterclass, while spots last. All prices include VAT.",
+    "vatNote": "Price includes VAT.",
+    "forWhoLabel": "For whom",
+    "viewAll": "View all programs",
+    "online": {
+      "title": "Brendia Pro® Artist Online",
       "subtitle": "Online education",
+      "price": "€1,600",
+      "description": "Complete online education through the Brendia Pro® Academy: 8 video modules with 36 months of access.",
+      "forWho": "For licensed hairdressers who learn at their own pace, with Nikolina's review and feedback on the final work."
+    },
+    "onlineLive": {
+      "title": "Brendia Pro® Artist Online + in person",
+      "subtitle": "Online education + 1 day in person",
       "price": "€3,000",
-      "description": "Build a solid foundation in weft extension techniques. Perfect for stylists ready to expand their service offerings.",
-      "features": [
-        "8 in-depth video lessons",
-        "Step-by-step installation guides",
-        "Client consultation techniques",
-        "Official Brendia Pro® certification",
-        "Private community access",
-        "12-month course access"
-      ]
+      "description": "Online education plus one day of individual in-person work with Nikolina (6–8 hours) at Studio One by Nina.",
+      "forWho": "For hairdressers who want to learn the theory at their own pace and perfect the practice with a mentor."
     },
-    "master": {
-      "title": "Advanced Brendia Pro® Artist",
-      "subtitle": "Advanced online education",
-      "price": "€4,000",
-      "description": "Elevate your expertise with advanced techniques and business strategies. For stylists committed to becoming industry leaders.",
-      "features": [
-        "Everything in Artist course",
-        "Advanced blending techniques",
-        "Complex color matching",
-        "Business growth strategies",
-        "Marketing templates & guides",
-        "Priority community support"
-      ]
+    "group": {
+      "title": "Brendia Pro® Artist group education",
+      "subtitle": "2 days in person in a small group",
+      "price": "€2,200",
+      "description": "Two days of in-person education in a small group of 3 to 5 participants, at Studio One by Nina.",
+      "forWho": "For hairdressers who learn best hands-on and in the company of colleagues.",
+      "firstGroupNote": "First group: 5 and 6 December 2026."
     },
-    "artist1v1": {
-      "title": "Brendia Pro® Artist 1v1",
-      "subtitle": "Live in-salon education",
-      "price": "€2,000",
-      "description": "Personalized live education with a mentor in-salon. Ideal for fast learning of practical techniques through hands-on practice.",
-      "features": [
-        "Live education with mentor",
-        "4 hours hands-on practice",
-        "Personalized approach",
-        "Brendia Pro® certification",
-        "Platform access",
-        "Welcome box with materials"
-      ]
+    "oneDay": {
+      "title": "Brendia Pro® Artist 1:1 – one day",
+      "subtitle": "Individual in-person education",
+      "price": "€2,500",
+      "description": "One day of individual work with Nikolina, 6–8 hours, and longer if needed.",
+      "forWho": "For hairdressers who want a fully individual approach on their own model."
     },
-    "master1v1": {
-      "title": "Advanced Brendia Pro® Artist 1v1",
-      "subtitle": "Live in-studio education",
-      "price": "€5,000",
-      "description": "Complete Artist and Advanced Artist education live in studio. Two days of intensive practice and personal mentorship.",
-      "features": [
-        "2 days of live education",
-        "12 hours hands-on practice",
-        "Artist + Advanced Artist content",
-        "Personalized approach",
-        "Brendia Pro® certification",
-        "Platform access",
-        "Welcome box with materials"
-      ]
+    "twoDays": {
+      "title": "Brendia Pro® Artist 1:1 – two days + online",
+      "subtitle": "The most complete program",
+      "price": "€4,500",
+      "description": "The most complete program: two days of individual work with Nikolina plus 36 months of access to the online education.",
+      "forWho": "For hairdressers who want to master the method in depth with personal mentorship."
     }
   },
   "aboutFounder": {
@@ -271,9 +248,9 @@
       "tagline": "Professional Certification",
       "title": "Transform Your Career",
       "description": "Elevate your craft with Brendia Pro® certification. Choose the program that matches your goals and start your journey today.",
-      "selfPaced": "Self-paced learning",
-      "lifetimeAccess": "12-month access",
-      "officialCertification": "Official certification"
+      "selfPaced": "Online at your own pace or in person",
+      "lifetimeAccess": "36 months of video lesson access",
+      "officialCertification": "Brendia Pro® certificate"
     },
     "video": {
       "title": "Hear From Your Educator",
@@ -312,113 +289,125 @@
       }
     },
     "courses": {
-      "title": "Choose Your Path",
-      "description": "Two comprehensive programs designed for different stages of your journey",
-      "mostPopular": "Most Popular",
-      "viewCurriculum": "View Full Curriculum",
-      "foundation": {
-        "title": "Brendia Pro® Artist",
+      "title": "Brendia Pro® programs",
+      "description": "Online at your own pace, in person with Nikolina, or a combination. Choose the way of learning that suits you.",
+      "vatNote": "Price includes VAT.",
+      "forWhoLabel": "For whom",
+      "viewProgram": "View program",
+      "kicker": "With every program you receive the Brendia Pro® Education Kit and a free Brendia Pro® Masterclass, while spots last.",
+      "online": {
+        "title": "Brendia Pro® Artist Online",
         "subtitle": "Online education",
+        "price": "€1,600",
+        "duration": "Self-paced (6-8 weeks on average)",
+        "description": "Complete online education through the Brendia Pro® Academy: 8 video modules with 36 months of access.",
+        "forWho": "For licensed hairdressers who learn at their own pace, with Nikolina's review and feedback on the final work."
+      },
+      "onlineLive": {
+        "title": "Brendia Pro® Artist Online + in person",
+        "subtitle": "Online education + 1 day in person",
         "price": "€3,000",
-        "duration": "Self-paced (avg. 6-8 weeks)",
-        "description": "Build a solid foundation in weft extension techniques. Perfect for stylists ready to expand their service offerings.",
-        "features": [
-          "8 in-depth video lessons",
-          "Step-by-step installation guides",
-          "Client consultation techniques",
-          "Official Brendia Pro® certification",
-          "Private community access",
-          "12-month course access"
-        ]
+        "duration": "Online at your own pace + 1 day in person (6–8 h)",
+        "description": "Online education plus one day of individual in-person work with Nikolina (6–8 hours) at Studio One by Nina.",
+        "forWho": "For hairdressers who want to learn the theory at their own pace and perfect the practice with a mentor."
       },
-      "master": {
-        "title": "Advanced Brendia Pro® Artist",
-        "subtitle": "Advanced online education",
-        "price": "€4,000",
-        "duration": "Self-paced (avg. 8-12 weeks)",
-        "description": "Elevate your expertise with advanced techniques and business strategies. For stylists committed to becoming industry leaders.",
-        "features": [
-          "Everything in Artist course",
-          "Advanced blending techniques",
-          "Complex color matching",
-          "Business growth strategies",
-          "Priority community support"
-        ]
+      "group": {
+        "title": "Brendia Pro® Artist group education",
+        "subtitle": "2 days in person in a small group",
+        "price": "€2,200",
+        "duration": "2 days in person, group of 3–5 participants",
+        "description": "Two days of in-person education in a small group of 3 to 5 participants, at Studio One by Nina.",
+        "forWho": "For hairdressers who learn best hands-on and in the company of colleagues.",
+        "firstGroupNote": "First group: 5 and 6 December 2026."
       },
-      "artist1v1": {
-        "title": "Brendia Pro® Artist 1v1",
-        "subtitle": "Live In-Salon Education",
-        "price": "€2,000",
-        "duration": "1 day (4 hours)",
-        "description": "Personalized live education with a mentor in-salon. Ideal for fast learning of practical techniques through hands-on practice.",
-        "features": [
-          "Live education with mentor",
-          "4 hours of hands-on practice",
-          "Personalized approach",
-          "Official Brendia Pro® certification",
-          "Platform access (shop, community)",
-          "Welcome box with materials"
-        ]
+      "oneDay": {
+        "title": "Brendia Pro® Artist 1:1 – one day",
+        "subtitle": "Individual in-person education",
+        "price": "€2,500",
+        "duration": "1 day (6–8 hours, longer if needed)",
+        "description": "One day of individual work with Nikolina, 6–8 hours, and longer if needed.",
+        "forWho": "For hairdressers who want a fully individual approach on their own model."
       },
-      "master1v1": {
-        "title": "Advanced Brendia Pro® Artist 1v1",
-        "subtitle": "Live In-Studio Education",
-        "price": "€5,000",
-        "duration": "2 days (6 hours/day)",
-        "description": "Complete Artist and Advanced Artist education live in studio. Two days of intensive practice and personal mentorship.",
-        "features": [
-          "2 days of live education with mentor",
-          "12 hours of hands-on practice (6h/day)",
-          "Artist + Advanced Artist content",
-          "Personalized approach",
-          "Official Brendia Pro® certification",
-          "Platform access (shop, community)",
-          "Welcome box with materials"
-        ]
-      },
-      "prerequisiteBadge": "Certification required",
-      "prerequisiteNote": "You can enrol in the Advanced Brendia Pro® Artist course only after you've completed and passed your Brendia Pro® Artist certification. Use the email you're registered with on the platform when purchasing."
+      "twoDays": {
+        "title": "Brendia Pro® Artist 1:1 – two days + online",
+        "subtitle": "The most complete program",
+        "price": "€4,500",
+        "duration": "2 days in person + online education (36 months)",
+        "description": "The most complete program: two days of individual work with Nikolina plus 36 months of access to the online education.",
+        "forWho": "For hairdressers who want to master the method in depth with personal mentorship."
+      }
     },
     "comparison": {
-      "title": "Compare Programs",
-      "description": "See what's included in each certification level",
+      "title": "Compare the programs",
+      "description": "Online at your own pace, in person with Nikolina, or a combination. Choose the way of learning that suits you.",
       "feature": "Feature",
-      "foundation": "Artist",
-      "master": "Advanced Artist",
-      "recommended": "Recommended",
       "select": "Select",
+      "columns": {
+        "online": "Online",
+        "onlineLive": "Online + in person",
+        "group": "Group",
+        "oneDay": "1:1 one day",
+        "twoDays": "1:1 two days + online"
+      },
       "rows": {
+        "price": {
+          "feature": "Price incl. VAT",
+          "online": "€1,600",
+          "onlineLive": "€3,000",
+          "group": "€2,200",
+          "oneDay": "€2,500",
+          "twoDays": "€4,500"
+        },
         "videoLessons": {
-          "feature": "Video Lessons",
-          "foundation": "8",
-          "master": "8 + advanced lessons"
+          "feature": "Video lessons, 36 months",
+          "online": "Yes",
+          "onlineLive": "Yes",
+          "group": "No",
+          "oneDay": "No",
+          "twoDays": "Yes"
         },
-        "installation": {
-          "feature": "Installation Techniques",
-          "foundation": "Core methods",
-          "master": "Advanced + Corrective"
+        "liveWork": {
+          "feature": "In-person work with Nikolina",
+          "online": "–",
+          "onlineLive": "1 day individual, 6–8 h",
+          "group": "2 days, group of 3–5",
+          "oneDay": "1 day, 6–8 h",
+          "twoDays": "2 days, individual"
         },
-        "colorMatching": {
-          "feature": "Color Matching",
-          "foundation": "Basic",
-          "master": "Advanced"
+        "mentorship": {
+          "feature": "Mentorship",
+          "online": "After the final work",
+          "onlineLive": "Yes",
+          "group": "Yes",
+          "oneDay": "Yes",
+          "twoDays": "Yes"
         },
-        "business": {
-          "feature": "Business Training",
-          "foundation": "Fundamentals",
-          "master": "Advanced growth strategies"
+        "educationKit": {
+          "feature": "Education Kit",
+          "online": "Included",
+          "onlineLive": "Included",
+          "group": "Included",
+          "oneDay": "Included",
+          "twoDays": "Included"
         },
-        "community": {
-          "feature": "Community Access",
-          "foundation": "✓",
-          "master": "Priority support"
+        "masterclass": {
+          "feature": "Brendia Pro® Masterclass",
+          "online": "Free",
+          "onlineLive": "Free",
+          "group": "Free",
+          "oneDay": "Free",
+          "twoDays": "Free"
         },
-        "updates": {
-          "feature": "Updates",
-          "foundation": "12 months",
-          "master": "12 months"
+        "dates": {
+          "feature": "Dates",
+          "online": "Immediately after payment",
+          "onlineLive": "Online immediately, in-person day by arrangement",
+          "group": "First group 5 and 6 December 2026",
+          "oneDay": "By arrangement",
+          "twoDays": "By arrangement"
         }
-      }
+      },
+      "belowNote": "All prices include VAT. You can pay by card in interest-free installments, depending on the bank and amount. Practice hair comes in the Education Kit. A mannequin and hair for working on a model are not included, and participants get 15% off their first Brendia Pro® hair order."
     },
     "instructor": {
       "tagline": "Your Instructor",
@@ -436,35 +425,51 @@
       "credCertificationTitle": "Certification",
       "credCertificationLabel": "Upon successful program completion"
     },
-    "trust": {
-      "title": "Invest in Your Future With Confidence",
-      "description": "We stand behind our courses with guarantees that put your success first",
-      "guarantee": {
-        "title": "14-Day Guarantee",
-        "description": "Not satisfied? Get a full refund within 14 days, no questions asked."
-      },
-      "lifetime": {
-        "title": "12-Month Access",
-        "description": "Learn at your own pace. Your course access lasts 12 months, including all updates during that period."
-      },
-      "payment": {
-        "title": "Payment Plans",
-        "description": "Flexible payment options available. Contact us to discuss what works for you."
-      },
-      "cta": "Questions? Let's Talk"
-    },
     "faqPreview": {
       "title": "Still Have Questions?",
       "description": "Find answers to common questions about enrollment, curriculum, and certification.",
       "cta": "View All FAQs"
+    },
+    "refundPolicy": {
+      "title": "Refund and cancellation policy",
+      "online": {
+        "title": "Online education",
+        "heading": "Access activation and right of withdrawal.",
+        "content": "Access to the online education is activated immediately after payment, with your explicit consent to immediate activation and confirmation that by activating you lose the right to unilateral contract withdrawal. After activation, payments are non-refundable. If you are a consumer and access has not yet been activated, you have the legal right to withdraw from the contract within 14 days."
+      },
+      "live": {
+        "title": "In-person education",
+        "heading": "Reservation and date changes.",
+        "content": "An in-person education date is confirmed by paying a 30% deposit. You can change the date once free of charge if you request the change at least 14 days in advance. In case of cancellation the deposit is not refunded, but with notice at least 14 days before the date it can be transferred to another date."
+      }
+    },
+    "masterclass": {
+      "title": "Brendia Pro® Masterclass",
+      "heading": "A masterclass as a gift.",
+      "content": "With every Brendia Pro® program you receive free participation in the Brendia Pro® Masterclass, in a group of up to 15 participants, while spots last. Dates and enrollment deadlines are announced in advance."
+    },
+    "paymentMethods": {
+      "title": "Payment methods",
+      "intro": "With the option of an R-1 invoice, you can pay for the education:",
+      "bullets": [
+        "by card or bank transfer, and in-person education also in cash at Studio One by Nina",
+        "in one payment with cards of all banks: Premium Visa Card, Diners, Maestro, Mastercard, Visa Electron, Visa",
+        "in interest-free installments, according to the table"
+      ],
+      "table": {
+        "cards": "Cards",
+        "above80": "Installments (above €80)",
+        "above500": "Installments (above €500)",
+        "above1500": "Installments (above €1,500)",
+        "interest": "Interest",
+        "interestFree": "Interest-free"
+      },
+      "note": "*For amounts up to €80 only one-time card payment is possible, with cards of all banks. **Available only for individual Mastercard credit cards."
     }
   },
   "courseDetail": {
     "backToCourses": "Back to Courses",
-    "mostPopular": "Most Popular",
     "enrollNow": "Enroll Now",
-    "exclVat": "excl. VAT",
-    "vatNote": "+ 25% VAT. Final price shown at checkout.",
     "whatsIncluded": "What's Included",
     "curriculum": {
       "title": "Course Curriculum",
@@ -477,22 +482,26 @@
       "haveQuestions": "Have Questions?",
       "paymentPlans": "Payment plans available. Contact us for details."
     },
-    "foundation": {
-      "title": "Brendia Pro® Artist",
+    "priceIncludesVat": "Price includes VAT.",
+    "reserveSpot": "Reserve your spot",
+    "sendInquiry": "Send a date inquiry",
+    "forWhoLabel": "For whom",
+    "depositNote": "You confirm your spot by paying a 30% deposit ({amount}). The remaining amount is paid before or on the day of the education.",
+    "online": {
+      "title": "Brendia Pro® Artist Online",
       "subtitle": "Online education",
-      "price": "€3,000",
-      "duration": "Self-paced (avg. 6-8 weeks)",
-      "description": "Build a solid foundation in weft extension techniques. This comprehensive program covers everything from client consultation to flawless installation and long-term maintenance.",
-      "longDescription": "Brendia Pro® Artist is your gateway to becoming a professional weft extension specialist. Designed for stylists at any experience level, this program provides a thorough education in the art and science of weft extensions. You'll learn directly from Nikolina Kljaić through detailed video instruction, gaining the confidence and skills to deliver stunning results for your clients.",
+      "price": "€1,600",
+      "duration": "Self-paced (6-8 weeks on average)",
+      "description": "Complete online education through the Brendia Pro® Academy: 8 video modules with 36 months of access.",
+      "forWho": "For licensed hairdressers who learn at their own pace, with Nikolina's review and feedback on the final work.",
+      "longDescription": "Brendia Pro® Artist Online is the complete online education through the Brendia Pro® Academy. Across 8 video modules you learn at your own pace, directly from Nikolina Kljaić: from hair assessment to working on a model. Access to the video lessons lasts 36 months from activation, and you receive the Brendia Pro® certificate once Nikolina reviews and approves your final work.",
       "features": [
-        "8 in-depth video lessons",
-        "Step-by-step installation guides",
-        "Client consultation techniques",
-        "Maintenance and aftercare protocols",
-        "Official Brendia Pro® certification",
-        "Private community access",
-        "12-month course access",
-        "Free future updates"
+        "8 video modules through the Brendia Pro® Academy",
+        "36 months of access to the video lessons",
+        "Nikolina's review and feedback on your final work",
+        "Brendia Pro® certificate after your final work is approved",
+        "Brendia Pro® Education Kit",
+        "Free Brendia Pro® Masterclass"
       ],
       "curriculum": [
         {
@@ -566,119 +575,162 @@
         }
       ]
     },
-    "master": {
-      "title": "Advanced Brendia Pro® Artist",
-      "subtitle": "Advanced online education",
-      "price": "€4,000",
-      "duration": "Self-paced (avg. 8-12 weeks)",
-      "description": "Elevate your expertise with advanced techniques, complex color theory, and proven business strategies. For stylists committed to becoming industry leaders.",
-      "longDescription": "Advanced Brendia Pro® Artist represents the pinnacle of weft extension education. Building on the Artist program, this advanced course dives deep into complex techniques, sophisticated color work, and the business strategies you need to scale your extension services.",
+    "onlineLive": {
+      "title": "Brendia Pro® Artist Online + in person",
+      "subtitle": "Online education + 1 day in person",
+      "price": "€3,000",
+      "duration": "Online at your own pace + 1 day in person (6–8 h)",
+      "description": "Online education plus one day of individual in-person work with Nikolina (6–8 hours) at Studio One by Nina.",
+      "forWho": "For hairdressers who want to learn the theory at their own pace and perfect the practice with a mentor.",
+      "longDescription": "A combination of the online education and one day of individual in-person work with Nikolina (6–8 hours) at Studio One by Nina. You learn the theory at your own pace through the Brendia Pro® Academy and perfect the practice with your mentor on your own model.",
       "features": [
-        "Everything in Brendia Pro® Artist",
-        "Advanced blending techniques",
-        "Complex color matching mastery",
-        "Corrective work procedures",
-        "Business growth strategies",
-        "Marketing templates & guides",
-        "Priority community support",
-        "Guest educator masterclasses"
+        "Complete online education (8 video modules, 36 months)",
+        "1 day of individual in-person work with Nikolina (6–8 hours)",
+        "Training at Studio One by Nina",
+        "Brendia Pro® certificate after your final work is approved",
+        "Brendia Pro® Education Kit",
+        "Free Brendia Pro® Masterclass"
       ],
       "curriculum": []
     },
-    "artist1v1": {
-      "title": "Brendia Pro® Artist 1v1",
-      "subtitle": "Live In-Salon Education",
-      "price": "€2,000",
-      "duration": "1 day (4 hours)",
-      "description": "Personalized live education with a mentor in-salon. Ideal for fast learning of practical techniques through hands-on practice.",
-      "longDescription": "Brendia Pro® Artist 1v1 is a personalized one-on-one live education with a mentor in-salon. Through four hours of intensive hands-on practice you will master the weft extension installation technique with an individual approach tailored to your pace and experience level. After the education you receive official Brendia Pro® certification, platform access and a welcome box with materials.",
+    "group": {
+      "title": "Brendia Pro® Artist group education",
+      "subtitle": "2 days in person in a small group",
+      "price": "€2,200",
+      "duration": "2 days in person, group of 3–5 participants",
+      "description": "Two days of in-person education in a small group of 3 to 5 participants, at Studio One by Nina.",
+      "forWho": "For hairdressers who learn best hands-on and in the company of colleagues.",
+      "firstGroupNote": "First group: 5 and 6 December 2026.",
+      "longDescription": "Two days of in-person education in a small group of 3 to 5 participants, at Studio One by Nina. Every participant gets plenty of time and attention, learning through practical examples under Nikolina's mentorship.",
       "features": [
-        "Live education with mentor",
-        "4 hours of hands-on practice",
-        "Personalized approach",
-        "Official Brendia Pro® certification",
-        "Platform access (shop, community)",
-        "Welcome box with materials"
+        "2 days of in-person education at Studio One by Nina",
+        "Small group of 3 to 5 participants",
+        "Hands-on work under Nikolina's mentorship",
+        "Brendia Pro® Education Kit",
+        "Free Brendia Pro® Masterclass",
+        "15% off your first Brendia Pro® hair order"
       ],
-      "curriculum": [
-        {
-          "module": "Preparation & Theory",
-          "lessons": [
-            "Introduction and program overview",
-            "Welcome box with materials",
-            "Client consultation and assessment",
-            "Hair quality and selection",
-            "Tools and workstation setup"
-          ]
-        },
-        {
-          "module": "Hands-on In-Salon Practice",
-          "lessons": [
-            "Installation technique demonstration",
-            "Supervised installation practice",
-            "Corrections and finishing",
-            "Maintenance and aftercare"
-          ]
-        },
-        {
-          "module": "Completion & Certification",
-          "lessons": [
-            "Working with clients and pricing",
-            "Q&A session",
-            "Certificate ceremony",
-            "Platform access activation"
-          ]
-        }
-      ]
+      "curriculum": []
     },
-    "master1v1": {
-      "title": "Advanced Brendia Pro® Artist 1v1",
-      "subtitle": "Live In-Studio Education",
-      "price": "€5,000",
-      "duration": "2 days (6 hours/day)",
-      "description": "Complete Artist and Advanced Artist education live in studio. Two days of intensive practice and personal mentorship.",
-      "longDescription": "Advanced Brendia Pro® Artist 1v1 combines the complete Artist and Advanced Artist content into two days of intensive one-on-one live education in-studio. With twelve hours of hands-on practice and personal mentorship you will master weft extension installation from the fundamentals to advanced techniques. After the education you receive official Brendia Pro® certification, platform access and a welcome box with materials.",
+    "oneDay": {
+      "title": "Brendia Pro® Artist 1:1 – one day",
+      "subtitle": "Individual in-person education",
+      "price": "€2,500",
+      "duration": "1 day (6–8 hours, longer if needed)",
+      "description": "One day of individual work with Nikolina, 6–8 hours, and longer if needed.",
+      "forWho": "For hairdressers who want a fully individual approach on their own model.",
+      "longDescription": "One day of individual work with Nikolina at Studio One by Nina, 6–8 hours, and longer if needed. A fully individual approach on your own model, adapted to your pace and experience level.",
       "features": [
-        "2 days of live education with mentor",
-        "12 hours of hands-on practice (6h/day)",
-        "Artist + Advanced Artist content",
-        "Personalized approach",
-        "Official Brendia Pro® certification",
-        "Platform access (shop, community)",
-        "Welcome box with materials"
+        "1 day of individual work with Nikolina (6–8 hours, longer if needed)",
+        "Work on your own model",
+        "Fully individual approach",
+        "Brendia Pro® Education Kit",
+        "Free Brendia Pro® Masterclass",
+        "15% off your first Brendia Pro® hair order"
       ],
-      "curriculum": [
-        {
-          "module": "Day 1: Foundations & Installation Technique",
-          "lessons": [
-            "Welcome box with materials",
-            "Client consultation and assessment",
-            "Hair quality and selection",
-            "Installation technique demonstration",
-            "Supervised installation practice",
-            "Maintenance and aftercare"
-          ]
-        },
-        {
-          "module": "Day 2: Advanced Techniques",
-          "lessons": [
-            "Advanced installation techniques",
-            "Working with challenging hair types",
-            "Corrective work and finishing",
-            "Q&A session"
-          ]
-        },
-        {
-          "module": "Completion & Certification",
-          "lessons": [
-            "Certificate ceremony",
-            "Platform access activation"
-          ]
-        }
-      ]
+      "curriculum": []
     },
-    "prerequisiteBadge": "Certification required",
-    "prerequisiteNote": "This course is available only to students who have completed and passed the Brendia Pro® Artist certification. Use the email you're registered with on the platform when purchasing — access is verified automatically."
+    "twoDays": {
+      "title": "Brendia Pro® Artist 1:1 – two days + online",
+      "subtitle": "The most complete program",
+      "price": "€4,500",
+      "duration": "2 days in person + online education (36 months)",
+      "description": "The most complete program: two days of individual work with Nikolina plus 36 months of access to the online education.",
+      "forWho": "For hairdressers who want to master the method in depth with personal mentorship.",
+      "longDescription": "The most complete Brendia Pro® program: two days of individual work with Nikolina at Studio One by Nina plus 36 months of access to the online education through the Brendia Pro® Academy. For hairdressers who want to master the method in depth with personal mentorship.",
+      "features": [
+        "2 days of individual work with Nikolina",
+        "Complete online education (8 video modules, 36 months)",
+        "Personal mentorship",
+        "Brendia Pro® certificate after your final work is approved",
+        "Brendia Pro® Education Kit",
+        "Free Brendia Pro® Masterclass"
+      ],
+      "curriculum": []
+    },
+    "groupSchedule": {
+      "title": "Date and enrollment",
+      "firstGroup": "First group: {dates}",
+      "groupSize": "The group has at most {seats} participants, so each one gets plenty of time and attention.",
+      "enrollBy": "Enrollment is open until {date}. You confirm your spot by paying a 30% deposit.",
+      "seatsLeft": "Spots left: {count}",
+      "soldOut": "All spots for this date are taken. Contact us for the next date.",
+      "closed": "Enrollment is currently closed. New dates will be announced soon."
+    },
+    "inquiryBlock": {
+      "title": "Date by arrangement",
+      "content": "We arrange the date based on availability, and you confirm the reservation by paying a 30% deposit. We recommend booking at least 2–3 weeks in advance."
+    },
+    "modelHair": {
+      "title": "Model and hair",
+      "content": "You provide your own model, and before the education we assess together whether the model is suitable for the task. Hair for working on the model is not included and is arranged according to the model's needs. As a participant you get 15% off your first Brendia Pro® hair order."
+    },
+    "inquiryForm": {
+      "title": "Send a date inquiry",
+      "subtitle": "Get in touch and we will arrange a date that suits you. Once the date is agreed, we send you a link to pay the 30% deposit.",
+      "name": "Full name",
+      "namePlaceholder": "Your full name",
+      "email": "Email address",
+      "emailPlaceholder": "you@email.com",
+      "phone": "Phone number",
+      "phonePlaceholder": "+385 ...",
+      "preferredDates": "Preferred dates (approximate)",
+      "preferredDatesPlaceholder": "e.g. mid-December, a weekend...",
+      "message": "Message (optional)",
+      "messagePlaceholder": "Tell us about your experience and expectations...",
+      "submit": "Send inquiry",
+      "sending": "Sending...",
+      "success": "Thank you for your inquiry! We will get back to you within 24 to 48 hours.",
+      "error": "Sending failed. Please try again or write to us at info@brendiapro.hr.",
+      "validation": {
+        "name": "Enter your full name",
+        "email": "Enter a valid email address",
+        "phone": "Enter your phone number"
+      }
+    },
+    "educationKit": {
+      "title": "Education Kit",
+      "heading": "What you get in the Brendia Pro® Education Kit",
+      "content": "A Brendia Pro® bag with professional tools: Precision Ruler, tail comb, sectioning clips, 2 mm micro beads, bead pliers, loop tools, sewing needles, thread, thread scissors, a spray bottle, practice hair, Workbook, cape, hair velcro strips and a Brendia Pro® pen.",
+      "note": "Practice hair is included. A mannequin is not included, and hair for working on a live model is arranged separately. You receive the Education Kit with every Brendia Pro® education; it is not available for separate purchase.",
+      "value": "Education Kit value: €600"
+    },
+    "masterclass": {
+      "title": "Brendia Pro® Masterclass",
+      "heading": "A masterclass as a gift.",
+      "content": "With every Brendia Pro® program you receive free participation in the Brendia Pro® Masterclass, in a group of up to 15 participants, while spots last. Dates and enrollment deadlines are announced in advance."
+    },
+    "paymentMethods": {
+      "title": "Payment methods",
+      "intro": "With the option of an R-1 invoice, you can pay for the education:",
+      "bullets": [
+        "by card or bank transfer, and in-person education also in cash at Studio One by Nina",
+        "in one payment with cards of all banks: Premium Visa Card, Diners, Maestro, Mastercard, Visa Electron, Visa",
+        "in interest-free installments, according to the table"
+      ],
+      "table": {
+        "cards": "Cards",
+        "above80": "Installments (above €80)",
+        "above500": "Installments (above €500)",
+        "above1500": "Installments (above €1,500)",
+        "interest": "Interest",
+        "interestFree": "Interest-free"
+      },
+      "note": "*For amounts up to €80 only one-time card payment is possible, with cards of all banks. **Available only for individual Mastercard credit cards."
+    },
+    "refundPolicy": {
+      "title": "Refund and cancellation policy",
+      "online": {
+        "title": "Online education",
+        "heading": "Access activation and right of withdrawal.",
+        "content": "Access to the online education is activated immediately after payment, with your explicit consent to immediate activation and confirmation that by activating you lose the right to unilateral contract withdrawal. After activation, payments are non-refundable. If you are a consumer and access has not yet been activated, you have the legal right to withdraw from the contract within 14 days."
+      },
+      "live": {
+        "title": "In-person education",
+        "heading": "Reservation and date changes.",
+        "content": "An in-person education date is confirmed by paying a 30% deposit. You can change the date once free of charge if you request the change at least 14 days in advance. In case of cancellation the deposit is not refunded, but with notice at least 14 days before the date it can be transferred to another date."
+      }
+    }
   },
   "aboutPage": {
     "hero": {
@@ -768,8 +820,8 @@
             "answer": "The Brendia Pro® education is intended for hairdressers who want to expand their knowledge, refine their technique of working with extensions, and elevate the quality of their services to the next level."
           },
           {
-            "question": "What is the difference between Artist and Advanced Artist?",
-            "answer": "The Artist education represents the foundation of the Brendia Pro® technique and focuses on acquiring the key knowledge and skills needed for proper work.\n\nThe Advanced Artist education is intended for those who want to take a step further, perfect their technique, and master more advanced working methods."
+            "question": "Which programs do you offer?",
+            "answer": "We offer five Brendia Pro® programs: Artist Online (€1,600), Artist Online + in person (€3,000), Artist group education (€2,200), Artist 1:1 – one day (€2,500) and Artist 1:1 – two days + online (€4,500). All prices include VAT, and with every program you receive the Brendia Pro® Education Kit and a free Brendia Pro® Masterclass."
           },
           {
             "question": "Do I need prior experience working with extensions?",
@@ -777,7 +829,7 @@
           },
           {
             "question": "How long does it take to complete the online course?",
-            "answer": "Since you have access to the modules for one year, you should complete the course within that period."
+            "answer": "You have 36 months of access to the video lessons from activation, and most participants finish the course in 6 to 8 weeks on average."
           },
           {
             "question": "Do I need to purchase additional materials?",
@@ -785,7 +837,7 @@
           },
           {
             "question": "Is in-person education available?",
-            "answer": "Yes. Brendia Pro® offers in-person education, with details and dates arranged individually."
+            "answer": "Yes. Besides the online program we offer group education (2 days in a group of 3 to 5 participants), 1:1 programs and the Online + in person combination. Dates for 1:1 education and in-person days are arranged individually, and you confirm your spot by paying a 30% deposit."
           }
         ]
       },
@@ -803,15 +855,15 @@
         "faqs": [
           {
             "question": "What do I get when I enroll?",
-            "answer": "By enrolling, you get access to the online education modules, a starter kit, support throughout the learning process, a mobile app so you can connect at any time, and the opportunity to earn a certificate after successfully completing the education."
+            "answer": "By enrolling you get access to the online education modules through the Brendia Pro® Academy, the Brendia Pro® Education Kit, support during the learning process, a mobile app so you can connect at any time, and the possibility of earning a certificate after successfully completing the education."
           },
           {
             "question": "What payment options are available?",
-            "answer": "You can pay for the Brendia Pro® education in a single payment or choose an installment plan, whichever suits you best."
+            "answer": "With the option of an R-1 invoice, you can pay for the education by card or bank transfer, and in-person education also in cash at Studio One by Nina. By card you can pay in one payment or in interest-free installments, depending on the bank and amount. The detailed installment table by bank is on the Courses page."
           },
           {
             "question": "Is there a refund policy?",
-            "answer": "Once access to the education has been activated, payments are non-refundable."
+            "answer": "Access activation and right of withdrawal. Access to the online education is activated immediately after payment, with your explicit consent to immediate activation and confirmation that by activating you lose the right to unilateral contract withdrawal. After activation, payments are non-refundable. If you are a consumer and access has not yet been activated, you have the legal right to withdraw from the contract within 14 days.\n\nReservation and date changes. An in-person education date is confirmed by paying a 30% deposit. You can change the date once free of charge if you request the change at least 14 days in advance. In case of cancellation the deposit is not refunded, but with notice at least 14 days before the date it can be transferred to another date."
           },
           {
             "question": "When do I get access to the education?",
@@ -824,7 +876,7 @@
         "faqs": [
           {
             "question": "How long do I have access to the education?",
-            "answer": "Access to the Brendia Pro® education is available for one year, giving you plenty of time to learn, practice, and revisit the content.\n\nYou can access the community and the website for as long as you need."
+            "answer": "By purchasing the education you get access to the educational video materials and content through the Brendia Pro® Academy platform for 36 months from the day of activation. After that period you can extend your access according to the Academy's then-current terms and price list. Certified Brendia Pro® Artists remain part of the professional Brendia Pro® community even after their video lesson access expires."
           },
           {
             "question": "Can I rewatch modules I have already completed?",
@@ -854,7 +906,11 @@
       "moreBenefits": "+{count} more benefits",
       "subtotal": "Subtotal (excl. VAT)",
       "vat": "VAT ({percentage}%)",
-      "total": "Total"
+      "total": "Total",
+      "programPrice": "Program price (incl. VAT)",
+      "deposit": "Deposit (30%)",
+      "remaining": "Remaining amount",
+      "remainingNote": "The remaining amount is paid before or on the day of the education."
     },
     "trustBadges": {
       "securePayment": "Secure payment via Monri Payments",
@@ -918,7 +974,9 @@
         "and": "and",
         "privacyPolicy": "Privacy Policy",
         "digitalProduct": ". I understand that this is a digital product and that I will receive access via email after payment.",
-        "marketing": "I would like to receive updates, tips, and exclusive offers from Brendia Pro® via email."
+        "marketing": "I would like to receive updates, tips, and exclusive offers from Brendia Pro® via email.",
+        "digitalActivation": "I agree that access to the digital content is activated immediately after payment and I confirm that by activating I lose the right to unilateral contract withdrawal.",
+        "liveReservation": "I accept the reservation terms: the date is confirmed by paying a 30% deposit, I can change the date once free of charge with at least 14 days' notice, and in case of cancellation the deposit is not refunded."
       },
       "validation": {
         "firstName": "Please enter your first name",
@@ -932,7 +990,9 @@
         "acceptTerms": "You must accept the terms and conditions",
         "oib": "Enter a valid OIB (11 digits)",
         "acceptContract": "You must accept the contract to continue",
-        "signature": "Please sign in the signature field"
+        "signature": "Please sign in the signature field",
+        "digitalActivation": "To purchase the online education you must consent to immediate activation of the digital content.",
+        "liveReservation": "You must accept the reservation terms."
       },
       "paymentPlan": {
         "title": "Payment method",
@@ -961,7 +1021,9 @@
         "predracunNote": "After ordering you will receive a proforma invoice with payment details (IBAN) by email. Your card will not be charged.",
         "predracunEmailNote": "Course access is activated once your payment is received — you will then get the invoice and activation link by email.",
         "cardsComingSoon": "💳 Card payments available in a few days",
-        "installmentsComingSoon": "📅 Coming soon: installment payments — available in just a few days"
+        "installmentsComingSoon": "📅 Coming soon: installment payments — available in just a few days",
+        "depositButton": "Pay {price} deposit",
+        "depositEmailNote": "After the deposit payment you will receive a reservation confirmation and invoice by email. The remaining amount is paid before or on the day of the education."
       },
       "contract": {
         "title": "Education contract",
@@ -1185,14 +1247,13 @@
         }
       },
       "refundPolicy": {
-        "title": "6. Refund Policy",
-        "content1": "We offer a 14-day satisfaction guarantee. If you are not satisfied with your course within 14 days of purchase, you may request a full refund by contacting us at refunds@brendiapro.hr.",
-        "content2": "Refund requests after 14 days will be evaluated on a case-by-case basis. No refunds will be issued for:",
-        "items": [
-          "Courses completed beyond 50%",
-          "Certification already issued",
-          "Requests made after 30 days from purchase"
-        ]
+        "title": "6. Refund and Cancellation Policy",
+        "onlineTitle": "Online education",
+        "onlineHeading": "Access activation and right of withdrawal.",
+        "onlineContent": "Access to the online education is activated immediately after payment, with your explicit consent to immediate activation and confirmation that by activating you lose the right to unilateral contract withdrawal. After activation, payments are non-refundable. If you are a consumer and access has not yet been activated, you have the legal right to withdraw from the contract within 14 days.",
+        "liveTitle": "In-person education",
+        "liveHeading": "Reservation and date changes.",
+        "liveContent": "An in-person education date is confirmed by paying a 30% deposit. You can change the date once free of charge if you request the change at least 14 days in advance. In case of cancellation the deposit is not refunded, but with notice at least 14 days before the date it can be transferred to another date."
       },
       "certification": {
         "title": "7. Certification",

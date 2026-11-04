@@ -14,6 +14,19 @@ import {
   AccordionContent,
 } from "@/components/ui";
 import { CourseSchema, BreadcrumbSchema } from "@/components/shared";
+import {
+  PaymentMethodsBlock,
+  MasterclassBlock,
+  EducationKitBlock,
+  GroupScheduleCard,
+  useGroupSession,
+  InquiryForm,
+} from "@/components/sections";
+import {
+  courses as courseData,
+  calculateDepositPricing,
+  formatPrice,
+} from "@/lib/constants/courses";
 
 interface CurriculumModule {
   module: string;
@@ -24,24 +37,30 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+// Pet programa nove ponude; purchase tip dolazi iz lib/constants/courses.ts
+const slugToKey: Record<string, string> = {
+  "foundation-certification": "online",
+  "artist-online-live": "onlineLive",
+  "artist-group": "group",
+  "brendia-pro-artist-1v1": "oneDay",
+  "artist-1v1-two-days": "twoDays",
+};
+
 export default function CoursePage({ params }: PageProps) {
   const { slug } = use(params);
   const t = useTranslations("courseDetail");
   const tNav = useTranslations("navigation");
+  const { session, loaded } = useGroupSession();
 
-  const slugToKey: Record<string, string> = {
-    "foundation-certification": "foundation",
-    "master-certification": "master",
-    "brendia-pro-artist-1v1": "artist1v1",
-    "brendia-pro-master-1v1": "master1v1",
-  };
   const courseKey = slugToKey[slug];
-  if (!courseKey) {
+  const courseConfig = courseData[slug];
+  if (!courseKey || !courseConfig) {
     notFound();
   }
 
-  const isPopular = courseKey === "master";
-  const requiresCertification = courseKey === "master";
+  const purchase = courseConfig.purchase;
+  const isGroup = courseKey === "group";
+  const isLiveProgram = courseKey !== "online";
 
   const course = {
     title: t(`${courseKey}.title`),
@@ -50,16 +69,41 @@ export default function CoursePage({ params }: PageProps) {
     duration: t(`${courseKey}.duration`),
     description: t(`${courseKey}.description`),
     longDescription: t(`${courseKey}.longDescription`),
-    image: `/images/courses/${
-      courseKey === "foundation" || courseKey === "artist1v1"
-        ? "foundation"
-        : "master"
-    }.jpg`,
+    forWho: t(`${courseKey}.forWho`),
+    image: courseConfig.image,
     features: t.raw(`${courseKey}.features`) as string[],
     curriculum: t.raw(`${courseKey}.curriculum`) as CurriculumModule[],
   };
 
+  const depositAmount = formatPrice(
+    calculateDepositPricing(courseConfig.price).total
+  );
+
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://brendiapro.hr";
+
+  const groupCheckoutDisabled = isGroup && loaded && !session?.open;
+
+  const primaryCta =
+    purchase === "inquiry" ? (
+      <a href="#inquiry">
+        <Button size="lg" className="min-w-[200px]">
+          {t("sendInquiry")}
+        </Button>
+      </a>
+    ) : (
+      <Link
+        href={`/checkout/${slug}`}
+        className={groupCheckoutDisabled ? "pointer-events-none" : ""}
+      >
+        <Button
+          size="lg"
+          className="min-w-[200px]"
+          disabled={groupCheckoutDisabled}
+        >
+          {isGroup ? t("reserveSpot") : t("enrollNow")}
+        </Button>
+      </Link>
+    );
 
   return (
     <>
@@ -102,22 +146,6 @@ export default function CoursePage({ params }: PageProps) {
                 {t("backToCourses")}
               </Link>
 
-              <div className="flex flex-wrap items-center gap-2 mb-4">
-                {isPopular && (
-                  <span className="inline-block bg-secondary text-white px-4 py-1 text-xs font-medium tracking-wider uppercase">
-                    {t("mostPopular")}
-                  </span>
-                )}
-                {requiresCertification && (
-                  <span className="inline-flex items-center gap-1.5 bg-primary/90 text-white px-4 py-1 text-xs font-medium tracking-wider uppercase">
-                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 00-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-                    </svg>
-                    {t("prerequisiteBadge")}
-                  </span>
-                )}
-              </div>
-
               <p className="text-secondary text-sm font-medium mb-2">
                 {course.subtitle}
               </p>
@@ -127,42 +155,44 @@ export default function CoursePage({ params }: PageProps) {
               <p className="text-lg text-primary/70 leading-relaxed mb-4">
                 {course.longDescription}
               </p>
+              <p className="text-primary/70 leading-relaxed mb-4">
+                <span className="font-medium text-primary">
+                  {t("forWhoLabel")}:
+                </span>{" "}
+                {course.forWho}
+              </p>
               <p className="text-sm text-primary/50 mb-8">{course.duration}</p>
 
               <div className="flex items-end gap-6 mb-2">
                 <p className="text-5xl font-heading text-primary">{course.price}</p>
-                <p className="text-primary/50 pb-2">{t("exclVat")}</p>
               </div>
               <p className="text-sm text-primary/40 mb-8">
-                {t("vatNote")}
+                {t("priceIncludesVat")}
               </p>
 
-              {requiresCertification && (
-                <div className="flex items-start gap-3 mb-6 p-4 bg-secondary/5 border border-secondary/20 max-w-xl">
-                  <svg className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 00-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-                  </svg>
-                  <p className="text-sm text-primary/70 leading-relaxed">
-                    {t("prerequisiteNote")}
-                  </p>
-                </div>
+              {/* Rezervacija predujmom (grupna + svi programi uživo) */}
+              {purchase !== "direct" && (
+                <p className="text-sm text-primary/60 mb-8 max-w-xl">
+                  {t("depositNote", { amount: depositAmount })}
+                </p>
               )}
 
-              <Link href={`/checkout/${slug}`}>
-                <Button size="lg" className="min-w-[200px]">
-                  {t("enrollNow")}
-                </Button>
-              </Link>
+              {primaryCta}
             </div>
 
-            <div className="relative aspect-[4/3] lg:aspect-square">
-              <Image
-                src={course.image}
-                alt={course.title}
-                fill
-                className="object-cover"
-                priority
-              />
+            <div className="space-y-6">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={course.image}
+                  alt={course.title}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              {isGroup && (
+                <GroupScheduleCard session={session} loaded={loaded} />
+              )}
             </div>
           </div>
         </Container>
@@ -202,7 +232,7 @@ export default function CoursePage({ params }: PageProps) {
         </Container>
       </section>
 
-      {/* Curriculum — skriveno dok tečaj nema objavljen kurikulum */}
+      {/* Curriculum — skriveno dok program nema objavljen kurikulum */}
       {course.curriculum.length > 0 && (
       <section className="py-20 md:py-32 bg-cream">
         <Container>
@@ -258,6 +288,64 @@ export default function CoursePage({ params }: PageProps) {
       </section>
       )}
 
+      {/* Edukacije uživo: termin po dogovoru + model i kosa */}
+      {isLiveProgram && (
+        <section className="py-20 md:py-32 bg-cream">
+          <Container>
+            <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+              {purchase === "inquiry" && (
+                <div className="bg-white p-8 md:p-10">
+                  <h3 className="text-2xl font-heading text-primary mb-4">
+                    {t("inquiryBlock.title")}
+                  </h3>
+                  <p className="text-primary/70 leading-relaxed">
+                    {t("inquiryBlock.content")}
+                  </p>
+                </div>
+              )}
+              <div className={`bg-white p-8 md:p-10 ${purchase !== "inquiry" ? "md:col-span-2" : ""}`}>
+                <h3 className="text-2xl font-heading text-primary mb-4">
+                  {t("modelHair.title")}
+                </h3>
+                <p className="text-primary/70 leading-relaxed">
+                  {t("modelHair.content")}
+                </p>
+              </div>
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* Education Kit + Masterclass + Načini plaćanja */}
+      <section className="py-20 md:py-32 bg-white">
+        <Container>
+          <div className="max-w-5xl mx-auto space-y-10">
+            <EducationKitBlock />
+            <MasterclassBlock ns="courseDetail" />
+            <PaymentMethodsBlock ns="courseDetail" />
+          </div>
+        </Container>
+      </section>
+
+      {/* Upit za termin (1:1 programi i Online + uživo) */}
+      {purchase === "inquiry" && (
+        <section className="py-20 md:py-32 bg-cream" id="inquiry">
+          <Container>
+            <div className="max-w-2xl mx-auto">
+              <div className="text-center mb-10">
+                <h2 className="text-3xl font-heading text-primary mb-4">
+                  {t("inquiryForm.title")}
+                </h2>
+                <p className="text-primary/60">{t("inquiryForm.subtitle")}</p>
+              </div>
+              <div className="bg-white p-8">
+                <InquiryForm programName={course.title} />
+              </div>
+            </div>
+          </Container>
+        </section>
+      )}
+
       {/* CTA */}
       <section className="py-20 md:py-32 bg-primary text-white">
         <Container>
@@ -269,11 +357,22 @@ export default function CoursePage({ params }: PageProps) {
               {t("cta.description")}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href={`/checkout/${slug}`}>
-                <Button variant="secondary" size="lg">
-                  {t("cta.enrollIn", { course: course.title })}
-                </Button>
-              </Link>
+              {purchase === "inquiry" ? (
+                <a href="#inquiry">
+                  <Button variant="secondary" size="lg">
+                    {t("sendInquiry")}
+                  </Button>
+                </a>
+              ) : (
+                <Link
+                  href={`/checkout/${slug}`}
+                  className={groupCheckoutDisabled ? "pointer-events-none" : ""}
+                >
+                  <Button variant="secondary" size="lg" disabled={groupCheckoutDisabled}>
+                    {isGroup ? t("reserveSpot") : t("cta.enrollIn", { course: course.title })}
+                  </Button>
+                </Link>
+              )}
               <Link href="/contact">
                 <Button
                   variant="ghost"
