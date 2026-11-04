@@ -18,6 +18,9 @@ import {
   PaymentMethodsBlock,
   MasterclassBlock,
   EducationKitBlock,
+  HowToCertificateBlock,
+  ValueOfSkillBlock,
+  ProfessionalPurchaseBlock,
   GroupScheduleCard,
   useGroupSession,
   InquiryForm,
@@ -316,12 +319,18 @@ export default function CoursePage({ params }: PageProps) {
         </section>
       )}
 
-      {/* Education Kit + Masterclass + Načini plaćanja */}
+      {/* Kako do certifikata (online program) + Education Kit + Masterclass
+          + Vrijednost vještine + Profesionalna kupnja + Načini plaćanja */}
       <section className="py-20 md:py-32 bg-white">
         <Container>
           <div className="max-w-5xl mx-auto space-y-10">
+            {courseKey === "online" && <HowToCertificateBlock />}
             <EducationKitBlock />
             <MasterclassBlock ns="courseDetail" />
+            <div className="grid md:grid-cols-2 gap-10">
+              <ValueOfSkillBlock />
+              <ProfessionalPurchaseBlock />
+            </div>
             <PaymentMethodsBlock ns="courseDetail" />
           </div>
         </Container>

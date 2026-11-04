@@ -14,6 +14,7 @@ export function Footer() {
     company: [
       { name: t("about"), href: "/about" },
       { name: t("courses"), href: "/courses" },
+      { name: t("certifiedArtists"), href: "/certified-artists" },
       { name: t("contact"), href: "/contact" },
     ],
     support: [
@@ -311,7 +312,7 @@ export function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/profile.php?id=61592766822503"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/40 hover:text-white transition-colors"

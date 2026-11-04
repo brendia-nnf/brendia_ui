@@ -11,6 +11,9 @@ export {
   RefundPolicyBlock,
   MasterclassBlock,
   EducationKitBlock,
+  HowToCertificateBlock,
+  ValueOfSkillBlock,
+  ProfessionalPurchaseBlock,
 } from "./ProgramBlocks";
 export { GroupScheduleCard, useGroupSession } from "./GroupScheduleCard";
 export type { GroupSession } from "./GroupScheduleCard";

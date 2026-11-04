@@ -92,19 +92,16 @@ export function Hero() {
               <Link href="/courses">
                 <Button size="lg">{t("exploreCourses")}</Button>
               </Link>
-              <Link href="/about">
+              <Link href="/method">
                 <Button variant="outline" size="lg">
                   {t("meetEducator")}
                 </Button>
               </Link>
             </div>
 
-            {/* Trust indicators */}
-            <div data-animate className="flex items-center gap-8 mt-12 pt-8 border-t border-primary/10">
-              <div>
-                <p className="text-xl font-heading text-primary">{t("trustCertificationTitle")}</p>
-                <p className="text-sm text-primary/60">{t("trustCertificationLabel")}</p>
-              </div>
+            {/* Tri značajke, redoslijed 2.12: Korak po korak, Osobni
+                feedback, Brendia Pro® certifikat */}
+            <div data-animate className="flex flex-wrap items-start gap-x-8 gap-y-4 mt-12 pt-8 border-t border-primary/10">
               <div>
                 <p className="text-xl font-heading text-primary">{t("trustLessonsTitle")}</p>
                 <p className="text-sm text-primary/60">{t("trustLessonsLabel")}</p>
@@ -112,6 +109,10 @@ export function Hero() {
               <div>
                 <p className="text-xl font-heading text-primary">{t("trustFeedbackTitle")}</p>
                 <p className="text-sm text-primary/60">{t("trustFeedbackLabel")}</p>
+              </div>
+              <div>
+                <p className="text-xl font-heading text-primary">{t("trustCertificationTitle")}</p>
+                <p className="text-sm text-primary/60">{t("trustCertificationLabel")}</p>
               </div>
             </div>
           </div>

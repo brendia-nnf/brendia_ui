@@ -73,8 +73,9 @@ export function VideoIntro() {
               onPause={() => setIsPlaying(false)}
               onEnded={() => setIsPlaying(false)}
             >
+              {/* 2.10: fallback tekst se prikazivao u sadržaju stranice —
+                  bez tekstualnog childa unutar <video> */}
               <source src="/videos/video-web-brendia.mp4" type="video/mp4" />
-              {t("browserNotSupported")}
             </video>
 
             {/* Play/Pause overlay */}

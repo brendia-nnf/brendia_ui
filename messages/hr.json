@@ -11,42 +11,43 @@
     "faq": "FAQ",
     "contact": "Kontakt",
     "enrollNow": "Upišite se",
-    "toggleMenu": "Otvori izbornik"
+    "toggleMenu": "Otvori izbornik",
+    "certifiedArtists": "Certificirane Artistice"
   },
   "hero": {
-    "tagline": "Premium edukacija za ekstenzije kose",
-    "title": "Ovladajte umijećem",
-    "titleHighlight": "Weft ekstenzija",
-    "description": "Transformirajte svoju karijeru s tečajevima pod vodstvom stručnjaka. Naučite tehnike koje će vas izdvojiti i izgraditi uspješan posao s ekstenzijama.",
-    "exploreCourses": "Istražite tečajeve",
-    "meetEducator": "Upoznajte edukatoricu",
+    "tagline": "Brendia Pro® Academy",
+    "title": "Šivane weft ekstenzije",
+    "titleHighlight": "po Brendia Pro® metodi",
+    "description": "Naučite metodu koju Nikolina Kljaić svakodnevno radi u Studio One by Nina. Bez topline i ljepila, online vlastitim tempom ili uživo, uz certifikat i podršku nakon edukacije.",
+    "exploreCourses": "Pogledajte programe",
+    "meetEducator": "Upoznajte metodu",
     "studentsCertified": "Certificiranih polaznika",
     "yearsExperience": "Godina iskustva",
     "successRate": "Stopa uspješnosti",
     "scroll": "Skrolaj",
-    "trustCertificationTitle": "Certifikat",
-    "trustCertificationLabel": "Po uspješnom završetku tečaja",
+    "trustCertificationTitle": "Brendia Pro® certifikat",
+    "trustCertificationLabel": "Nakon odobrenja završnog rada",
     "trustLessonsTitle": "Korak po korak",
-    "trustLessonsLabel": "Detaljne video lekcije",
+    "trustLessonsLabel": "8 video modula, od procjene kose do rada na modelu",
     "trustFeedbackTitle": "Osobni feedback",
-    "trustFeedbackLabel": "Nikolina pregledava vaš rad"
+    "trustFeedbackLabel": "Nikolina pregledava vaš završni rad"
   },
   "valueProposition": {
-    "tagline": "Zašto odabrati Brendia Pro®",
-    "title": "Podignite svoje umijeće na novu razinu",
-    "description": "Naš sveobuhvatni certifikacijski program nadilazi osnovnu edukaciju i pretvara vas u traženog stručnjaka za ekstenzije.",
+    "tagline": "Brendia Pro® Academy",
+    "title": "Zašto Brendia Pro® Academy",
+    "description": "Učite od praktičarke, uz certifikat koji nešto znači i zajednicu koja ostaje.",
     "values": {
       "expertLed": {
-        "title": "Edukacija pod vodstvom stručnjaka",
-        "description": "Učite direktno od Nikoline Kljaić, vrhunske edukatorice s više od desetljeća iskustva u usavršavanju tehnika weft ekstenzija."
+        "title": "Učite od praktičarke",
+        "description": "Nikolina je u frizerstvu više od 20 godina i educirana je za šest tehnika ekstenzija. Šivanim weft ekstenzijama posvećuje se od 2020. Iza metode stoji više od 350 ugradnji u Studio One by Nina."
       },
       "certification": {
-        "title": "Priznata certifikacija",
-        "description": "Steknite prestižnu certifikaciju koja učvršćuje vaš kredibilitet i otvara vrata premium klijenteli diljem svijeta."
+        "title": "Certifikat koji nešto znači",
+        "description": "Certifikat dobivate tek nakon što Nikolina pregleda i odobri vaš završni rad na modelu, u digitalnom i tiskanom obliku."
       },
       "community": {
-        "title": "Ekskluzivna zajednica",
-        "description": "Pridružite se mreži certificiranih profesionalaca. Pristupite kontinuiranoj podršci, ažuriranjima i ekskluzivnim industrijskim uvidima."
+        "title": "Zajednica i nakon edukacije",
+        "description": "Certificirane Brendia Pro® Artistice ostaju dio profesionalne zajednice i nakon isteka pristupa video lekcijama, uz pristup profesionalnoj kupnji kose i alata."
       }
     }
   },
@@ -80,7 +81,8 @@
     "paymentSecurity": "Sigurnost plaćanja",
     "complaints": "Reklamacije i prigovori",
     "cookiePolicy": "Politika kolačića",
-    "allRightsReserved": "Sva prava pridržana."
+    "allRightsReserved": "Sva prava pridržana.",
+    "certifiedArtists": "Certificirane Artistice"
   },
   "courses": {
     "tagline": "Naši programi",
@@ -114,7 +116,7 @@
   "about": {
     "tagline": "Upoznajte osnivačicu",
     "title": "Nikolina Kljaić",
-    "description": "S više od desetljeća iskustva u industriji ekstenzija kose, Nikolina je posvetila svoju karijeru podizanju standarda edukacije za ekstenzije."
+    "description": "Više od 20 godina u frizerstvu, edukacija za šest tehnika ekstenzija, od 2020. sa šivanim weft ekstenzijama, više od 350 ugradnji."
   },
   "faq": {
     "title": "Često postavljana pitanja",
@@ -134,8 +136,7 @@
     "title": "Dobrodošli u Brendia Pro®",
     "caption": "Nikolina dijeli svoju strast za weft ekstenzijama i što možete očekivati od Brendia Pro®",
     "playVideo": "Pokreni video",
-    "pauseVideo": "Pauziraj video",
-    "browserNotSupported": "Vaš preglednik ne podržava video oznaku."
+    "pauseVideo": "Pauziraj video"
   },
   "coursePreview": {
     "tagline": "Naši programi",
@@ -186,16 +187,16 @@
   "aboutFounder": {
     "tagline": "Upoznajte svoju edukatoricu",
     "name": "Nikolina Kljaić",
-    "bio1": "S više od desetljeća iskustva u industriji ekstenzija kose, Nikolina je svoju karijeru posvetila edukaciji frizera. Njezina strast za edukacijom i predanost izvrsnosti ugrađene su u svaki Brendia Pro® tečaj za weft ekstenzije.",
+    "bio1": "Nikolina Kljaić u frizerstvu je više od 20 godina i educirana je za šest tehnika ekstenzija. Šivanim weft ekstenzijama posvećuje se od 2020. i one su postale njezina ljubav. U Studio One by Nina dosad je napravila više od 350 ugradnji. Iz tog iskustva nastala je Brendia Pro® metoda.",
     "quote": "Moja misija je osnažiti frizere znanjem i tehnikama koje su im potrebne za izgradnju uspješnog poslovanja i stvaranje zadivljujućih transformacija za svoje klijente. Svaki polaznik koji se pridruži Brendia Pro® postaje dio zajednice posvećene izvrsnosti.",
     "yearsInIndustry": "Godina u industriji",
     "studentsTrained": "Obučenih polaznika",
     "readFullStory": "Pročitajte cijelu priču",
     "imageAlt": "Nikolina Kljaić - Osnivačica Brendia Pro®",
-    "credExperienceTitle": "Dugogodišnje iskustvo",
-    "credExperienceLabel": "u industriji ekstenzija kose",
-    "credEducationTitle": "Praktična edukacija",
-    "credEducationLabel": "uz osobne povratne informacije"
+    "credExperienceTitle": "20+ godina",
+    "credExperienceLabel": "u frizerstvu, šest tehnika ekstenzija",
+    "credEducationTitle": "350+ ugradnji",
+    "credEducationLabel": "u Studio One by Nina"
   },
   "appDownload": {
     "tagline": "Mobilna aplikacija",
@@ -253,7 +254,7 @@
       "officialCertification": "Brendia Pro® certifikat"
     },
     "video": {
-      "title": "Čujte od svoje edukatorice",
+      "title": "Nikolina o edukaciji",
       "description": "Nikolina objašnjava što ćete naučiti i kako ovi tečajevi mogu transformirati vašu karijeru",
       "play": "Pokreni video",
       "pause": "Pauziraj video"
@@ -410,19 +411,19 @@
       "belowNote": "Sve cijene uključuju PDV. Karticom možete platiti na rate bez kamata, ovisno o banci i iznosu. Kosa za vježbu dolazi u Education Kitu. Lutka i kosa za rad na modelu nisu uključeni, a polaznice dobivaju 15 % popusta na prvu narudžbu Brendia Pro® kose."
     },
     "instructor": {
-      "tagline": "Vaša edukatorica",
+      "tagline": "Osnivačica Brendia Pro® metode",
       "title": "Učite od najboljih",
-      "description": "Nikolina Kljaić provela je godine usavršavajući svoje tehnike weft ekstenzija. Njezin pristup podučavanju kombinira detaljne tehničke upute s praktičnim poslovnim uvidima.",
+      "description": "Više od 20 godina u frizerstvu, edukacija za šest tehnika ekstenzija, od 2020. sa šivanim weft ekstenzijama, više od 350 ugradnji.",
       "yearsExperience": "Godina iskustva",
       "studentsTrained": "Obučenih polaznika",
       "countries": "Zemalja",
       "learnMore": "Saznajte više o Nikolini",
       "imageAlt": "Nikolina Kljaić - Vaša edukatorica",
-      "credExperienceTitle": "Dugogodišnje iskustvo",
-      "credExperienceLabel": "u weft ekstenzijama",
+      "credExperienceTitle": "20+ godina",
+      "credExperienceLabel": "u frizerstvu",
       "credFeedbackTitle": "Osobni pristup",
       "credFeedbackLabel": "Pregled i povratne informacije na vaš rad",
-      "credCertificationTitle": "Certifikat",
+      "credCertificationTitle": "Brendia Pro® certifikat",
       "credCertificationLabel": "Po uspješnom završetku programa"
     },
     "faqPreview": {
@@ -567,10 +568,10 @@
           ]
         },
         {
-          "module": "Modul 8: Live model — Genious weft",
+          "module": "Modul 8: Live model — Genius weft",
           "lessons": [
             "Live model",
-            "Genious weft"
+            "Genius weft"
           ]
         }
       ]
@@ -730,6 +731,41 @@
         "heading": "Rezervacija i promjena termina.",
         "content": "Termin edukacije uživo potvrđuje se uplatom predujma od 30 %. Termin možete jednom besplatno promijeniti ako promjenu zatražite najmanje 14 dana unaprijed. Kod otkazivanja predujam se ne vraća, ali ga uz obavijest najmanje 14 dana prije termina možete prenijeti na drugi termin."
       }
+    },
+    "howToCertificate": {
+      "title": "Kako do certifikata",
+      "steps": [
+        {
+          "title": "Završite sve module",
+          "description": "Lekcije pratite svojim tempom, na webu ili u aplikaciji."
+        },
+        {
+          "title": "Napravite završni rad",
+          "description": "Samostalno radite ugradnju na živom modelu."
+        },
+        {
+          "title": "Predajte dokumentaciju",
+          "description": "Fotografirate ključne faze rada: početno stanje, sekcioniranje i placement, bead foundation, položaj i šivanje wefta, završni red, blending i završni rezultat iz potrebnih kutova. Po potrebi prilažete i kratki video ključnih tehničkih dijelova."
+        },
+        {
+          "title": "Nikolina pregledava rad",
+          "description": "Povratnu informaciju dobivate u roku od 5 radnih dana. Ako rad još ne zadovoljava Brendia Pro® standard, dobivate konkretan feedback i upute za korekciju te rad predajete ponovno."
+        },
+        {
+          "title": "Dobivate certifikat",
+          "description": "Nakon odobrenja završnog rada dobivate digitalni i tiskani Brendia Pro® certifikat. Uz vašu suglasnost, dodajemo vas na popis certificiranih Brendia Pro® Artistica na webu, gdje vas klijentice mogu pronaći po gradu i salonu."
+        }
+      ]
+    },
+    "valueOfSkill": {
+      "title": "Vrijednost vještine",
+      "heading": "Usluga koja klijentice vraća u salon.",
+      "content": "U Studio One by Nina ugradnja šivanih weft ekstenzija kreće se od 300 do 3.000 €, ovisno o transformaciji. Održavanje je svakih 2 do 2,5 mjeseca, a najkasnije nakon 3 mjeseca, i stoji od 110 do 550 €; kasnije održavanje naplaćuje se po višoj cijeni. Klijentica s ekstenzijama tako u salon dolazi četiri do pet puta godišnje.",
+      "disclaimer": "Iznosi su primjer iz Studio One by Nina i ne uključuju bojanje. Cijene u vašem salonu ovise o lokaciji, cjeniku i klijenticama, a navedeni iznosi nisu jamstvo zarade."
+    },
+    "professionalPurchase": {
+      "title": "Profesionalna kupnja",
+      "content": "Profesionalna Brendia Pro® kosa dostupna je polaznicama koje su završile Brendia Pro® Academy. Alati i potrošni materijal mogu se po potrebi omogućiti i tijekom edukacije."
     }
   },
   "aboutPage": {
@@ -743,8 +779,8 @@
       "tagline": "Upoznajte osnivačicu",
       "name": "Nikolina Kljaić",
       "bio": [
-        "S više od desetljeća iskustva u industriji ekstenzija kose, Nikolina je posvetila svoju karijeru usavršavanju umijeća weft ekstenzija i dijeljenju svoje stručnosti s drugima.",
-        "Njezino putovanje započelo je u malom salonu, gdje su je njezin prirodni talent i neumoran stremljenje savršenstvu brzo izdvojili. Klijenti su putovali iz cijele zemlje kako bi iskusili njezin transformativni rad, a kolege frizerke počele su tražiti da nauče njezine tehnike.",
+        "Nikolina Kljaić u frizerstvu je više od 20 godina i educirana je za šest tehnika ekstenzija. Šivanim weft ekstenzijama posvećuje se od 2020. i one su postale njezina ljubav. U Studio One by Nina dosad je napravila više od 350 ugradnji. Iz tog iskustva nastala je Brendia Pro® metoda.",
+        "Njezino putovanje započelo je u malom salonu, gdje su je njezin prirodni talent i neumorno stremljenje savršenstvu brzo izdvojili. Klijenti su putovali iz cijele zemlje kako bi iskusili njezin transformativni rad, a kolege frizerke počele su tražiti da nauče njezine tehnike.",
         "\"Shvatila sam da moj utjecaj može ići daleko izvan moje vlastite stolice,\" dijeli Nikolina. \"Podučavajući druge, mogla sam pomoći drugim frizerima da izgrade uspješne karijere dok njihove klijentice dobivaju samopouzdanje koje dolazi s prekrasnom kosom.\"",
         "Danas Nikolina vodi Brendia Pro® s istom strašću i pažnjom za detalje koji su definirali njezin rad od prvog dana. Svaki tečaj, svaka lekcija, svaka interakcija odražava njezinu predanost izvrsnosti i iskrenu brigu za uspjeh svojih polaznika."
       ],
@@ -755,14 +791,14 @@
       "description": "Od skromnih početaka do vizije koja mijenja standarde",
       "milestones": [
         {
-          "year": "2014",
-          "title": "Putovanje počinje",
-          "description": "Započela kao strastvena frizerka vođena željom za stvaranjem nečega što je više od samog zanata."
-        },
-        {
           "year": "2016",
           "title": "Korak prema savršenstvu",
           "description": "Početak istraživanja najboljih tehnika, s ciljem pronalaska metode koja pruža prirodan izgled, sigurnost i vrhunski rezultat."
+        },
+        {
+          "year": "2020",
+          "title": "Šivane weft ekstenzije",
+          "description": "Nikolina u svom salonu počinje raditi šivane weft ekstenzije."
         },
         {
           "year": "2023",
@@ -772,7 +808,7 @@
         {
           "year": "2026",
           "title": "Novi početak",
-          "description": "Patentira svoju tehniku i pokreće online edukacije."
+          "description": "Brendia Pro® postaje registrirani žig i pokreće Brendia Pro® Academy."
         }
       ]
     },
@@ -885,6 +921,10 @@
           {
             "question": "Mogu li se obratiti edukatorici ako imam pitanja?",
             "answer": "Da. Tijekom edukacije imate mogućnost komunikacije s edukatoricom, koja vam može pomoći s pitanjima i nedoumicama vezanim uz tehniku i vaš napredak."
+          },
+          {
+            "question": "Mogu li kupovati profesionalnu Brendia Pro® kosu i alate?",
+            "answer": "Profesionalna Brendia Pro® kosa dostupna je polaznicama koje su završile Brendia Pro® Academy. Alati i potrošni materijal mogu se po potrebi omogućiti i tijekom edukacije."
           }
         ]
       }
@@ -1304,5 +1344,18 @@
     "policyLink": "Politici kolačića",
     "acceptAll": "Prihvati sve",
     "necessaryOnly": "Samo nužni"
+  },
+  "artistsPage": {
+    "tagline": "Brendia Pro® Academy",
+    "title": "Certificirane Brendia Pro® Artistice",
+    "description": "Frizerke koje su završile Brendia Pro® edukaciju i čiji je završni rad Nikolina pregledala i odobrila. Pronađite certificiranu Artisticu u svom gradu.",
+    "searchPlaceholder": "Pretražite po gradu ili salonu...",
+    "cityLabel": "Grad",
+    "salonLabel": "Salon",
+    "certifiedSince": "Certificirana {year}.",
+    "noResults": "Nema rezultata za ovu pretragu.",
+    "emptyState": "Popis certificiranih Artistica uskoro objavljujemo. Prve polaznice upravo prolaze edukaciju.",
+    "becomeOne": "Želite li i vi postati certificirana Brendia Pro® Artistica?",
+    "becomeOneCta": "Pogledajte programe"
   }
 }

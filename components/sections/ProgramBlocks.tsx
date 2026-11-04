@@ -115,6 +115,61 @@ export function MasterclassBlock({ ns }: BlockProps) {
   );
 }
 
+// Kako do certifikata (2.6) — stranica online programa
+export function HowToCertificateBlock() {
+  const t = useTranslations("courseDetail.howToCertificate");
+
+  return (
+    <div className="bg-white p-8 md:p-10">
+      <h3 className="text-2xl font-heading text-primary mb-8">{t("title")}</h3>
+      <ol className="space-y-6">
+        {[0, 1, 2, 3, 4].map((i) => (
+          <li key={i} className="flex items-start gap-4">
+            <span className="w-8 h-8 flex-shrink-0 bg-secondary text-white flex items-center justify-center font-heading">
+              {i + 1}
+            </span>
+            <div>
+              <p className="font-medium text-primary mb-1">
+                {t(`steps.${i}.title`)}
+              </p>
+              <p className="text-primary/70 text-sm leading-relaxed">
+                {t(`steps.${i}.description`)}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
+// Vrijednost vještine + Profesionalna kupnja (2.8) — stranice programa
+export function ValueOfSkillBlock() {
+  const t = useTranslations("courseDetail.valueOfSkill");
+
+  return (
+    <div className="bg-cream p-8 md:p-10">
+      <h3 className="text-2xl font-heading text-primary mb-4">{t("title")}</h3>
+      <p className="text-primary/70 leading-relaxed mb-4">
+        <span className="font-medium text-primary">{t("heading")}</span>{" "}
+        {t("content")}
+      </p>
+      <p className="text-primary/50 text-xs leading-relaxed">{t("disclaimer")}</p>
+    </div>
+  );
+}
+
+export function ProfessionalPurchaseBlock() {
+  const t = useTranslations("courseDetail.professionalPurchase");
+
+  return (
+    <div className="bg-cream p-8 md:p-10">
+      <h3 className="text-2xl font-heading text-primary mb-4">{t("title")}</h3>
+      <p className="text-primary/70 leading-relaxed">{t("content")}</p>
+    </div>
+  );
+}
+
 export function EducationKitBlock() {
   const t = useTranslations("courseDetail.educationKit");
 
