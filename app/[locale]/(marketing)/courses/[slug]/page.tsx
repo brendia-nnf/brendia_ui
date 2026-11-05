@@ -65,6 +65,8 @@ export default function CoursePage({ params }: PageProps) {
   const purchase = courseConfig.purchase;
   const isGroup = courseKey === "group";
   const isLiveProgram = courseKey !== "online";
+  // Programi s pristupom online edukaciji 36 mjeseci (zahtjev klijentice 5.11.)
+  const hasOnlineAccess = ["online", "onlineLive", "twoDays"].includes(courseKey);
 
   const course = {
     title: t(`${courseKey}.title`),
@@ -238,6 +240,11 @@ export default function CoursePage({ params }: PageProps) {
                 </div>
               ))}
             </div>
+            {hasOnlineAccess && (
+              <p className="text-sm text-primary/60 mt-6 text-center">
+                {t("accessExtensionNote")}
+              </p>
+            )}
           </div>
         </Container>
       </section>
