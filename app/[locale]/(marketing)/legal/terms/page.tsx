@@ -11,9 +11,9 @@ export default function TermsPage() {
         <Container>
           <div className="max-w-3xl mx-auto">
             <h1 className="text-4xl sm:text-5xl font-heading text-primary mb-6">
-              Uvjeti korištenja
+              Opći uvjeti kupnje
             </h1>
-            <p className="text-primary/60">Zadnje ažuriranje: Srpanj 2025.</p>
+            <p className="text-primary/60">Zadnje ažuriranje: Studeni 2026.</p>
           </div>
         </Container>
       </section>
@@ -23,7 +23,7 @@ export default function TermsPage() {
           <div className="max-w-3xl mx-auto prose prose-lg prose-primary">
             <h2>1. Uvodne odredbe</h2>
             <p>
-              Ovi Uvjeti korištenja („Uvjeti") uređuju korištenje web stranice brendiapro.hr,
+              Ovi Opći uvjeti kupnje („Uvjeti") uređuju korištenje web stranice brendiapro.hr,
               mobilne aplikacije i online edukacijske platforme Brendia Pro® („Platforma")
               u vlasništvu društva OMEGA-NI d.o.o., Ulica Ladislava Šabana 24, 10360 Sesvete,
               OIB: 24477900978 („Organizator").
@@ -70,7 +70,16 @@ export default function TermsPage() {
               Nakon isteka razdoblja pristupa, Organizator nije dužan omogućiti daljnji pristup Materijalima.
             </p>
 
-            <h2>5. Plaćanje i cijene</h2>
+            <h2>5. Naručivanje, plaćanje i cijene</h2>
+            <p>
+              Edukacija se naručuje elektroničkim obrascem narudžbe na web
+              stranici. Kupcem se smatra svaka osoba koja popuni tražene
+              podatke, prihvati ove Uvjete i pošalje narudžbu. Sve cijene
+              izražene su u eurima (EUR) s uključenim PDV-om. Narudžba se
+              smatra zaprimljenom u trenutku kada kupac odabere i potvrdi
+              način plaćanja, a Organizator kupcu e-mailom šalje potvrdu
+              narudžbe najkasnije u roku od jednog radnog dana.
+            </p>
             <p>
               Naknada se plaća jednokratno, na temelju ponude ili računa Organizatora,
               najkasnije do datuma dospijeća navedenog na ponudi ili računu.
@@ -87,6 +96,18 @@ export default function TermsPage() {
             </p>
             <p>
               Organizator nije dužan omogućiti pristup Edukaciji prije evidentiranja plaćanja cjelokupne naknade.
+            </p>
+
+            <h3>Dostava Brendia Pro® Education Kita</h3>
+            <p>
+              Uz edukacije koje uključuju Brendia Pro® Education Kit, Kit se
+              dostavlja kurirskom službom na adresu navedenu prilikom
+              narudžbe, bez dodatnih troškova dostave za kupca, a najkasnije
+              u roku od 30 dana od sklapanja ugovora. Kupac je dužan
+              prilikom preuzimanja provjeriti pošiljku te vidljiva oštećenja
+              odmah reklamirati dostavljaču, odnosno obavijestiti
+              Organizatora. Education Kit nije moguće kupiti zasebno, isporučuje
+              se isključivo kao dio edukacije.
             </p>
 
             <h3>Politika povrata i otkazivanja</h3>

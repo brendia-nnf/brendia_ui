@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ACCEPTED_CARDS } from "@/lib/constants/company";
+import { ACCEPTED_CARDS, IS_MONRI_MODE } from "@/lib/constants/company";
 
 interface PaymentLogosProps {
   variant?: "light" | "dark";
@@ -13,8 +13,10 @@ interface PaymentLogosProps {
 const IS_MONRI = process.env.NEXT_PUBLIC_PAYMENT_MODE === "monri";
 
 // Poveznice na kartične sheme. OTP pravila: Maestro odmah iza Mastercarda,
-// bez druge kartice između; logotipovi su linkovi na stranice kartičnih kuća.
-const CARD_LOGOS = [
+// bez druge kartice između; logotipovi su linkovi na stranice kartičnih
+// kuća; smiju se prikazati samo kartice koje prodajno mjesto prihvaća
+// (Monri profil: samo Visa/Mastercard/Maestro).
+const ALL_CARD_LOGOS = [
   {
     name: "Visa",
     href: "https://www.visaeurope.com",
@@ -58,6 +60,8 @@ const CARD_LOGOS = [
     height: 32,
   },
 ];
+
+const CARD_LOGOS = IS_MONRI_MODE ? ALL_CARD_LOGOS.slice(0, 3) : ALL_CARD_LOGOS;
 
 export function PaymentLogos({
   variant = "light",

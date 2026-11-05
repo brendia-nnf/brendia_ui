@@ -4,7 +4,56 @@ import Image from "next/image";
 import { Container } from "@/components/ui";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import { COMPANY, ACCEPTED_CARDS } from "@/lib/constants/company";
+import { COMPANY, ACCEPTED_CARDS, IS_MONRI_MODE } from "@/lib/constants/company";
+
+// OTP pravilo: prikazuju se samo logotipovi kartica koje prodajno mjesto
+// stvarno prihvaća (Monri profil: samo Visa/Mastercard/Maestro).
+const ALL_CARD_LOGOS = [
+  {
+    name: "Visa",
+    href: "https://www.visaeurope.com",
+    src: "/images/payments/visa.jpg",
+    width: 50,
+    height: 32,
+  },
+  {
+    name: "Mastercard",
+    href: "https://www.mastercard.com",
+    src: "/images/payments/mastercard.png",
+    width: 40,
+    height: 32,
+  },
+  {
+    name: "Maestro",
+    href: "https://www.mastercard.hr/hr-hr/consumers/find-card-products/debit-cards/maestro-debit.html",
+    src: "/images/payments/maestro.png",
+    width: 40,
+    height: 32,
+  },
+  {
+    name: "Diners",
+    href: "https://www.dinersclub.com",
+    src: "/images/payments/diners.gif",
+    width: 92,
+    height: 24,
+  },
+  {
+    name: "Discover",
+    href: "https://www.discover.com/",
+    src: "/images/payments/discover.png",
+    width: 50,
+    height: 32,
+  },
+  {
+    name: "American Express",
+    href: "https://www.americanexpress.com/",
+    src: "/images/payments/amex.jpg",
+    width: 40,
+    height: 32,
+  },
+];
+
+const CARD_LOGOS = IS_MONRI_MODE ? ALL_CARD_LOGOS.slice(0, 3) : ALL_CARD_LOGOS;
 
 export function Footer() {
   const t = useTranslations("footer");
@@ -145,50 +194,7 @@ export function Footer() {
           {/* Payment Methods */}
           <div className="border-t border-white/10 mt-12 pt-8">
             <div className="flex flex-wrap items-center justify-center gap-3 mb-4">
-              {[
-                {
-                  name: "Visa",
-                  href: "https://www.visaeurope.com",
-                  src: "/images/payments/visa.jpg",
-                  width: 50,
-                  height: 32,
-                },
-                {
-                  name: "Mastercard",
-                  href: "https://www.mastercard.com",
-                  src: "/images/payments/mastercard.png",
-                  width: 40,
-                  height: 32,
-                },
-                {
-                  name: "Maestro",
-                  href: "https://www.mastercard.hr/hr-hr/consumers/find-card-products/debit-cards/maestro-debit.html",
-                  src: "/images/payments/maestro.png",
-                  width: 40,
-                  height: 32,
-                },
-                {
-                  name: "Diners",
-                  href: "https://www.dinersclub.com",
-                  src: "/images/payments/diners.gif",
-                  width: 92,
-                  height: 24,
-                },
-                {
-                  name: "Discover",
-                  href: "https://www.discover.com/",
-                  src: "/images/payments/discover.png",
-                  width: 50,
-                  height: 32,
-                },
-                {
-                  name: "American Express",
-                  href: "https://www.americanexpress.com/",
-                  src: "/images/payments/amex.jpg",
-                  width: 40,
-                  height: 32,
-                },
-              ].map((logo) => (
+              {CARD_LOGOS.map((logo) => (
                 <a
                   key={logo.name}
                   href={logo.href}

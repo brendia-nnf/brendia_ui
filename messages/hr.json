@@ -79,7 +79,7 @@
     "contact": "Kontakt",
     "faq": "FAQ",
     "privacyPolicy": "Politika privatnosti",
-    "termsOfService": "Uvjeti korištenja",
+    "termsOfService": "Opći uvjeti kupnje",
     "paymentSecurity": "Sigurnost plaćanja",
     "complaints": "Reklamacije i prigovori",
     "cookiePolicy": "Politika kolačića",
@@ -1013,7 +1013,7 @@
       },
       "terms": {
         "accept": "Prihvaćam",
-        "termsOfService": "Uvjete korištenja",
+        "termsOfService": "Opće uvjete kupnje",
         "and": "i",
         "privacyPolicy": "Politiku privatnosti",
         "digitalProduct": ". Razumijem da je ovo digitalni proizvod i da ću dobiti pristup putem emaila nakon plaćanja.",
@@ -1229,10 +1229,10 @@
       }
     },
     "terms": {
-      "title": "Uvjeti korištenja",
+      "title": "Opći uvjeti kupnje",
       "agreementToTerms": {
         "title": "1. Prihvaćanje uvjeta",
-        "content": "Pristupanjem ili korištenjem web stranice i usluga Brendia Pro®, pristajete biti obvezani ovim Uvjetima korištenja. Ako se ne slažete s ovim uvjetima, molimo ne koristite naše usluge."
+        "content": "Pristupanjem ili korištenjem web stranice i usluga Brendia Pro®, pristajete biti obvezani ovim Općim uvjetima kupnje. Ako se ne slažete s ovim uvjetima, molimo ne koristite naše usluge."
       },
       "descriptionOfServices": {
         "title": "2. Opis usluga",
@@ -1336,7 +1336,7 @@
       },
       "contactInfo": {
         "title": "15. Kontakt informacije",
-        "intro": "Za pitanja o ovim Uvjetima korištenja, molimo kontaktirajte nas na:",
+        "intro": "Za pitanja o ovim Općim uvjetima kupnje, molimo kontaktirajte nas na:",
         "email": "Email: legal@brendiapro.hr"
       }
     }

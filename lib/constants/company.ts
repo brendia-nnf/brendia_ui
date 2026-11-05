@@ -15,8 +15,12 @@ export const COMPANY = {
   phoneHref: "tel:+385911552000",
 } as const;
 
-// Kartice koje prodajno mjesto prihvaća (Stripe jednokratno + Monri/OTP rate).
-// OTP pravila: oznaka ® uz Mastercard i Maestro, Maestro odmah iza
-// Mastercarda bez druge kartice između.
-export const ACCEPTED_CARDS =
-  "Visa, Mastercard®, Maestro®, American Express, Diners i Discover";
+// Kartice koje prodajno mjesto prihvaća. OTP pravila: smiju se navoditi
+// samo kartice kojima je plaćanje stvarno moguće; oznaka ® uz Mastercard
+// i Maestro, Maestro odmah iza Mastercarda bez druge kartice između.
+// Monri profil (PBZ/ZABA/OTP) prihvaća samo Visa/Mastercard/Maestro.
+export const IS_MONRI_MODE = process.env.NEXT_PUBLIC_PAYMENT_MODE === "monri";
+
+export const ACCEPTED_CARDS = IS_MONRI_MODE
+  ? "Visa, Mastercard® i Maestro®"
+  : "Visa, Mastercard®, Maestro®, American Express, Diners i Discover";

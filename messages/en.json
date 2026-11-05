@@ -79,7 +79,7 @@
     "contact": "Contact",
     "faq": "FAQ",
     "privacyPolicy": "Privacy Policy",
-    "termsOfService": "Terms of Service",
+    "termsOfService": "General Terms of Purchase",
     "paymentSecurity": "Payment Security",
     "complaints": "Complaints",
     "cookiePolicy": "Cookie Policy",
@@ -1013,7 +1013,7 @@
       },
       "terms": {
         "accept": "I agree to the",
-        "termsOfService": "Terms of Service",
+        "termsOfService": "General Terms of Purchase",
         "and": "and",
         "privacyPolicy": "Privacy Policy",
         "digitalProduct": ". I understand that this is a digital product and that I will receive access via email after payment.",
@@ -1229,10 +1229,10 @@
       }
     },
     "terms": {
-      "title": "Terms of Service",
+      "title": "General Terms of Purchase",
       "agreementToTerms": {
         "title": "1. Agreement to Terms",
-        "content": "By accessing or using the Brendia Pro® website and services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services."
+        "content": "By accessing or using the Brendia Pro® website and services, you agree to be bound by these General Terms of Purchase. If you do not agree to these terms, please do not use our services."
       },
       "descriptionOfServices": {
         "title": "2. Description of Services",
@@ -1336,7 +1336,7 @@
       },
       "contactInfo": {
         "title": "15. Contact Information",
-        "intro": "For questions about these Terms of Service, please contact us at:",
+        "intro": "For questions about these General Terms of Purchase, please contact us at:",
         "email": "Email: legal@brendiapro.hr"
       }
     }
