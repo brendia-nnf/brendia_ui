@@ -61,10 +61,10 @@ export default function MethodPage() {
             </div>
             <div className="relative aspect-[4/3] overflow-hidden">
               <Image
-                src="/images/salon-1.jpg"
+                src="/images/method-hero.jpg"
                 alt={t("hero.title")}
                 fill
-                className="object-cover"
+                className="object-cover object-[center_35%]"
                 priority
               />
             </div>
@@ -78,7 +78,7 @@ export default function MethodPage() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="relative aspect-[3/4] max-w-md overflow-hidden">
               <Image
-                src="/images/nikolina-portrait.jpg"
+                src="/images/nikolina-portrait-color.jpg"
                 alt="Nikolina Kljaić"
                 fill
                 className="object-cover"

@@ -94,12 +94,12 @@ const META: Record<string, { hr: PageMeta; en: PageMeta }> = {
     hr: {
       title: "O nama | Nikolina Kljaić i Brendia Pro®",
       description:
-        "Više od 20 godina u frizerstvu, od 2020. sa šivanim weft ekstenzijama i više od 350 ugradnji. Upoznajte osnivačicu Brendia Pro® metode.",
+        "Više od 20 godina u frizerstvu, od 2020. sa šivanim weft ekstenzijama i više od 550 ugradnji. Upoznajte osnivačicu Brendia Pro® metode.",
     },
     en: {
       title: "About us | Nikolina Kljaić and Brendia Pro®",
       description:
-        "More than 20 years in hairdressing, working with sewn-in weft extensions since 2020 and more than 350 installations. Meet the founder of the Brendia Pro® method.",
+        "More than 20 years in hairdressing, working with sewn-in weft extensions since 2020 and more than 550 installations. Meet the founder of the Brendia Pro® method.",
     },
   },
   faq: {

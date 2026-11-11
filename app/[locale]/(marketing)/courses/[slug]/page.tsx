@@ -406,9 +406,12 @@ export default function CoursePage({ params }: PageProps) {
                 </Button>
               </Link>
             </div>
-            <p className="text-white/40 text-sm mt-8">
+            <a
+              href="#payment-methods"
+              className="inline-block text-white/50 hover:text-white/80 text-sm mt-8 underline underline-offset-4 transition-colors"
+            >
               {t("cta.paymentPlans")}
-            </p>
+            </a>
           </div>
         </Container>
       </section>

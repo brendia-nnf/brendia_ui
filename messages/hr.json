@@ -37,11 +37,11 @@
   "valueProposition": {
     "tagline": "Brendia Pro® Academy",
     "title": "Zašto Brendia Pro® Academy",
-    "description": "Učite od praktičarke, uz certifikat koji nešto znači i zajednicu koja ostaje.",
+    "description": "Učite iz Nininog iskustva u salonu, certifikat stječete demonstracijom tehnike, a podršku zajednice imate i nakon edukacije.",
     "values": {
       "expertLed": {
-        "title": "Učite od praktičarke",
-        "description": "Nikolina je u frizerstvu više od 20 godina i educirana je za šest tehnika ekstenzija. Šivanim weft ekstenzijama posvećuje se od 2020. Iza metode stoji više od 350 ugradnji u Studio One by Nina."
+        "title": "Učite iz Nininog iskustva",
+        "description": "Nikolina je u frizerstvu više od 20 godina i educirana je za šest tehnika ekstenzija. Šivanim weft ekstenzijama posvećuje se od 2020. Iza metode stoji više od 550 ugradnji u Studio One by Nina."
       },
       "certification": {
         "title": "Certifikat koji nešto znači",
@@ -118,7 +118,7 @@
   "about": {
     "tagline": "Upoznajte osnivačicu",
     "title": "Nikolina Kljaić",
-    "description": "Više od 20 godina u frizerstvu, edukacija za šest tehnika ekstenzija, od 2020. sa šivanim weft ekstenzijama, više od 350 ugradnji."
+    "description": "Više od 20 godina u frizerstvu, edukacija za šest tehnika ekstenzija, od 2020. sa šivanim weft ekstenzijama, više od 550 ugradnji."
   },
   "faq": {
     "title": "Često postavljana pitanja",
@@ -189,7 +189,7 @@
   "aboutFounder": {
     "tagline": "Upoznajte svoju edukatoricu",
     "name": "Nikolina Kljaić",
-    "bio1": "Nikolina Kljaić u frizerstvu je više od 20 godina i educirana je za šest tehnika ekstenzija. Šivanim weft ekstenzijama posvećuje se od 2020. i one su postale njezina ljubav. U Studio One by Nina dosad je napravila više od 350 ugradnji. Iz tog iskustva nastala je Brendia Pro® metoda.",
+    "bio1": "Nikolina Kljaić u frizerstvu je više od 20 godina i educirana je za šest tehnika ekstenzija. Šivanim weft ekstenzijama posvećuje se od 2020. i one su postale njezina ljubav. U Studio One by Nina dosad je napravila više od 550 ugradnji. Iz tog iskustva nastala je Brendia Pro® metoda.",
     "quote": "Moja misija je osnažiti frizere znanjem i tehnikama koje su im potrebne za izgradnju uspješnog poslovanja i stvaranje zadivljujućih transformacija za svoje klijente. Svaki polaznik koji se pridruži Brendia Pro® postaje dio zajednice posvećene izvrsnosti.",
     "yearsInIndustry": "Godina u industriji",
     "studentsTrained": "Obučenih polaznika",
@@ -197,7 +197,7 @@
     "imageAlt": "Nikolina Kljaić - Osnivačica Brendia Pro®",
     "credExperienceTitle": "20+ godina",
     "credExperienceLabel": "u frizerstvu, šest tehnika ekstenzija",
-    "credEducationTitle": "350+ ugradnji",
+    "credEducationTitle": "550+ ugradnji",
     "credEducationLabel": "u Studio One by Nina"
   },
   "appDownload": {
@@ -415,7 +415,7 @@
     "instructor": {
       "tagline": "Osnivačica Brendia Pro® metode",
       "title": "Učite od najboljih",
-      "description": "Više od 20 godina u frizerstvu, edukacija za šest tehnika ekstenzija, od 2020. sa šivanim weft ekstenzijama, više od 350 ugradnji.",
+      "description": "Više od 20 godina u frizerstvu, edukacija za šest tehnika ekstenzija, od 2020. sa šivanim weft ekstenzijama, više od 550 ugradnji.",
       "yearsExperience": "Godina iskustva",
       "studentsTrained": "Obučenih polaznika",
       "countries": "Zemalja",
@@ -484,7 +484,7 @@
       "description": "Transformirajte svoju karijeru s Brendia Pro® certifikacijom.",
       "enrollIn": "Upišite se u {course}",
       "haveQuestions": "Imate pitanja?",
-      "paymentPlans": "Dostupni planovi plaćanja. Kontaktirajte nas za detalje."
+      "paymentPlans": "Saznajte više o načinima plaćanja"
     },
     "priceIncludesVat": "Cijena uključuje PDV.",
     "reserveSpot": "Rezervirajte mjesto",
@@ -782,7 +782,7 @@
       "tagline": "Upoznajte osnivačicu",
       "name": "Nikolina Kljaić",
       "bio": [
-        "Nikolina Kljaić u frizerstvu je više od 20 godina i educirana je za šest tehnika ekstenzija. Šivanim weft ekstenzijama posvećuje se od 2020. i one su postale njezina ljubav. U Studio One by Nina dosad je napravila više od 350 ugradnji. Iz tog iskustva nastala je Brendia Pro® metoda.",
+        "Nikolina Kljaić u frizerstvu je više od 20 godina i educirana je za šest tehnika ekstenzija. Šivanim weft ekstenzijama posvećuje se od 2020. i one su postale njezina ljubav. U Studio One by Nina dosad je napravila više od 550 ugradnji. Iz tog iskustva nastala je Brendia Pro® metoda.",
         "Njezino putovanje započelo je u malom salonu, gdje su je njezin prirodni talent i neumorno stremljenje savršenstvu brzo izdvojili. Klijenti su putovali iz cijele zemlje kako bi iskusili njezin transformativni rad, a kolege frizerke počele su tražiti da nauče njezine tehnike.",
         "\"Shvatila sam da moj utjecaj može ići daleko izvan moje vlastite stolice,\" dijeli Nikolina. \"Podučavajući druge, mogla sam pomoći drugim frizerima da izgrade uspješne karijere dok njihove klijentice dobivaju samopouzdanje koje dolazi s prekrasnom kosom.\"",
         "Danas Nikolina vodi Brendia Pro® s istom strašću i pažnjom za detalje koji su definirali njezin rad od prvog dana. Svaki tečaj, svaka lekcija, svaka interakcija odražava njezinu predanost izvrsnosti i iskrenu brigu za uspjeh svojih polaznika."
@@ -885,7 +885,7 @@
         "faqs": [
           {
             "question": "Kako postajem certificiran/a?",
-            "answer": "Nakon što završite sve module edukacije, potrebno je javiti se edukatorici koja će vas uputiti u daljnje korake potrebne za stjecanje certifikata."
+            "answer": "Nakon što završite sve module, samostalno radite ugradnju na živom modelu i fotografirate ključne faze rada: početno stanje, sekcioniranje i placement, bead foundation, položaj i šivanje wefta, završni red, blending i završni rezultat. Po potrebi priložite i kratki video. Nikolina pregledava rad i u roku od 5 radnih dana šalje povratnu informaciju. Ako je potrebna korekcija, dobivate upute i rad predajete ponovno. Nakon odobrenja dobivate digitalni i tiskani Brendia Pro® certifikat."
           }
         ]
       },
@@ -1369,7 +1369,7 @@
     },
     "what": {
       "title": "Što je Brendia Pro® metoda",
-      "p1": "Brendia Pro® metoda je profesionalna metoda šivanih weft ekstenzija koju je Nikolina Kljaić razvila kroz više od 350 ugradnji u Studio One by Nina. Weft se šiva na precizno izrađenu bazu, bez topline i ljepila, a težina se raspoređuje kroz planirani red umjesto kroz velik broj pojedinačnih spojeva. Zato se ekstenzije bolje stapaju s vlastitom kosom.",
+      "p1": "Brendia Pro® metoda je profesionalna metoda šivanih weft ekstenzija koju je Nikolina Kljaić razvila kroz više od 550 ugradnji u Studio One by Nina. Weft se šiva na precizno izrađenu bazu, bez topline i ljepila, a težina se raspoređuje kroz planirani red umjesto kroz velik broj pojedinačnih spojeva. Zato se ekstenzije bolje stapaju s vlastitom kosom.",
       "p2": "Fokus metode nije samo na tehnici šivanja, nego na pravilnoj procjeni kose, placementu i dugoročnom očuvanju prirodne kose. Pri svakom održavanju placement se ponovno procjenjuje i po potrebi prilagođava stanju kose."
     },
     "comparison": {

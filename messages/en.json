@@ -37,11 +37,11 @@
   "valueProposition": {
     "tagline": "Brendia Pro® Academy",
     "title": "Why Brendia Pro® Academy",
-    "description": "Learn from a practitioner, with a certificate that means something and a community that stays.",
+    "description": "Learn from Nina's salon experience, earn your certificate by demonstrating the technique, and keep the community's support even after the education.",
     "values": {
       "expertLed": {
-        "title": "Learn from a practitioner",
-        "description": "Nikolina has been in hairdressing for more than 20 years and is trained in six extension techniques. She has dedicated herself to sewn-in weft extensions since 2020. The method is backed by more than 350 installations at Studio One by Nina."
+        "title": "Learn from Nina's experience",
+        "description": "Nikolina has been in hairdressing for more than 20 years and is trained in six extension techniques. She has dedicated herself to sewn-in weft extensions since 2020. The method is backed by more than 550 installations at Studio One by Nina."
       },
       "certification": {
         "title": "A certificate that means something",
@@ -118,7 +118,7 @@
   "about": {
     "tagline": "Meet the Founder",
     "title": "Nikolina Kljaić",
-    "description": "More than 20 years in hairdressing, trained in six extension techniques, working with sewn-in weft extensions since 2020, more than 350 installations."
+    "description": "More than 20 years in hairdressing, trained in six extension techniques, working with sewn-in weft extensions since 2020, more than 550 installations."
   },
   "faq": {
     "title": "Frequently Asked Questions",
@@ -189,7 +189,7 @@
   "aboutFounder": {
     "tagline": "Meet Your Educator",
     "name": "Nikolina Kljaić",
-    "bio1": "Nikolina Kljaić has been in hairdressing for more than 20 years and is trained in six extension techniques. She has dedicated herself to sewn-in weft extensions since 2020, and they have become her love. At Studio One by Nina she has done more than 350 installations so far. The Brendia Pro® method was born from that experience.",
+    "bio1": "Nikolina Kljaić has been in hairdressing for more than 20 years and is trained in six extension techniques. She has dedicated herself to sewn-in weft extensions since 2020, and they have become her love. At Studio One by Nina she has done more than 550 installations so far. The Brendia Pro® method was born from that experience.",
     "quote": "My mission is to empower stylists with the knowledge and techniques they need to build thriving businesses and create stunning transformations for their clients. Every student who joins Brendia Pro® becomes part of a community dedicated to excellence.",
     "yearsInIndustry": "Years in Industry",
     "studentsTrained": "Students Trained",
@@ -197,7 +197,7 @@
     "imageAlt": "Nikolina Kljaić - Founder of Brendia Pro®",
     "credExperienceTitle": "20+ years",
     "credExperienceLabel": "in hairdressing, six extension techniques",
-    "credEducationTitle": "350+ installations",
+    "credEducationTitle": "550+ installations",
     "credEducationLabel": "at Studio One by Nina"
   },
   "appDownload": {
@@ -415,7 +415,7 @@
     "instructor": {
       "tagline": "Founder of the Brendia Pro® method",
       "title": "Learn From the Best",
-      "description": "More than 20 years in hairdressing, trained in six extension techniques, working with sewn-in weft extensions since 2020, more than 350 installations.",
+      "description": "More than 20 years in hairdressing, trained in six extension techniques, working with sewn-in weft extensions since 2020, more than 550 installations.",
       "yearsExperience": "Years Experience",
       "studentsTrained": "Students Trained",
       "countries": "Countries",
@@ -484,7 +484,7 @@
       "description": "Transform your career with Brendia Pro® certification.",
       "enrollIn": "Enroll in {course}",
       "haveQuestions": "Have Questions?",
-      "paymentPlans": "Payment plans available. Contact us for details."
+      "paymentPlans": "Learn more about payment options"
     },
     "priceIncludesVat": "Price includes VAT.",
     "reserveSpot": "Reserve your spot",
@@ -782,7 +782,7 @@
       "tagline": "Meet the Founder",
       "name": "Nikolina Kljaić",
       "bio": [
-        "Nikolina Kljaić has been in hairdressing for more than 20 years and is trained in six extension techniques. She has dedicated herself to sewn-in weft extensions since 2020, and they have become her love. At Studio One by Nina she has done more than 350 installations so far. The Brendia Pro® method was born from that experience.",
+        "Nikolina Kljaić has been in hairdressing for more than 20 years and is trained in six extension techniques. She has dedicated herself to sewn-in weft extensions since 2020, and they have become her love. At Studio One by Nina she has done more than 550 installations so far. The Brendia Pro® method was born from that experience.",
         "Her journey began in a small salon, where her natural talent and relentless pursuit of perfection quickly set her apart. Clients traveled from across the country to experience her transformative work, and fellow stylists began asking to learn her techniques.",
         "\"I realized that my impact could go far beyond my own chair,\" Nikolina shares. \"By teaching others, I could help other stylists build successful careers while giving their clients the confidence that comes with beautiful hair.\"",
         "Today, Nikolina leads Brendia Pro® with the same passion and attention to detail that defined her work from day one. Every course, every lesson, every interaction reflects her commitment to excellence and genuine care for her students' success."
@@ -885,7 +885,7 @@
         "faqs": [
           {
             "question": "How do I become certified?",
-            "answer": "Once you complete all the education modules, contact the educator, who will guide you through the next steps required to earn your certificate."
+            "answer": "Once you complete all the modules, you perform an installation on a live model on your own and photograph the key stages of the work: the starting state, sectioning and placement, the bead foundation, weft position and sewing, the final row, blending and the final result. If needed, you can also attach a short video. Nikolina reviews your work and sends feedback within 5 working days. If a correction is needed, you receive instructions and resubmit your work. After approval you receive the digital and printed Brendia Pro® certificate."
           }
         ]
       },
@@ -1369,7 +1369,7 @@
     },
     "what": {
       "title": "What is the Brendia Pro® method",
-      "p1": "The Brendia Pro® method is a professional method of sewn-in weft extensions that Nikolina Kljaić developed through more than 350 installations at Studio One by Nina. The weft is sewn onto a precisely built foundation, without heat or glue, and the weight is distributed through a planned row instead of a large number of individual bonds. That is why the extensions blend better with your own hair.",
+      "p1": "The Brendia Pro® method is a professional method of sewn-in weft extensions that Nikolina Kljaić developed through more than 550 installations at Studio One by Nina. The weft is sewn onto a precisely built foundation, without heat or glue, and the weight is distributed through a planned row instead of a large number of individual bonds. That is why the extensions blend better with your own hair.",
       "p2": "The method's focus is not only on the sewing technique, but on proper hair assessment, placement and the long-term preservation of natural hair. At every maintenance the placement is reassessed and adjusted to the condition of the hair if needed."
     },
     "comparison": {

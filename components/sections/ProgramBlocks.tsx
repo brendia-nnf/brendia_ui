@@ -25,7 +25,7 @@ export function PaymentMethodsBlock({ ns }: BlockProps) {
   const t = useTranslations(`${ns}.paymentMethods`);
 
   return (
-    <div className="bg-white p-8 md:p-10">
+    <div id="payment-methods" className="bg-white p-8 md:p-10 scroll-mt-24">
       <h3 className="text-2xl font-heading text-primary mb-4">{t("title")}</h3>
       <p className="text-primary/70 mb-3">{t("intro")}</p>
       <ul className="space-y-2 mb-8">
