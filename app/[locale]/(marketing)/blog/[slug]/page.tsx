@@ -105,7 +105,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         }).format(new Date(iso))
       : "";
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://brendiapro.hr";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.brendiapro.hr";
 
   // Article schema (3.5)
   const articleSchema = {

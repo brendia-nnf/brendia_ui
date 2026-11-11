@@ -62,7 +62,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       type: "website",
       locale: isHr ? "hr_HR" : "en_US",
-      url: "https://brendiapro.hr",
+      url: "./",
       siteName: "Brendia Pro®",
       title: metadata?.title || "Brendia Pro® | Premium Weft Extensions Education",
       description: metadata?.description || "",
@@ -85,17 +85,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: ["/images/og-image.jpg"],
     },
     metadataBase: new URL(
-      process.env.NEXT_PUBLIC_SITE_URL || "https://brendiapro.hr"
+      process.env.NEXT_PUBLIC_SITE_URL || "https://www.brendiapro.hr"
     ),
     robots: {
       index: true,
       follow: true,
     },
+    // Canonical "./": Next slaže metadataBase + putanju trenutne rute,
+    // pa svaka stranica dobije self-referencing canonical na www domeni.
+    // Per-page hreflang alternates generira sitemap.ts.
     alternates: {
-      languages: {
-        hr: "/hr",
-        en: "/en",
-      },
+      canonical: "./",
     },
   };
 }

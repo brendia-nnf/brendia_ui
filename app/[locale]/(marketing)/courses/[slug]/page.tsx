@@ -85,7 +85,7 @@ export default function CoursePage({ params }: PageProps) {
     calculateDepositPricing(courseConfig.price).total
   );
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://brendiapro.hr";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.brendiapro.hr";
   const locale = useLocale() as "hr" | "en";
   const coursesPath = getPathname({ locale, href: "/courses" });
   const coursePath = getPathname({

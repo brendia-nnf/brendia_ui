@@ -2,7 +2,7 @@ interface OrganizationSchemaProps {
   url?: string;
 }
 
-export function OrganizationSchema({ url = "https://brendiapro.hr" }: OrganizationSchemaProps) {
+export function OrganizationSchema({ url = "https://www.brendiapro.hr" }: OrganizationSchemaProps) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
@@ -62,7 +62,7 @@ export function CourseSchema({
     provider: {
       "@type": "EducationalOrganization",
       name: provider,
-      url: "https://brendiapro.hr",
+      url: "https://www.brendiapro.hr",
     },
     offers: {
       "@type": "Offer",
@@ -141,7 +141,7 @@ interface WebsiteSchemaProps {
   url?: string;
 }
 
-export function WebsiteSchema({ url = "https://brendiapro.hr" }: WebsiteSchemaProps) {
+export function WebsiteSchema({ url = "https://www.brendiapro.hr" }: WebsiteSchemaProps) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebSite",

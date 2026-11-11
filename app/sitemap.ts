@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { createClient } from "@supabase/supabase-js";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://brendiapro.hr";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.brendiapro.hr";
 
 // Lokalizirane putanje (3.2/3.3): HR koristi /tecajevi i /metoda,
 // EN /courses i /method. Slugovi programa isti su u oba jezika.

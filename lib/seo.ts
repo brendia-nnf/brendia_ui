@@ -152,13 +152,25 @@ const META: Record<string, { hr: PageMeta; en: PageMeta }> = {
   },
 };
 
-export function pageMetadata(locale: string, key: string): Metadata {
+// canonical: lokalizirana javna putanja (npr. "/hr/tecajevi"). Obavezna za
+// rute čiji se interni path razlikuje od javnog (method/courses), jer
+// canonical "./" iz root layouta tamo pokazuje na redirect.
+export function pageMetadata(
+  locale: string,
+  key: string,
+  canonical?: string
+): Metadata {
   const entry = META[key];
   if (!entry) return {};
   const m = locale === "en" ? entry.en : entry.hr;
   return {
     title: { absolute: m.title },
     description: m.description,
-    openGraph: { title: m.title, description: m.description },
+    openGraph: {
+      title: m.title,
+      description: m.description,
+      ...(canonical ? { url: canonical } : {}),
+    },
+    ...(canonical ? { alternates: { canonical } } : {}),
   };
 }
