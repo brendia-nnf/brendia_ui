@@ -657,7 +657,7 @@
       "firstGroup": "Prva grupa: {dates}",
       "groupSize": "Grupa ima najviše {seats} polaznica, pa svaka dobiva dovoljno vremena i pažnje.",
       "enrollBy": "Upis traje do {date}. Mjesto potvrđujete uplatom predujma od 30 %.",
-      "seatsLeft": "Slobodnih mjesta: {count}",
+      "openNow": "Upisi su otvoreni",
       "soldOut": "Sva mjesta za ovaj termin su popunjena. Javite nam se za sljedeći termin.",
       "closed": "Upis je trenutno zatvoren. Nove termine objavljujemo uskoro."
     },
@@ -1481,10 +1481,9 @@
   "groupPopup": {
     "tagline": "Upisi su otvoreni",
     "title": "Brendia Pro® Artist grupna edukacija",
-    "dates": "Termin: {dates}",
-    "deadline": "Upis traje do {date}",
-    "seatsLeft": "Slobodnih mjesta: {count}",
-    "note": "Dva dana edukacije uživo u maloj grupi od 3 do 5 polaznica, u Studio One by Nina. Mjesto potvrđujete uplatom predujma od 30 %.",
+    "dates": "{dates} • Studio One by Nina, Zagreb",
+    "deadline": "Upisi se zatvaraju {date}.",
+    "note": "Dva dana praktične edukacije uživo u maloj grupi, najviše {seats} polaznica. Naučite postavljati, održavati i skidati weft ekstenzije Brendia Pro® metodom, kako biste ih odmah nakon edukacije mogli ponuditi svojim klijenticama.",
     "cta": "Rezervirajte mjesto",
     "close": "Zatvori"
   }

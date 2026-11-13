@@ -68,7 +68,6 @@ export function GroupPromoPopup() {
   const deadline = new Intl.DateTimeFormat(locale === "hr" ? "hr" : "en-GB", {
     day: "numeric",
     month: "long",
-    year: "numeric",
   }).format(new Date(session.enrollmentDeadline + "T12:00:00"));
 
   return (
@@ -101,19 +100,19 @@ export function GroupPromoPopup() {
         </p>
         <h2 className="text-2xl font-heading text-primary mb-4">{t("title")}</h2>
 
-        <div className="space-y-1.5 text-sm text-primary/70 mb-4">
-          <p className="text-primary font-medium text-base">
-            {t("dates", {
-              dates: locale === "hr" ? session.datesLabelHr : session.datesLabelEn,
-            })}
-          </p>
-          <p>{t("deadline", { date: deadline })}</p>
-          <p className="text-secondary font-medium">
-            {t("seatsLeft", { count: session.seatsLeft })}
-          </p>
-        </div>
+        <p className="text-primary font-medium text-base mb-4">
+          {t("dates", {
+            dates: locale === "hr" ? session.datesLabelHr : session.datesLabelEn,
+          })}
+        </p>
 
-        <p className="text-sm text-primary/60 leading-relaxed mb-6">{t("note")}</p>
+        <p className="text-sm text-primary/80 leading-relaxed mb-4">
+          {t("note", { seats: session.totalSeats })}
+        </p>
+
+        <p className="text-sm text-primary font-medium mb-6">
+          {t("deadline", { date: deadline })}
+        </p>
 
         <Link
           href={{ pathname: "/courses/[slug]", params: { slug: "artist-grupna-edukacija" } }}

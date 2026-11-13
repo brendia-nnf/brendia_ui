@@ -68,7 +68,7 @@ export function GroupScheduleCard({
           {session.open ? (
             <p className="inline-flex items-center gap-2 text-secondary font-medium">
               <span className="w-2 h-2 rounded-full bg-secondary inline-block" />
-              {t("seatsLeft", { count: session.seatsLeft })}
+              {t("openNow")}
             </p>
           ) : (
             <p className="text-primary font-medium">

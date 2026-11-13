@@ -657,7 +657,7 @@
       "firstGroup": "First group: {dates}",
       "groupSize": "The group has at most {seats} participants, so each one gets plenty of time and attention.",
       "enrollBy": "Enrollment is open until {date}. You confirm your spot by paying a 30% deposit.",
-      "seatsLeft": "Spots left: {count}",
+      "openNow": "Enrollment is open",
       "soldOut": "All spots for this date are taken. Contact us for the next date.",
       "closed": "Enrollment is currently closed. New dates will be announced soon."
     },
@@ -1481,10 +1481,9 @@
   "groupPopup": {
     "tagline": "Enrollment is open",
     "title": "Brendia Pro® Artist group education",
-    "dates": "Dates: {dates}",
-    "deadline": "Enrollment open until {date}",
-    "seatsLeft": "Spots left: {count}",
-    "note": "Two days of in-person education in a small group of 3 to 5 participants, at Studio One by Nina. You confirm your spot by paying a 30% deposit.",
+    "dates": "{dates} • Studio One by Nina, Zagreb",
+    "deadline": "Enrollment closes on {date}.",
+    "note": "Two days of hands-on, in-person education in a small group of up to {seats} participants. Learn how to install, maintain and remove weft extensions using the Brendia Pro® method, so you can offer them to your clients right after the education.",
     "cta": "Reserve your spot",
     "close": "Close"
   }
