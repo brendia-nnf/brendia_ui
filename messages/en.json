@@ -167,7 +167,7 @@
       "title": "Brendia Pro® Artist group education",
       "subtitle": "2 days in person in a small group",
       "price": "€2,200",
-      "description": "Two days of in-person education in a small group of 3 to 5 participants, at Studio One by Nina.",
+      "description": "Two days of in-person education in a small group of up to 5 participants, at Studio One by Nina.",
       "forWho": "For hairdressers who learn best hands-on and in the company of colleagues.",
       "firstGroupNote": "First group: 5 and 6 December 2026."
     },
@@ -318,8 +318,8 @@
         "title": "Brendia Pro® Artist group education",
         "subtitle": "2 days in person in a small group",
         "price": "€2,200",
-        "duration": "2 days in person, group of 3–5 participants",
-        "description": "Two days of in-person education in a small group of 3 to 5 participants, at Studio One by Nina.",
+        "duration": "2 days in person, group of up to 5 participants",
+        "description": "Two days of in-person education in a small group of up to 5 participants, at Studio One by Nina.",
         "forWho": "For hairdressers who learn best hands-on and in the company of colleagues.",
         "firstGroupNote": "First group: 5 and 6 December 2026."
       },
@@ -373,7 +373,7 @@
           "feature": "In-person work with Nikolina",
           "online": "–",
           "onlineLive": "1 day individual, 6–8 h",
-          "group": "2 days, group of 3–5",
+          "group": "2 days, up to 5 participants",
           "oneDay": "1 day, 6–8 h",
           "twoDays": "2 days, individual"
         },
@@ -601,14 +601,14 @@
       "title": "Brendia Pro® Artist group education",
       "subtitle": "2 days in person in a small group",
       "price": "€2,200",
-      "duration": "2 days in person, group of 3–5 participants",
-      "description": "Two days of in-person education in a small group of 3 to 5 participants, at Studio One by Nina.",
+      "duration": "2 days in person, group of up to 5 participants",
+      "description": "Two days of in-person education in a small group of up to 5 participants, at Studio One by Nina.",
       "forWho": "For hairdressers who learn best hands-on and in the company of colleagues.",
       "firstGroupNote": "First group: 5 and 6 December 2026.",
-      "longDescription": "Two days of in-person education in a small group of 3 to 5 participants, at Studio One by Nina. Every participant gets plenty of time and attention, learning through practical examples under Nikolina's mentorship.",
+      "longDescription": "Two days of in-person education in a small group of up to 5 participants, at Studio One by Nina. Every participant gets plenty of time and attention, learning through practical examples under Nikolina's mentorship.",
       "features": [
         "2 days of in-person education at Studio One by Nina",
-        "Small group of 3 to 5 participants",
+        "Small group of up to 5 participants",
         "Hands-on work under Nikolina's mentorship",
         "Brendia Pro® Education Kit",
         "Free Brendia Pro® Masterclass",
@@ -876,7 +876,7 @@
           },
           {
             "question": "Is in-person education available?",
-            "answer": "Yes. Besides the online program we offer group education (2 days in a group of 3 to 5 participants), 1:1 programs and the Online + in person combination. Dates for 1:1 education and in-person days are arranged individually, and you confirm your spot by paying a 30% deposit."
+            "answer": "Yes. Besides the online program we offer group education (2 days in a group of up to 5 participants), 1:1 programs and the Online + in person combination. Dates for 1:1 education and in-person days are arranged individually, and you confirm your spot by paying a 30% deposit."
           }
         ]
       },

@@ -58,12 +58,12 @@ const META: Record<string, { hr: PageMeta; en: PageMeta }> = {
     hr: {
       title: "Brendia Pro® Artist | Grupna edukacija uživo",
       description:
-        "Dva dana prakse s Nikolinom Kljaić u grupi od 3 do 5 polaznica, u Studio One by Nina. Prva grupa 5. i 6. prosinca 2026.",
+        "Dva dana prakse s Nikolinom Kljaić u grupi od najviše 5 polaznica, u Studio One by Nina. Prva grupa 5. i 6. prosinca 2026.",
     },
     en: {
       title: "Brendia Pro® Artist | Group in-person education",
       description:
-        "Two days of practice with Nikolina Kljaić in a group of 3 to 5 participants, at Studio One by Nina. First group 5 and 6 December 2026.",
+        "Two days of practice with Nikolina Kljaić in a group of up to 5 participants, at Studio One by Nina. First group 5 and 6 December 2026.",
     },
   },
   "artist-1-na-1-jedan-dan": {

@@ -167,7 +167,7 @@
       "title": "Brendia Pro® Artist grupna edukacija",
       "subtitle": "2 dana uživo u maloj grupi",
       "price": "2.200 €",
-      "description": "Dva dana edukacije uživo u maloj grupi od 3 do 5 polaznica, u Studio One by Nina.",
+      "description": "Dva dana edukacije uživo u maloj grupi od najviše 5 polaznica, u Studio One by Nina.",
       "forWho": "Za frizere koji najbolje uče u praksi i u društvu kolegica.",
       "firstGroupNote": "Prva grupa: 5. i 6. prosinca 2026."
     },
@@ -318,8 +318,8 @@
         "title": "Brendia Pro® Artist grupna edukacija",
         "subtitle": "2 dana uživo u maloj grupi",
         "price": "2.200 €",
-        "duration": "2 dana uživo, grupa 3–5 polaznica",
-        "description": "Dva dana edukacije uživo u maloj grupi od 3 do 5 polaznica, u Studio One by Nina.",
+        "duration": "2 dana uživo, grupa od najviše 5 polaznica",
+        "description": "Dva dana edukacije uživo u maloj grupi od najviše 5 polaznica, u Studio One by Nina.",
         "forWho": "Za frizere koji najbolje uče u praksi i u društvu kolegica.",
         "firstGroupNote": "Prva grupa: 5. i 6. prosinca 2026."
       },
@@ -373,7 +373,7 @@
           "feature": "Rad uživo s Nikolinom",
           "online": "–",
           "onlineLive": "1 dan individualno, 6–8 h",
-          "group": "2 dana, grupa 3–5",
+          "group": "2 dana, najviše 5 polaznica",
           "oneDay": "1 dan, 6–8 h",
           "twoDays": "2 dana, individualno"
         },
@@ -601,14 +601,14 @@
       "title": "Brendia Pro® Artist grupna edukacija",
       "subtitle": "2 dana uživo u maloj grupi",
       "price": "2.200 €",
-      "duration": "2 dana uživo, grupa 3–5 polaznica",
-      "description": "Dva dana edukacije uživo u maloj grupi od 3 do 5 polaznica, u Studio One by Nina.",
+      "duration": "2 dana uživo, grupa od najviše 5 polaznica",
+      "description": "Dva dana edukacije uživo u maloj grupi od najviše 5 polaznica, u Studio One by Nina.",
       "forWho": "Za frizere koji najbolje uče u praksi i u društvu kolegica.",
       "firstGroupNote": "Prva grupa: 5. i 6. prosinca 2026.",
-      "longDescription": "Dva dana edukacije uživo u maloj grupi od 3 do 5 polaznica, u Studio One by Nina. Svaka polaznica dobiva dovoljno vremena i pažnje, a uči se na praktičnim primjerima uz Nikolinino mentorstvo.",
+      "longDescription": "Dva dana edukacije uživo u maloj grupi od najviše 5 polaznica, u Studio One by Nina. Svaka polaznica dobiva dovoljno vremena i pažnje, a uči se na praktičnim primjerima uz Nikolinino mentorstvo.",
       "features": [
         "2 dana edukacije uživo u Studio One by Nina",
-        "Mala grupa od 3 do 5 polaznica",
+        "Mala grupa od najviše 5 polaznica",
         "Rad uz Nikolinino mentorstvo",
         "Brendia Pro® Education Kit",
         "Besplatan Brendia Pro® Masterclass",
@@ -876,7 +876,7 @@
           },
           {
             "question": "Postoji li mogućnost edukacije uživo?",
-            "answer": "Da. Uz online program nudimo grupnu edukaciju (2 dana u grupi od 3 do 5 polaznica), 1:1 programe te kombinaciju Online + uživo. Termini 1:1 edukacija i dana uživo dogovaraju se individualno, a mjesto potvrđujete uplatom predujma od 30 %."
+            "answer": "Da. Uz online program nudimo grupnu edukaciju (2 dana u grupi od najviše 5 polaznica), 1:1 programe te kombinaciju Online + uživo. Termini 1:1 edukacija i dana uživo dogovaraju se individualno, a mjesto potvrđujete uplatom predujma od 30 %."
           }
         ]
       },

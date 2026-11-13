@@ -86,7 +86,7 @@ export const courses: Record<string, Course> = {
     image: "/images/courses/master.jpg",
     features: [
       "2 dana edukacije uživo u Studio One by Nina",
-      "Mala grupa od 3 do 5 polaznica",
+      "Mala grupa od najviše 5 polaznica",
       "Rad uz Nikolinino mentorstvo",
       "Brendia Pro® Education Kit",
       "Besplatan Brendia Pro® Masterclass",
