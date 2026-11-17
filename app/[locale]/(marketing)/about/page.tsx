@@ -42,7 +42,7 @@ export default function AboutPage() {
             </div>
             <div className="relative aspect-square">
               <Image
-                src="/images/about-hero.jpg"
+                src="/images/about-hero-2026.jpg"
                 alt={t("hero.imageAlt")}
                 fill
                 className="object-cover"
@@ -60,7 +60,7 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="relative aspect-[3/4] lg:order-2">
               <Image
-                src="/images/nikolina-portrait.jpg"
+                src="/images/nikolina-portrait-2026.jpg"
                 alt={t("founder.imageAlt")}
                 fill
                 className="object-cover"
