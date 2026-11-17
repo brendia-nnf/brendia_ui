@@ -223,10 +223,12 @@ export default function MethodPage() {
           )}
 
           <div className="grid sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {gallery.map((item) => (
+            {gallery
+              .filter((item) => item.image_before_url || item.image_after_url)
+              .map((item) => (
               <figure key={item.id} className="bg-white p-4">
-                <div className="grid grid-cols-2 gap-2">
-                  {item.image_before_url && (
+                {item.image_before_url && item.image_after_url ? (
+                  <div className="grid grid-cols-2 gap-2">
                     <div className="relative aspect-[3/4]">
                       <Image
                         src={item.image_before_url}
@@ -238,8 +240,6 @@ export default function MethodPage() {
                         {t("gallery.before")}
                       </span>
                     </div>
-                  )}
-                  {item.image_after_url && (
                     <div className="relative aspect-[3/4]">
                       <Image
                         src={item.image_after_url}
@@ -251,8 +251,18 @@ export default function MethodPage() {
                         {t("gallery.after")}
                       </span>
                     </div>
-                  )}
-                </div>
+                  </div>
+                ) : (
+                  /* Gotova prije/poslije kompozicija (oznake su već u slici) */
+                  <div className="relative aspect-[3/4]">
+                    <Image
+                      src={(item.image_before_url || item.image_after_url)!}
+                      alt={item.caption || `${t("gallery.before")} / ${t("gallery.after")}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                )}
                 {item.caption && (
                   <figcaption className="text-sm text-primary/60 mt-3 text-center">
                     {item.caption}
