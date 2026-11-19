@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
@@ -39,8 +39,6 @@ const COMPARISON_ROWS = [
 export default function CoursesPage() {
   const t = useTranslations("coursesPage");
   const heroRef = useRef<HTMLElement>(null);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   const skills = [
     {
@@ -114,17 +112,6 @@ export default function CoursesPage() {
     { scope: heroRef }
   );
 
-  const handleVideoPlay = () => {
-    if (videoRef.current) {
-      if (isVideoPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsVideoPlaying(!isVideoPlaying);
-    }
-  };
-
   return (
     <>
       {/* Hero Section */}
@@ -177,38 +164,14 @@ export default function CoursesPage() {
               </p>
             </div>
 
-            <div className="relative aspect-video bg-primary/5 overflow-hidden group">
-              <video
-                ref={videoRef}
-                className="w-full h-full object-cover"
-                poster="/images/video-poster.jpg"
-                playsInline
-                onPlay={() => setIsVideoPlaying(true)}
-                onPause={() => setIsVideoPlaying(false)}
-                onEnded={() => setIsVideoPlaying(false)}
-              >
-                <source src="/videos/video-web-brendia.mp4" type="video/mp4" />
-              </video>
-
-              <button
-                onClick={handleVideoPlay}
-                className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
-                  isVideoPlaying ? "opacity-0 hover:opacity-100" : "opacity-100"
-                }`}
-                aria-label={isVideoPlaying ? t("video.pause") : t("video.play")}
-              >
-                <div className="w-20 h-20 bg-white/95 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                  {isVideoPlaying ? (
-                    <svg className="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
-                    </svg>
-                  ) : (
-                    <svg className="w-8 h-8 text-primary ml-1" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  )}
-                </div>
-              </button>
+            {/* Video: izbačen na zahtjev klijentice (11/2026), novi se snima —
+                do tada prazan okvir s natpisom Coming soon */}
+            <div className="relative aspect-video bg-primary/5 overflow-hidden">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <p className="text-2xl md:text-3xl font-heading text-primary/40 tracking-widest uppercase">
+                  {t("video.comingSoon")}
+                </p>
+              </div>
             </div>
           </div>
         </Container>

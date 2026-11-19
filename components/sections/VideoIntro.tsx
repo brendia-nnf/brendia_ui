@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { Container } from "@/components/ui";
 import { useTranslations } from "next-intl";
 import { useGSAP } from "@/hooks";
@@ -11,8 +11,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function VideoIntro() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
   const t = useTranslations("videoIntro");
 
   useGSAP(
@@ -36,17 +34,6 @@ export function VideoIntro() {
     { scope: sectionRef }
   );
 
-  const handlePlayClick = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
   return (
     <section ref={sectionRef} className="py-20 md:py-32 bg-cream">
       <Container>
@@ -61,51 +48,14 @@ export function VideoIntro() {
             </h2>
           </div>
 
-          {/* Video container */}
-          <div data-animate className="relative aspect-video bg-primary/5 overflow-hidden group">
-            {/* Video element */}
-            <video
-              ref={videoRef}
-              className="w-full h-full object-cover"
-              poster="/images/video-poster.jpg"
-              playsInline
-              onPlay={() => setIsPlaying(true)}
-              onPause={() => setIsPlaying(false)}
-              onEnded={() => setIsPlaying(false)}
-            >
-              {/* 2.10: fallback tekst se prikazivao u sadržaju stranice —
-                  bez tekstualnog childa unutar <video> */}
-              <source src="/videos/video-web-brendia.mp4" type="video/mp4" />
-            </video>
-
-            {/* Play/Pause overlay */}
-            <button
-              onClick={handlePlayClick}
-              className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
-                isPlaying ? "opacity-0 hover:opacity-100" : "opacity-100"
-              }`}
-              aria-label={isPlaying ? t("pauseVideo") : t("playVideo")}
-            >
-              <div className="w-20 h-20 md:w-24 md:h-24 bg-white/95 backdrop-blur-sm flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                {isPlaying ? (
-                  <svg
-                    className="w-8 h-8 text-primary"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
-                  </svg>
-                ) : (
-                  <svg
-                    className="w-8 h-8 text-primary ml-1"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                )}
-              </div>
-            </button>
+          {/* Video: izbačen na zahtjev klijentice (11/2026), novi se snima —
+              do tada prazan okvir s natpisom Coming soon */}
+          <div data-animate className="relative aspect-video bg-primary/5 overflow-hidden">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <p className="text-2xl md:text-3xl font-heading text-primary/40 tracking-widest uppercase">
+                {t("comingSoon")}
+              </p>
+            </div>
 
             {/* Decorative corner accents */}
             <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-secondary/30" />
@@ -113,11 +63,6 @@ export function VideoIntro() {
             <div className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-secondary/30" />
             <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-secondary/30" />
           </div>
-
-          {/* Caption */}
-          <p data-animate className="text-center text-primary/50 text-sm mt-6">
-            {t("caption")}
-          </p>
         </div>
       </Container>
     </section>

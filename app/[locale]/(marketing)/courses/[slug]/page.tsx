@@ -65,6 +65,11 @@ export default function CoursePage({ params }: PageProps) {
   const purchase = courseConfig.purchase;
   const isGroup = courseKey === "group";
   const isLiveProgram = courseKey !== "online";
+  // Online + uživo i grupna edukacija imaju vlastiti "Model i kosa" tekst
+  // (lutka / kosa iz Education Kita); 1:1 programi koriste zajednički.
+  const modelHairContent = ["onlineLive", "group"].includes(courseKey)
+    ? t(`${courseKey}.modelHairContent`)
+    : t("modelHair.content");
   // Programi s pristupom online edukaciji 36 mjeseci (zahtjev klijentice 5.11.)
   const hasOnlineAccess = ["online", "onlineLive", "twoDays"].includes(courseKey);
 
@@ -325,7 +330,7 @@ export default function CoursePage({ params }: PageProps) {
                   {t("modelHair.title")}
                 </h3>
                 <p className="text-primary/70 leading-relaxed">
-                  {t("modelHair.content")}
+                  {modelHairContent}
                 </p>
               </div>
             </div>

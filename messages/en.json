@@ -138,7 +138,8 @@
     "title": "Welcome to Brendia Pro®",
     "caption": "Nikolina shares her passion for weft extensions and what you can expect from Brendia Pro®",
     "playVideo": "Play video",
-    "pauseVideo": "Pause video"
+    "pauseVideo": "Pause video",
+    "comingSoon": "Coming soon"
   },
   "coursePreview": {
     "tagline": "Our Programs",
@@ -259,7 +260,8 @@
       "title": "Nikolina on the education",
       "description": "Nikolina explains what you'll learn and how these courses can transform your career",
       "play": "Play video",
-      "pause": "Pause video"
+      "pause": "Pause video",
+      "comingSoon": "Coming soon"
     },
     "skills": {
       "title": "What You'll Master",
@@ -455,7 +457,7 @@
       "title": "Payment methods",
       "intro": "With the option of an R-1 invoice, you can pay for the education:",
       "bullets": [
-        "by card or bank transfer, and in-person education also in cash at Studio One by Nina",
+        "by card or bank transfer",
         "in one payment with cards of all banks: Premium Visa Card, Diners, Maestro, Mastercard, Visa Electron, Visa",
         "in interest-free installments, according to the table"
       ],
@@ -505,7 +507,7 @@
         "Nikolina's review and feedback on your final work",
         "Brendia Pro® certificate after your final work is approved",
         "Brendia Pro® Education Kit",
-        "Free Brendia Pro® Masterclass"
+        "Free Brendia Pro® Masterclass while spots last"
       ],
       "curriculum": [
         {
@@ -586,16 +588,17 @@
       "duration": "Online at your own pace + 1 day in person (6–8 h)",
       "description": "Online education plus one day of individual in-person work with Nikolina (6–8 hours) at Studio One by Nina.",
       "forWho": "For hairdressers who want to learn the theory at their own pace and perfect the practice with a mentor.",
-      "longDescription": "A combination of the online education and one day of individual in-person work with Nikolina (6–8 hours) at Studio One by Nina. You learn the theory at your own pace through the Brendia Pro® Academy and perfect the practice with your mentor on your own model.",
+      "longDescription": "A combination of the online education and one day of individual in-person work with Nikolina (6–8 hours) at Studio One by Nina. You learn the theory at your own pace through the Brendia Pro® Academy and perfect the practice with your mentor on your own model or a mannequin.",
       "features": [
         "Complete online education (8 video modules, 36 months)",
         "1 day of individual in-person work with Nikolina (6–8 hours)",
         "Training at Studio One by Nina",
         "Brendia Pro® certificate after your final work is approved",
         "Brendia Pro® Education Kit",
-        "Free Brendia Pro® Masterclass"
+        "Free Brendia Pro® Masterclass while spots last"
       ],
-      "curriculum": []
+      "curriculum": [],
+      "modelHairContent": "The education starts on a mannequin and finishes on a live model. You provide your own model, and before the education we assess together whether the model is suitable for the task. Hair for working on the model is not included and is arranged according to the model's needs. As a participant you get 15% off your first Brendia Pro® hair order."
     },
     "group": {
       "title": "Brendia Pro® Artist group education",
@@ -611,10 +614,11 @@
         "Small group of up to 5 participants",
         "Hands-on work under Nikolina's mentorship",
         "Brendia Pro® Education Kit",
-        "Free Brendia Pro® Masterclass",
+        "Free Brendia Pro® Masterclass while spots last",
         "15% off your first Brendia Pro® hair order"
       ],
-      "curriculum": []
+      "curriculum": [],
+      "modelHairContent": "The in-person education takes place on a practice mannequin. Real hair for the work is provided as part of the Education Kit and is intended exclusively for the education; it is not for sale. As a participant you get 15% off your first Brendia Pro® hair order."
     },
     "oneDay": {
       "title": "Brendia Pro® Artist 1:1 – one day",
@@ -622,14 +626,14 @@
       "price": "€2,500",
       "duration": "1 day (6–8 hours, longer if needed)",
       "description": "One day of individual work with Nikolina, 6–8 hours, and longer if needed.",
-      "forWho": "For hairdressers who want a fully individual approach on their own model.",
-      "longDescription": "One day of individual work with Nikolina at Studio One by Nina, 6–8 hours, and longer if needed. A fully individual approach on your own model, adapted to your pace and experience level.",
+      "forWho": "For hairdressers who want a fully individual approach on their own model or a mannequin.",
+      "longDescription": "One day of individual work with Nikolina at Studio One by Nina, 6–8 hours, and longer if needed. A fully individual approach on your own model or a mannequin, adapted to your pace and experience level.",
       "features": [
         "1 day of individual work with Nikolina (6–8 hours, longer if needed)",
-        "Work on your own model",
+        "Work on your own model or a mannequin",
         "Fully individual approach",
         "Brendia Pro® Education Kit",
-        "Free Brendia Pro® Masterclass",
+        "Free Brendia Pro® Masterclass while spots last",
         "15% off your first Brendia Pro® hair order"
       ],
       "curriculum": []
@@ -644,11 +648,12 @@
       "longDescription": "The most complete Brendia Pro® program: two days of individual work with Nikolina at Studio One by Nina plus 36 months of access to the online education through the Brendia Pro® Academy. For hairdressers who want to master the method in depth with personal mentorship.",
       "features": [
         "2 days of individual work with Nikolina",
+        "One day working on a mannequin, the second day on a live model.",
         "Complete online education (8 video modules, 36 months)",
         "Personal mentorship",
         "Brendia Pro® certificate after your final work is approved",
         "Brendia Pro® Education Kit",
-        "Free Brendia Pro® Masterclass"
+        "Free Brendia Pro® Masterclass while spots last"
       ],
       "curriculum": []
     },
@@ -696,7 +701,7 @@
       "title": "Education Kit",
       "heading": "What you get in the Brendia Pro® Education Kit",
       "content": "A Brendia Pro® bag with professional tools: Precision Ruler, tail comb, sectioning clips, 2 mm micro beads, bead pliers, loop tools, sewing needles, thread, thread scissors, a spray bottle, practice hair, Workbook, cape, hair velcro strips and a Brendia Pro® pen.",
-      "note": "Practice hair is included. A mannequin is not included, and hair for working on a live model is arranged separately. You receive the Education Kit with every Brendia Pro® education; it is not available for separate purchase.",
+      "note": "Practice hair is included. A mannequin is not included, and hair for working on a live model is arranged separately. You receive the Education Kit with every Brendia Pro® education.",
       "value": "Education Kit value: €600"
     },
     "masterclass": {
@@ -708,7 +713,7 @@
       "title": "Payment methods",
       "intro": "With the option of an R-1 invoice, you can pay for the education:",
       "bullets": [
-        "by card or bank transfer, and in-person education also in cash at Studio One by Nina",
+        "by card or bank transfer",
         "in one payment with cards of all banks: Premium Visa Card, Diners, Maestro, Mastercard, Visa Electron, Visa",
         "in interest-free installments, according to the table"
       ],
@@ -898,7 +903,7 @@
           },
           {
             "question": "What payment options are available?",
-            "answer": "With the option of an R-1 invoice, you can pay for the education by card or bank transfer, and in-person education also in cash at Studio One by Nina. By card you can pay in one payment or in interest-free installments, depending on the bank and amount. The detailed installment table by bank is on the Courses page."
+            "answer": "With the option of an R-1 invoice, you can pay for the education by card or bank transfer. By card you can pay in one payment or in interest-free installments, depending on the bank and amount. The detailed installment table by bank is on the Courses page."
           },
           {
             "question": "Is there a refund policy?",

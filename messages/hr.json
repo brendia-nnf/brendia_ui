@@ -138,7 +138,8 @@
     "title": "Dobrodošli u Brendia Pro®",
     "caption": "Nikolina dijeli svoju strast za weft ekstenzijama i što možete očekivati od Brendia Pro®",
     "playVideo": "Pokreni video",
-    "pauseVideo": "Pauziraj video"
+    "pauseVideo": "Pauziraj video",
+    "comingSoon": "Coming soon"
   },
   "coursePreview": {
     "tagline": "Naši programi",
@@ -259,7 +260,8 @@
       "title": "Nikolina o edukaciji",
       "description": "Nikolina objašnjava što ćete naučiti i kako ovi tečajevi mogu transformirati vašu karijeru",
       "play": "Pokreni video",
-      "pause": "Pauziraj video"
+      "pause": "Pauziraj video",
+      "comingSoon": "Coming soon"
     },
     "skills": {
       "title": "Što ćete svladati",
@@ -455,7 +457,7 @@
       "title": "Načini plaćanja",
       "intro": "Uz mogućnost izdavanja R-1 računa, edukaciju možete platiti:",
       "bullets": [
-        "karticom ili uplatom na račun, a edukacije uživo i gotovinom u Studio One by Nina",
+        "karticom ili uplatom na račun",
         "jednokratno karticama svih banaka: Premium Visa Card, Diners, Maestro, Mastercard, Visa Electron, Visa",
         "na rate bez kamata, prema tablici"
       ],
@@ -505,7 +507,7 @@
         "Nikolinin pregled i feedback na završni rad",
         "Brendia Pro® certifikat nakon odobrenog završnog rada",
         "Brendia Pro® Education Kit",
-        "Besplatan Brendia Pro® Masterclass"
+        "Besplatan Brendia Pro® Masterclass do popunjenosti mjesta"
       ],
       "curriculum": [
         {
@@ -586,16 +588,17 @@
       "duration": "Online vlastitim tempom + 1 dan uživo (6–8 h)",
       "description": "Online edukacija i jedan dan individualnog rada uživo s Nikolinom (6–8 sati) u Studio One by Nina.",
       "forWho": "Za frizere koji teoriju žele učiti vlastitim tempom, a praksu usavršiti uz mentoricu.",
-      "longDescription": "Kombinacija online edukacije i jednog dana individualnog rada uživo s Nikolinom (6–8 sati) u Studio One by Nina. Teoriju učite vlastitim tempom kroz Brendia Pro® Academy, a praksu usavršavate uz mentoricu na vlastitom modelu.",
+      "longDescription": "Kombinacija online edukacije i jednog dana individualnog rada uživo s Nikolinom (6–8 sati) u Studio One by Nina. Teoriju učite vlastitim tempom kroz Brendia Pro® Academy, a praksu usavršavate uz mentoricu na vlastitom modelu ili lutki.",
       "features": [
         "Kompletna online edukacija (8 video modula, 36 mjeseci)",
         "1 dan individualnog rada uživo s Nikolinom (6–8 sati)",
         "Rad u Studio One by Nina",
         "Brendia Pro® certifikat nakon odobrenog završnog rada",
         "Brendia Pro® Education Kit",
-        "Besplatan Brendia Pro® Masterclass"
+        "Besplatan Brendia Pro® Masterclass do popunjenosti mjesta"
       ],
-      "curriculum": []
+      "curriculum": [],
+      "modelHairContent": "Edukacija započinje na lutki, a završava se na živom modelu. Model osiguravate sami, a prije edukacije zajedno procjenjujemo je li prikladan za zadatak. Kosa za rad na modelu nije uključena i osigurava se prema potrebama modela. Kao polaznica dobivate 15 % popusta na prvu narudžbu Brendia Pro® kose."
     },
     "group": {
       "title": "Brendia Pro® Artist grupna edukacija",
@@ -611,10 +614,11 @@
         "Mala grupa od najviše 5 polaznica",
         "Rad uz Nikolinino mentorstvo",
         "Brendia Pro® Education Kit",
-        "Besplatan Brendia Pro® Masterclass",
+        "Besplatan Brendia Pro® Masterclass do popunjenosti mjesta",
         "15 % popusta na prvu narudžbu Brendia Pro® kose"
       ],
-      "curriculum": []
+      "curriculum": [],
+      "modelHairContent": "Edukacija uživo odvija se na lutki za vježbanje. Prava kosa za rad osigurana je u sklopu Education Kita te je namijenjena isključivo za potrebe edukacije i nije namijenjena prodaji. Kao polaznica edukacije ostvarujete 15 % popusta na svoju prvu narudžbu Brendia Pro® kose."
     },
     "oneDay": {
       "title": "Brendia Pro® Artist 1:1 – jedan dan",
@@ -622,14 +626,14 @@
       "price": "2.500 €",
       "duration": "1 dan (6–8 sati, po potrebi i dulje)",
       "description": "Jedan dan individualnog rada s Nikolinom, 6–8 sati, a po potrebi i dulje.",
-      "forWho": "Za frizere koji žele potpuno individualan pristup na vlastitom modelu.",
-      "longDescription": "Jedan dan individualnog rada s Nikolinom u Studio One by Nina, 6–8 sati, a po potrebi i dulje. Potpuno individualan pristup na vlastitom modelu, prilagođen vašem tempu i razini iskustva.",
+      "forWho": "Za frizere koji žele potpuno individualan pristup na vlastitom modelu ili lutki.",
+      "longDescription": "Jedan dan individualnog rada s Nikolinom u Studio One by Nina, 6–8 sati, a po potrebi i dulje. Potpuno individualan pristup na vlastitom modelu ili lutki, prilagođen vašem tempu i razini iskustva.",
       "features": [
         "1 dan individualnog rada s Nikolinom (6–8 sati, po potrebi i dulje)",
-        "Rad na vlastitom modelu",
+        "Rad na vlastitom modelu ili lutki",
         "Potpuno individualan pristup",
         "Brendia Pro® Education Kit",
-        "Besplatan Brendia Pro® Masterclass",
+        "Besplatan Brendia Pro® Masterclass do popunjenosti mjesta",
         "15 % popusta na prvu narudžbu Brendia Pro® kose"
       ],
       "curriculum": []
@@ -644,11 +648,12 @@
       "longDescription": "Najkompletniji Brendia Pro® program: dva dana individualnog rada s Nikolinom u Studio One by Nina i pristup online edukaciji kroz Brendia Pro® Academy u trajanju od 36 mjeseci. Za frizere koji žele najdublje svladati metodu uz osobno mentorstvo.",
       "features": [
         "2 dana individualnog rada s Nikolinom",
+        "Jedan dan rada na lutki, drugi dan na modelu.",
         "Kompletna online edukacija (8 video modula, 36 mjeseci)",
         "Osobno mentorstvo",
         "Brendia Pro® certifikat nakon odobrenog završnog rada",
         "Brendia Pro® Education Kit",
-        "Besplatan Brendia Pro® Masterclass"
+        "Besplatan Brendia Pro® Masterclass do popunjenosti mjesta"
       ],
       "curriculum": []
     },
@@ -696,7 +701,7 @@
       "title": "Education Kit",
       "heading": "Što dobivate u Brendia Pro® Education Kitu",
       "content": "Brendia Pro® torbicu s profesionalnim alatom: Precision Ruler, češalj sa špicom, klipse za sekcioniranje, micro beads 2 mm, kliješta za beadove, loop alate, igle za šivanje, konac, škarice za konac, spray bocu, kosu za vježbu, Workbook, ogrtač, čičak trake za kosu i Brendia Pro® kemijsku.",
-      "note": "Kosa za vježbu je uključena. Lutka nije uključena, a kosa za rad na živom modelu osigurava se zasebno. Education Kit dobivate uz svaku Brendia Pro® edukaciju i nije dostupan za zasebnu kupnju.",
+      "note": "Kosa za vježbu je uključena. Lutka nije uključena, a kosa za rad na živom modelu osigurava se zasebno. Education Kit dobivate uz svaku Brendia Pro® edukaciju.",
       "value": "Vrijednost Education Kita: 600 €"
     },
     "masterclass": {
@@ -708,7 +713,7 @@
       "title": "Načini plaćanja",
       "intro": "Uz mogućnost izdavanja R-1 računa, edukaciju možete platiti:",
       "bullets": [
-        "karticom ili uplatom na račun, a edukacije uživo i gotovinom u Studio One by Nina",
+        "karticom ili uplatom na račun",
         "jednokratno karticama svih banaka: Premium Visa Card, Diners, Maestro, Mastercard, Visa Electron, Visa",
         "na rate bez kamata, prema tablici"
       ],
@@ -898,7 +903,7 @@
           },
           {
             "question": "Koje su opcije plaćanja dostupne?",
-            "answer": "Uz mogućnost izdavanja R-1 računa, edukaciju možete platiti karticom ili uplatom na račun, a edukacije uživo i gotovinom u Studio One by Nina. Karticom možete platiti jednokratno ili na rate bez kamata, ovisno o banci i iznosu. Detaljna tablica rata po bankama nalazi se na stranici Tečajevi."
+            "answer": "Uz mogućnost izdavanja R-1 računa, edukaciju možete platiti karticom ili uplatom na račun. Karticom možete platiti jednokratno ili na rate bez kamata, ovisno o banci i iznosu. Detaljna tablica rata po bankama nalazi se na stranici Tečajevi."
           },
           {
             "question": "Postoji li politika povrata?",

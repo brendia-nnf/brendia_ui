@@ -52,7 +52,7 @@ export const courses: Record<string, Course> = {
       "Nikolinin pregled i feedback na završni rad",
       "Brendia Pro® certifikat nakon odobrenog završnog rada",
       "Brendia Pro® Education Kit",
-      "Besplatan Brendia Pro® Masterclass",
+      "Besplatan Brendia Pro® Masterclass do popunjenosti mjesta",
     ],
   },
   "artist-online-live": {
@@ -71,7 +71,7 @@ export const courses: Record<string, Course> = {
       "Rad u Studio One by Nina",
       "Brendia Pro® certifikat nakon odobrenog završnog rada",
       "Brendia Pro® Education Kit",
-      "Besplatan Brendia Pro® Masterclass",
+      "Besplatan Brendia Pro® Masterclass do popunjenosti mjesta",
     ],
   },
   "artist-group": {
@@ -89,7 +89,7 @@ export const courses: Record<string, Course> = {
       "Mala grupa od najviše 5 polaznica",
       "Rad uz Nikolinino mentorstvo",
       "Brendia Pro® Education Kit",
-      "Besplatan Brendia Pro® Masterclass",
+      "Besplatan Brendia Pro® Masterclass do popunjenosti mjesta",
       "15 % popusta na prvu narudžbu Brendia Pro® kose",
     ],
   },
@@ -105,10 +105,10 @@ export const courses: Record<string, Course> = {
     image: "/images/courses/foundation.jpg",
     features: [
       "1 dan individualnog rada s Nikolinom (6–8 sati, po potrebi i dulje)",
-      "Rad na vlastitom modelu",
+      "Rad na vlastitom modelu ili lutki",
       "Potpuno individualan pristup",
       "Brendia Pro® Education Kit",
-      "Besplatan Brendia Pro® Masterclass",
+      "Besplatan Brendia Pro® Masterclass do popunjenosti mjesta",
       "15 % popusta na prvu narudžbu Brendia Pro® kose",
     ],
   },
@@ -124,11 +124,12 @@ export const courses: Record<string, Course> = {
     image: "/images/courses/master.jpg",
     features: [
       "2 dana individualnog rada s Nikolinom",
+      "Jedan dan rada na lutki, drugi dan na modelu.",
       "Kompletna online edukacija (8 video modula, 36 mjeseci)",
       "Osobno mentorstvo",
       "Brendia Pro® certifikat nakon odobrenog završnog rada",
       "Brendia Pro® Education Kit",
-      "Besplatan Brendia Pro® Masterclass",
+      "Besplatan Brendia Pro® Masterclass do popunjenosti mjesta",
     ],
   },
 };
